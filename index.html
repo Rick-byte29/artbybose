@@ -1,132 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art by Bose</title>
   <style>
-   body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url('https://cdn.pixabay.com/photo/2020/11/08/09/28/background-5724824_1280.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #222;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+      position: relative;
+      z-index: 1;
+    }
 
-
-
-
+    /* Background Image Blurred */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('https://github.com/Rick-byte29/artbybose/blob/main/pexels-diva-33049099.jpg?raw=true');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(6px) brightness(1.1);
+      z-index: -1;
+    }
 
     header {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 2rem;
+      padding: 20px 10px;
+      font-size: 32px;
       font-weight: bold;
-      color: #4a2f19;
+      color: #111;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(3px);
     }
 
     .about {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
-      padding: 1.2rem;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .section-heading {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-top: 2rem;
-      color: #222;
-    }
-
-    .carousel-container {
-      width: 100%;
-      overflow: hidden;
-      position: relative;
-      max-width: 400px;
-      margin: 1rem auto;
-    }
-
-    .carousel-slide {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-slide img {
-      min-width: 100%;
-      max-height: 380px;
-      object-fit: contain;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      margin: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    .price-offer {
+    .about h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .carousel-section {
+      padding: 20px;
       text-align: center;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #e91e63;
+    }
+
+    .carousel-section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 20px;
+      padding: 10px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel img {
+      width: 90vw;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      scroll-snap-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+
+    .offer {
+      font-size: 20px;
+      margin: 20px 0 10px;
+      color: #c0392b;
       animation: pulse 1.5s infinite;
-    }
-
-    .whatsapp-btn {
-      display: block;
-      margin: 1.5rem auto;
-      background-color: #25D366;
-      color: white;
-      padding: 0.9rem 1.5rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      width: fit-content;
-      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
 
-    .carousel-buttons {
-      text-align: center;
-      margin-top: 0.5rem;
-    }
-
-    .carousel-buttons button {
-      background: #f3e2d3;
-      border: none;
-      margin: 0 0.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      cursor: pointer;
+    .cta-button {
+      display: inline-block;
+      margin: 10px auto 30px;
+      padding: 12px 25px;
+      background-color: #25D366;
+      color: white;
       font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      text-decoration: none;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-    @media(max-width: 600px) {
-      .carousel-slide img {
-        max-height: 300px;
-      }
+    .cta-button:hover {
+      background-color: #128C7E;
+    }
 
+    @media (max-width: 600px) {
       header {
-        font-size: 1.5rem;
+        font-size: 24px;
       }
-
-      .section-heading {
-        font-size: 1.3rem;
-      }
-
-      .price-offer {
-        font-size: 1rem;
+      .offer {
+        font-size: 18px;
       }
     }
   </style>
@@ -136,48 +134,28 @@
   <header>🎨 Art by Bose</header>
 
   <section class="about">
-    <p>Hello! I’m the creator behind Art by Bose – where handmade keychains, canvas art, and custom gifts come alive. Each piece is carefully designed with love and crafted for uniqueness. Let your story shine through art! 💫</p>
+    <h2>About Me</h2>
+    <p>I create handcrafted custom designs with love – be it keychains, canvas art, or gifts. Each piece is made on demand, fully personalized to match your vibe. Let's turn your ideas into art.</p>
   </section>
 
-  <h2 class="section-heading">🧿 Keychains You Must Have!</h2>
+  <section class="carousel-section">
+    <h2>🔑 Keychains You Must Have!</h2>
 
-  <div class="carousel-container">
-    <div class="carousel-slide" id="carousel">
+    <div class="carousel">
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1">
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2">
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3">
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4">
     </div>
 
-    <div class="carousel-buttons">
-      <button onclick="prevSlide()">⏮️ Prev</button>
-      <button onclick="nextSlide()">Next ⏭️</button>
-    </div>
-  </div>
+    <div class="offer">₹99/- <del style="color:#999;">₹149/-</del> – Price like never before!</div>
 
-  <div class="price-offer">🔥 Offer Price: ₹49/- <span style="text-decoration:line-through; color:gray;">₹99/-</span></div>
-
-  <a href="https://wa.me/919127210272?text=Hi%20I%20want%20to%20order%20a%20Keychain%20from%20Art%20by%20Bose" class="whatsapp-btn">📩 Order a Keychain</a>
-
-  <script>
-    let currentIndex = 0;
-    const carousel = document.getElementById('carousel');
-    const totalSlides = carousel.children.length;
-
-    function updateCarousel() {
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateCarousel();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateCarousel();
-    }
-  </script>
+    <a class="cta-button"
+       href="https://wa.me/919874563280?text=Hi%20Art%20by%20Bose!%20I%20want%20to%20order%20a%20custom%20keychain.%20Please%20guide%20me%20🙂"
+       target="_blank">
+      🛒 Order a Keychain
+    </a>
+  </section>
 
 </body>
 </html>
