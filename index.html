@@ -127,6 +127,29 @@
         font-size: 18px;
       }
     }
+    .offer-section {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Responsive sizing */
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto;
+  color: #000; /* Main text color */
+  background: rgba(255, 255, 255, 0.5); /* Light background for readability */
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.offer-price {
+  color: #000;
+  margin-left: 10px;
+}
+
+.cut-price {
+  color: #fff; /* White cut price to stand out on yellow bg */
+  margin-left: 10px;
+}
+
   </style>
 </head>
 <body>
@@ -148,7 +171,12 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4">
     </div>
 
-    <div class="offer"><strong>Today’s Special Steal🔥 ₹99/- <del style="color:#999;">₹149/-</del></strong></div>
+    <div class="offer-section">
+  🔑 <span class="offer-text">Today’s Special Steal🔥 </span>
+  <span class="offer-price">₹49/-</span>
+  <del class="cut-price">₹199/-</del>
+</div>
+
 
     <a class="cta-button"
        href="https://wa.me/919127210272?text=Hi%20Art%20by%20Bose!%20I%20want%20to%20order%20a%20custom%20keychain.%20Please%20guide%20me%20🙂"
