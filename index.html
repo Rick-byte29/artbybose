@@ -6,126 +6,49 @@
   <title>Art by Bose</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #fefefe;
-      color: #333;
-    }
+    .carousel-3d {
+  perspective: 1200px;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 100%;
+}
 
-    header {
-      background: #fff;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 0.4s ease;
+}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin: 0;
-      color: #000;
-    }
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
 
-    header p {
-      margin-top: 0.5rem;
-      font-weight: 500;
-      color: #777;
-    }
+.carousel-card {
+  scroll-snap-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  flex: 0 0 auto;
+  width: 250px;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.4s ease;
+}
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
+.carousel-card:hover {
+  transform: rotateY(10deg) scale(1.03);
+}
 
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
+.carousel-card img {
+  width: 100%;
+  border-radius: 8px;
+}
 
-    .about {
-      text-align: center;
-      font-size: 1rem;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.7;
-      color: #444;
-    }
-
-    .carousel-container {
-      overflow-x: auto;
-      display: flex;
-      gap: 1rem;
-      padding: 1rem 0;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .carousel-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .carousel-item {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-      text-align: center;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      padding: 1rem;
-      width: 250px;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .price {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-
-    .price del {
-      color: #888;
-      margin-right: 0.3rem;
-    }
-
-    .price span {
-      color: #e91e63;
-      font-weight: bold;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: #25D366;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 8px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -144,31 +67,34 @@
     </p>
   </section>
 
-  <!-- Keychain Carousel -->
-  <section>
-    <h2>Keychains – Price Like Never Before!</h2>
-    <div class="carousel-container">
-      <div class="carousel-item">
+  <!-- Keychain Carousel with 3D Animation -->
+<section>
+  <h2>Keychains – Price Like Never Before!</h2>
+  <div class="carousel-3d">
+    <div class="carousel-track">
+      <div class="carousel-card">
         <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1">
         <div class="price"><del>₹99</del><span>₹49</span></div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-card">
         <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2">
         <div class="price"><del>₹99</del><span>₹49</span></div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-card">
         <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3">
         <div class="price"><del>₹99</del><span>₹49</span></div>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-card">
         <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4">
         <div class="price"><del>₹99</del><span>₹49</span></div>
       </div>
     </div>
-    <div style="text-align:center;">
-      <a class="cta-btn" href="https://wa.me/918888888888" target="_blank">Order Now on WhatsApp</a>
-    </div>
-  </section>
+  </div>
+  <div style="text-align:center;">
+    <a class="cta-btn" href="https://wa.me/918888888888" target="_blank">Order Now on WhatsApp</a>
+  </div>
+</section>
+
 
 </body>
 </html>
