@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('https://www.transparenttextures.com/patterns/cream-dust.png');
-      background-color: #fdfaf6;
-      color: #222;
-    }
+   body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.7);
+  z-index: -1;
+}
+
 
     header {
       text-align: center;
