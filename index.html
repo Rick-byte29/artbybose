@@ -205,6 +205,17 @@
   50% { box-shadow: 0 0 15px red; }
   100% { box-shadow: 0 0 5px red; }
 }
+.jewelry-description-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px 30px;
+  justify-content: center;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
 
 
 
@@ -304,12 +315,13 @@
 <section id="jewelry">
   <h2>Jewelry You’ll Love 💍✨</h2>
 
-  <div class="jewelry-description">
-    <p>✨ Premium Quality Antitarnish</p>
-    <p>✨ Stainless Steel</p>
-    <p>✨ 18k Goldplated</p>
-    <p>✨ Hypoallergenic</p>
-  </div>
+  <div class="jewelry-description-grid">
+  <div>✨ Premium Quality Antitarnish</div>
+  <div>✨ Stainless Steel</div>
+  <div>✨ 18k Goldplated</div>
+  <div>✨ Hypoallergenic</div>
+</div>
+
 
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1">
