@@ -228,22 +228,19 @@
     <button onclick="nextJewelry()" style="margin: 5px; padding: 8px 12px;">⟩</button>
   </div>
 </section>
-  <!-- 🌟 Custom Bottle Art Section -->
+ <!-- 🌟 Custom Bottle Art Section with Manual Swipe -->
 <section id="bottles" style="padding: 40px 20px; text-align: center; background: #f8f8f8;">
   <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 10px;">Custom Bottle Art 🫙</h2>
   <p style="font-style: italic; margin-bottom: 20px;">Price like never before – ₹199/- <del>₹499/-</del></p>
 
-  <div class="carousel-container" style="max-width: 400px; margin: 0 auto; position: relative; overflow: hidden;">
-    <div class="carousel-track" style="display: flex; transition: transform 0.5s ease;">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" style="min-width: 100%;" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%202.png?raw=true" style="min-width: 100%;" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" style="min-width: 100%;" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%203.png?raw=true" style="min-width: 100%;" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" style="min-width: 100%;" />
+  <div class="swipe-carousel" style="max-width: 400px; margin: 0 auto; overflow: hidden; border-radius: 12px;">
+    <div class="swipe-track" style="display: flex; transition: transform 0.3s ease;">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" style="min-width: 100%; touch-action: pan-y;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%202.png?raw=true" style="min-width: 100%; touch-action: pan-y;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" style="min-width: 100%; touch-action: pan-y;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%203.png?raw=true" style="min-width: 100%; touch-action: pan-y;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" style="min-width: 100%; touch-action: pan-y;" />
     </div>
-    <!-- Navigation Buttons -->
-    <button onclick="moveSlide(this, -1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: #000000aa; color: white; border: none; padding: 10px; cursor: pointer;">❮</button>
-    <button onclick="moveSlide(this, 1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: #000000aa; color: white; border: none; padding: 10px; cursor: pointer;">❯</button>
   </div>
 
   <!-- WhatsApp CTA -->
@@ -252,6 +249,72 @@
     Order Now on WhatsApp
   </a>
 </section>
+
+<!-- 🧠 Swipe JavaScript -->
+<script>
+  const carousel = document.querySelector('.swipe-carousel');
+  const track = carousel.querySelector('.swipe-track');
+  let isDragging = false, startX = 0, currentTranslate = 0, prevTranslate = 0, animationID;
+
+  carousel.addEventListener('mousedown', startDrag);
+  carousel.addEventListener('touchstart', startDrag);
+  carousel.addEventListener('mouseup', endDrag);
+  carousel.addEventListener('touchend', endDrag);
+  carousel.addEventListener('mousemove', drag);
+  carousel.addEventListener('touchmove', drag);
+  carousel.addEventListener('mouseleave', () => isDragging && endDrag());
+
+  function startDrag(e) {
+    isDragging = true;
+    startX = getPositionX(e);
+    prevTranslate = currentTranslate;
+    cancelAnimationFrame(animationID);
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+    const currentX = getPositionX(e);
+    const deltaX = currentX - startX;
+    currentTranslate = prevTranslate + deltaX;
+    setTranslate(currentTranslate);
+  }
+
+  function endDrag() {
+    isDragging = false;
+    const maxShift = -(track.scrollWidth - carousel.clientWidth);
+    if (currentTranslate > 0) currentTranslate = 0;
+    if (currentTranslate < maxShift) currentTranslate = maxShift;
+    setTranslate(currentTranslate);
+  }
+
+  function getPositionX(e) {
+    return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+  }
+
+  function setTranslate(x) {
+    track.style.transform = `translateX(${x}px)`;
+  }
+</script>
+
+<!-- ✅ Pulse Animation CSS -->
+<style>
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    #bottles h2 { font-size: 1.5rem; }
+    #bottles p { font-size: 0.95rem; }
+    #bottles a { font-size: 0.9rem; }
+  }
+
+  .swipe-track img {
+    user-select: none;
+    pointer-events: none;
+  }
+</style>
 
 <script>
   let jewelryIndex = 0;
