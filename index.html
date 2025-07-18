@@ -201,9 +201,62 @@
 <div class="divider"></div>
 
 <!-- Placeholder Sections -->
-<section>
-  <h2>Jewelry Section (Coming Soon)</h2>
+<!-- Jewelry Section -->
+<section id="jewelry" style="padding: 40px 20px; background-color: #fff4f0;">
+  <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">✨ Anti-Tarnish Jewelry ✨</h2>
+  <p style="text-align: center; font-size: 1rem; color: #444;">Elegant handmade rings & pendants you’ll love</p>
+
+  <div class="carousel-container" style="position: relative; overflow: hidden; max-width: 400px; margin: 30px auto;">
+    <div class="carousel-track" style="display: flex; transition: transform 0.5s ease;">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%203.jpg?raw=true" alt="Jewelry 3" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%204.jpg?raw=true" alt="Jewelry 4" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%205.jpg?raw=true" alt="Jewelry 5" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6" style="width: 100%; flex-shrink: 0;" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7" style="width: 100%; flex-shrink: 0;" />
+    </div>
+  </div>
+
+  <div style="text-align: center;">
+    <p style="font-size: 1.2rem; margin-top: 10px;"><span style="color: red; text-decoration: line-through;">₹99</span> <span style="color: green; font-weight: bold;">₹49 only</span></p>
+    <a href="https://wa.me/919127210272?text=Hi%20I%20want%20to%20order%20anti-tarnish%20jewelry%20from%20Art%20by%20Bose" style="display: inline-block; background-color: #ff5e5e; color: white; padding: 12px 24px; margin-top: 10px; text-decoration: none; border-radius: 30px; animation: pulse 1.5s infinite;">Order Now on WhatsApp</a>
+  </div>
+
+  <div style="text-align:center; margin-top: 15px;">
+    <button onclick="prevJewelry()" style="margin: 5px; padding: 8px 12px;">⟨</button>
+    <button onclick="nextJewelry()" style="margin: 5px; padding: 8px 12px;">⟩</button>
+  </div>
 </section>
+
+<script>
+  let jewelryIndex = 0;
+  const jewelryTrack = document.querySelector('#jewelry .carousel-track');
+  const jewelrySlides = jewelryTrack.children;
+
+  function updateJewelryCarousel() {
+    jewelryTrack.style.transform = `translateX(-${jewelryIndex * 100}%)`;
+  }
+
+  function nextJewelry() {
+    jewelryIndex = (jewelryIndex + 1) % jewelrySlides.length;
+    updateJewelryCarousel();
+  }
+
+  function prevJewelry() {
+    jewelryIndex = (jewelryIndex - 1 + jewelrySlides.length) % jewelrySlides.length;
+    updateJewelryCarousel();
+  }
+</script>
+
+<style>
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 94, 94, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 94, 94, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 94, 94, 0); }
+  }
+</style>
+
 
 <section>
   <h2>Custom Bottles & Decor (Coming Soon)</h2>
