@@ -1,51 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #fdfdfb;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: #fff;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-    }
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #555;
-      font-weight: 500;
-    }
-    section {
-      padding: 2rem;
-    }
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-
     /* Loader */
     #loader-wrapper {
       position: fixed;
@@ -62,131 +22,233 @@
       border-radius: 50%;
       width: 60px;
       height: 60px;
-      animation: spin 1.1s linear infinite;
+      animation: spin 1s linear infinite;
     }
     @keyframes spin {
-      0% { transform: rotate(0deg); }
+      0% { transform: rotate(0); }
       100% { transform: rotate(360deg); }
     }
 
-    /* Keychain Carousel */
+    /* General */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #fefefe;
+      color: #111;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+      scroll-behavior: smooth;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
     .carousel {
       display: flex;
       overflow-x: auto;
-      gap: 1rem;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
+      gap: 10px;
+      padding: 10px;
     }
     .carousel img {
-      width: 90vw;
-      max-width: 400px;
-      border-radius: 12px;
+      flex: 0 0 100%;
+      max-width: 100%;
       scroll-snap-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    .price-tag {
+    .offer {
+      text-align: center;
       font-size: 1.2rem;
-      margin-top: 1rem;
-      color: #d10000;
+      margin: 10px;
       font-weight: bold;
-      animation: pulse 1.2s infinite;
+      animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.7; }
-      100% { transform: scale(1); opacity: 1; }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
-    .cta-btn {
-      margin-top: 1rem;
-      display: inline-block;
-      background: #25d366;
+    .whatsapp-btn {
+      display: block;
+      width: fit-content;
+      margin: 10px auto 40px;
+      background: #25D366;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
       text-decoration: none;
-      animation: pulse 1.8s infinite;
+      animation: pulse 2s infinite;
     }
 
-    /* Footer & Contact */
+    section {
+      padding: 0 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .divider {
+      border-top: 2px dashed #ccc;
+      margin: 40px auto;
+      width: 80%;
+    }
+
     footer {
-      background: #fafafa;
-      padding: 2rem;
       text-align: center;
+      padding: 40px 20px;
       font-size: 0.9rem;
-      color: #555;
+      color: #666;
     }
 
-    @media (min-width: 600px) {
-      .carousel img {
-        max-height: 400px;
-      }
+    .faq summary {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 0;
     }
 
+    .faq details {
+      margin: 10px 0;
+    }
+
+    .call-btn {
+      display: block;
+      width: fit-content;
+      margin: 10px auto;
+      padding: 12px 20px;
+      background: #000;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Loader -->
-  <div id="loader-wrapper">
-    <div class="loader"></div>
+<!-- Loader -->
+<div id="loader-wrapper"><div class="loader"></div></div>
+
+<header>
+  <nav>
+    <a href="#keychains">Keychains</a>
+    <a href="#canvas">Canvas</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<h2>Art by Bose</h2>
+
+<section id="about">
+  <p>Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
+</section>
+
+<!-- Keychains -->
+<section id="keychains">
+  <h2>Keychains You Must Have 🔑✨</h2>
+  <div class="offer">₹49/- <del>₹99/-</del></div>
+  <div class="carousel">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true">
   </div>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+</section>
 
-  <header>
-    <h1>Art by Bose</h1>
-    <nav>
-      <a href="#keychains">Keychains</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </header>
+<div class="divider"></div>
 
-  <section id="keychains">
-    <h2>Keychains You Must Have 🔑✨</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4">
-    </div>
-    <p class="price-tag">₹49/- <del>₹99/-</del></p>
-    <a class="cta-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20your%20keychains!%20Please%20share%20more%20details.">Order on WhatsApp</a>
-  </section>
+<!-- Canvas -->
+<section id="canvas">
+  <h2>Decorate Your Wall with Handmade Canvas 🎨</h2>
+  <div class="offer">Starting ₹199/- only</div>
+  <div class="carousel">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/canvas%201.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/canvas%202.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/canvas%204.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/canvas%205.png?raw=true">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/canvas%206.png?raw=true">
+  </div>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+</section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I create handmade pieces with love – from keychains to canvas and home decor, every item is uniquely crafted to bring warmth into your space. Art by Bose is not just a brand, it's a journey of creativity and connection.</p>
-  </section>
+<div class="divider"></div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
-    <p>📞 WhatsApp: <a href="https://wa.me/919127210272">+91 91272 10272</a></p>
-    <p>🕙 Timings: Monday to Sunday (10 AM – 7 PM)</p>
-  </section>
+<!-- Placeholder Sections -->
+<section>
+  <h2>Jewelry Section (Coming Soon)</h2>
+</section>
 
-  <section id="faq">
-    <h2>FAQ</h2>
-    <p>Coming soon...</p>
-  </section>
+<section>
+  <h2>Custom Bottles & Decor (Coming Soon)</h2>
+</section>
 
-  <footer>
-    &copy; 2025 Art by Bose. All rights reserved.
-  </footer>
+<!-- FAQ -->
+<section id="faq">
+  <h2>Frequently Asked Questions ❓</h2>
+  <div class="faq">
+    <details>
+      <summary>How do I place an order?</summary>
+      <p>You can directly place an order by clicking on the WhatsApp button under each product section.</p>
+    </details>
+    <details>
+      <summary>Are the products handmade?</summary>
+      <p>Yes! Every piece is handmade with love and custom-designed to your taste.</p>
+    </details>
+    <details>
+      <summary>Can I customize a design?</summary>
+      <p>Absolutely! Send us your ideas or references on WhatsApp, and we’ll craft it for you.</p>
+    </details>
+  </div>
+</section>
 
-  <!-- Loader Script -->
-  <script>
-    window.addEventListener("load", function() {
-      const loader = document.getElementById("loader-wrapper");
-      loader.style.opacity = "0";
-      loader.style.transition = "opacity 0.5s ease";
-      setTimeout(() => loader.style.display = "none", 500);
-    });
-  </script>
+<!-- Contact -->
+<section id="contact">
+  <h2>Our Services & Contact</h2>
+  <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
+  <p>Timings: Monday to Sunday, 10 AM – 7 PM</p>
+  <a class="call-btn" href="tel:+919127210272">Call Us</a>
+</section>
+
+<footer>
+  © 2025 Art by Bose. All rights reserved.
+</footer>
+
+<!-- Loader script -->
+<script>
+  window.addEventListener("load", function() {
+    const loader = document.getElementById("loader-wrapper");
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => loader.style.display = "none", 500);
+  });
+</script>
 
 </body>
 </html>
