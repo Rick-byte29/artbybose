@@ -216,6 +216,72 @@
   font-weight: 500;
   color: #333;
 }
+    <style>
+.pendant-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fdf9f3;
+}
+
+.pendant-heading span {
+  font-family: 'Lucida Handwriting', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7b3f00;
+}
+
+.pendant-offers {
+  margin-top: 10px;
+}
+
+.pulse-text {
+  color: #d60000;
+  font-weight: bold;
+  animation: pulse 1.8s infinite;
+  font-size: 1rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.pendant-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.pendant-carousel img {
+  flex: 0 0 auto;
+  width: 250px;
+  height: auto;
+  scroll-snap-align: start;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.whatsapp-btn a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  animation: pulse 2s infinite;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn a:hover {
+  background-color: #128c7e;
+}
+</style>
 
 
 
