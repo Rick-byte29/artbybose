@@ -383,6 +383,27 @@
 <!-- Loader -->
 <div id="loader-wrapper"><div class="loader"></div></div>
 
+  <body>
+
+<!-- Sticky Bar -->
+<div id="stickyBar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: #25D366; padding: 10px 0; color: #000; font-weight: bold; font-family: sans-serif; text-align: center; display: none;">
+  <span style="font-size: 15px;">
+    🚚 Free Shipping on Orders ₹599/- & Above 💳 (Prepaid Only) | Handmade with Love 💖 | Grab Yours Now ✨
+  </span>
+</div>
+<div style="height: 40px;"></div>
+
+<script>
+  const bar = document.getElementById("stickyBar");
+  let visible = false;
+
+  setInterval(() => {
+    visible = !visible;
+    bar.style.display = visible ? "block" : "none";
+  }, 5000); // toggles every 5 seconds
+</script>
+
+
 <header>
   <nav>
     <a href="#keychains">Keychains</a>
