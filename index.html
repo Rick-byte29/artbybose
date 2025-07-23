@@ -276,7 +276,19 @@
       text-decoration: none;
       animation: pulse 2s infinite;
     }
+.carousel {
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+}
 
+.carousel-track img {
+  width: 100%;
+  max-width: 300px;
+  display: inline-block;
+  scroll-snap-align: center;
+  margin-right: 1rem;
+}
 </style>
 
 
