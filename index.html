@@ -276,19 +276,26 @@
       text-decoration: none;
       animation: pulse 2s infinite;
     }
-.carousel {
+.carousel-container {
   overflow-x: auto;
-  white-space: nowrap;
   scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .carousel-track img {
-  width: 100%;
-  max-width: 300px;
-  display: inline-block;
+  flex: 0 0 100%;
+  height: auto;
   scroll-snap-align: center;
-  margin-right: 1rem;
+  object-fit: cover;
 }
+
 </style>
 
 
@@ -449,14 +456,20 @@
     ✨ Elegant & Trendy Earrings ✨
   </h2>
 
-  <div class="carousel">
+ <!-- Earrings Carousel Section -->
+<div class="carousel-container">
   <div class="carousel-track">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earrings 1" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earrings 2" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earrings 3" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earrings 4" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earrings 5" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earrings 6" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earrings 7" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earrings 8" />
   </div>
 </div>
+
      <div class="pulse-text" style="text-align:center; margin-top: 10px; font-size: 1.2rem; color: #000;">
     💖 Best Quality & Lowest Price: Starting from ₹79/-
   </div>
