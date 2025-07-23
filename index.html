@@ -372,6 +372,20 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin: 20px 0;
 }
+#stickyBar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: #ffefc4;
+  color: #222;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: bold;
+  font-size: 15px;
+  z-index: 9999;
+  border-bottom: 2px solid #f5b301;
+  font-family: 'Poppins', sans-serif;
+}
 
 
 </style>
@@ -385,28 +399,9 @@
 
   <body>
 
-<!-- Sticky Bar -->
-<div id="stickyBar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 9999; background: #25D366; padding: 10px 0; color: #000; font-weight: bold; font-family: sans-serif; text-align: center; display: none;">
-  <span style="font-size: 15px;">
-    🚚 Free Shipping on Orders ₹599/- & Above 💳 (Prepaid Only) | Handmade with Love 💖 | Grab Yours Now ✨
-  </span>
+<div id="stickyBar">
+  🚚 Free shipping on orders @ 599/- and above (Prepaid order)
 </div>
-<div style="height: 40px;"></div>
-
-<script>
-  const bar = document.getElementById("stickyBar");
-
-  function toggleBar(showTime, hideTime) {
-    bar.style.display = "block";
-    setTimeout(() => {
-      bar.style.display = "none";
-      setTimeout(() => toggleBar(showTime, hideTime), hideTime);
-    }, showTime);
-  }
-  toggleBar(5000, 2000);
-</script>
-
-
 
 <h2>Art by Bose</h2>
 
