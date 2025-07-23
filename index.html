@@ -276,31 +276,110 @@
       text-decoration: none;
       animation: pulse 2s infinite;
     }
-.carousel-container {
+#earrings {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.carousel-heading {
+  font-family: 'Cursive', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.earrings-carousel {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-  width: 100%;
 }
 
 .carousel-track {
   display: flex;
-  flex-wrap: nowrap;
+  scroll-behavior: smooth;
 }
 
 .carousel-track img {
   flex: 0 0 100%;
+  width: 100%;
   height: auto;
-  scroll-snap-align: center;
   object-fit: cover;
+  scroll-snap-align: center;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
+/* Pulse Animation */
+.pulse {
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.offer-text {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.price-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+.cut-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+/* WhatsApp CTA Button */
+.whatsapp-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe57;
+}
+
+/* Mobile Fix */
+@media (max-width: 600px) {
+  .carousel-heading {
+    font-size: 1.4rem;
+  }
+
+  .offer-text, .price-text {
+    font-size: 1rem;
+  }
+
+  .whatsapp-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .carousel-track img {
+    border-radius: 8px;
+  }
+}
 </style>
 
-
-
-  </style>
+  
 </head>
 <body>
 
@@ -456,31 +535,28 @@
     ✨ Elegant & Trendy Earrings ✨
   </h2>
 
- <!-- Earrings Carousel Section -->
-<div class="carousel-container">
-  <div class="carousel-track">
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earrings 1" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earrings 2" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earrings 3" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earrings 4" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earrings 5" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earrings 6" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earrings 7" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earrings 8" />
-  </div>
-</div>
-
-     <div class="pulse-text" style="text-align:center; margin-top: 10px; font-size: 1.2rem; color: #000;">
-    💖 Best Quality & Lowest Price: Starting from ₹79/-
+<!-- Earrings Carousel Section -->
+<section id="earrings">
+  <h2 class="carousel-heading">✨ Elegant Earrings You Must Have ✨</h2>
+  <div class="earrings-carousel">
+    <div class="carousel-track">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
+    </div>
   </div>
 
-  <div style="text-align: center;">
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20buying%20earrings%20from%20Art%20by%20Bose" target="_blank"
-       style="display:inline-block; padding:10px 25px; background-color:#25D366; color:#fff; font-weight:bold; border-radius:30px; font-size:16px; animation: pulse 1.5s infinite;">
-      Order Now via WhatsApp
-    </a>
-  </div>
+  <p class="offer-text pulse">✅ Best Quality and Lowest Price</p>
+  <p class="price-text pulse">💖 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
+
+  <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20Earrings" class="whatsapp-btn pulse" target="_blank">Grab the Deal Now 🔥</a>
 </section>
+
 
 
 
