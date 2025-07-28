@@ -4,7 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
-  <!-- LOGO AS FAVICON -->
   <link rel="icon" type="image/png" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
@@ -22,212 +21,161 @@
     #loader-wrapper {
       position: fixed; top:0; left:0; height:100vh; width:100vw;
       background: #fcf7ea;
-      z-index: 9999;
-      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; display: flex; align-items: center; justify-content: center;
       transition: opacity .46s;
     }
     .loader-hero { text-align:center; }
     .loader-hero img {
       width: 68px; border-radius: 50%; margin-bottom: 10px;
-      box-shadow: 0 2px 19px #bfa66b40, 0 1px 8px 0 #dfd0a739;
-      background: #f6e3c2;
+      box-shadow: 0 2px 19px #bfa66b40, 0 1px 8px 0 #dfd0a739; background: #f6e3c2;
     }
     .loader-brushstroke {
       width: 70px; height: 12px; margin: 12px auto 0 auto;
       background: url('https://svgshare.com/i/1618.svg') no-repeat center/cover;
       animation: brush-load 2s infinite alternate;
     }
-    @keyframes brush-load {
-      0% { filter: grayscale(1) opacity(0.6);}
-      100% { filter: grayscale(0) opacity(1);}
-    }
+    @keyframes brush-load { 0% { filter: grayscale(1) opacity(0.6);} 100% { filter: grayscale(0) opacity(1);} }
 
-    /* LOGO HERO CENTERED */
+    /* Logo and Tagline Responsive */
     .logo-hero-center {
-      width: 100%;
-      text-align: center;
-      padding: 40px 10px 18px 10px;
+      width: 100%; text-align: center;
       background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
-      box-sizing: border-box;
-      position: static;
-      z-index: 1;
+      padding: 32px 10px 12px 10px;
+      box-sizing: border-box; position: static; z-index: 1;
     }
     .main-logo-img {
-      max-width: 130px;
-      width: 40vw;
-      border-radius: 40%;
+      max-width: 115px; width: 40vw; border-radius: 40%;
       box-shadow: 0 3px 24px 0 #bfa66940, 0 1px 10px 0 #cbb68e39;
-      margin-bottom: 8px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 7px; display: block; margin-left: auto; margin-right: auto;
     }
     .logo-subheading {
-      font-size: 1.05em;
-      color: #9E730C;
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      margin-top: 8px;
-      letter-spacing: 0.5px;
+      font-size: 1.04em; color: #9e730c; font-family: 'Playfair Display', serif;
+      font-weight: 500; margin-top: 7px; letter-spacing: 0.4px;
       background: #f6e2ae;
-      display: inline-block;
-      padding: 5px 20px 4px 20px;
-      border-radius: 22px;
-      box-shadow: 0 2px 8px #ebcd7d3a;
+      display: inline-block; padding: 4px 13px 4px 13px;
+      border-radius: 22px; box-shadow: 0 2px 8px #ebcd7d3a;
     }
 
-    /* Sticky Shipping Bar */
+    /* Responsive Logo Area */
+    @media (max-width: 600px) {
+      .logo-hero-center { padding: 13px 3vw 3px 3vw; }
+      .main-logo-img { max-width: 62px; width: 32vw; margin-bottom: 4px;}
+      .logo-subheading { font-size: 0.93em; padding: 2px 6px 2px 6px; margin-top:3px; }
+    }
+
+    /* Sticky Free Shipping Bar */
     #stickyBar {
-      position: sticky; top: 0;
-      width: 100%;
-      background: #ffefc4;
-      text-align: center;
-      padding: 9px 0 8px;
-      font-weight: bold;
-      font-size: 16px;
-      z-index: 10;
-      border-bottom: 2px solid #f5b301;
-      font-family: 'Poppins', sans-serif;
-      letter-spacing: 0.02em;
+      position: sticky; top: 0; width: 100%;
+      background: #ffefc4; text-align: center;
+      padding: 8px 0 7px; font-weight: bold; font-size: 15px;
+      z-index: 10; border-bottom: 2px solid #f5b301;
+      font-family: 'Poppins', sans-serif; letter-spacing: 0.01em;
     }
 
     /* Artistic Section Divider */
     .section-divider {
-      width:100%; height:38px; margin:0; padding:0;
+      width:100%; height:36px; margin:0; padding:0;
       background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
 
     /* Headings: Highlight */
-    h2 { text-align: center; margin: 38px 0 18px 0; position:relative; z-index:2;}
+    h2 { text-align: center; margin: 28px 0 12px 0; position:relative; z-index:2; }
     .headline-highlight {
       background: linear-gradient(to right, #fff1b8 65%, #f8e98a 100%);
       color: #473100 !important;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      border-radius: 13px;
-      padding: 0 18px;
+      border-radius: 12px;
+      padding: 0 13px;
       box-shadow: 0 2px 7px #e9b77450, 0 0px 2px #fff8;
       display: inline-block;
-      line-height: 1.35;
-      letter-spacing: 1.1px;
-      margin-bottom: 7px;
-      text-shadow: 0 2px 8px #ceb23977, 0 0 2px #fff9;
-      font-size: 1.5rem;
+      line-height: 1.32;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      text-shadow: 0 2px 5px #ceb23977, 0 0 2px #fff9;
+      font-size: 1.15rem;
     }
+    @media (max-width:600px) {.headline-highlight{font-size:0.91rem;padding:0 4px;}}
 
     /* Carousel */
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 12px; padding: 10px 0; margin-bottom: 7px;
-      scrollbar-width: thin;
-      scrollbar-color: #d4ae53 #ffefc4;
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; gap: 12px; padding: 10px 0; margin-bottom: 7px;
+      scrollbar-width: thin; scrollbar-color: #d4ae53 #ffefc4;
     }
     .carousel img {
-      flex: 0 0 78vw; max-width: 330px; min-width: 170px;
+      flex: 0 0 75vw; max-width: 310px; min-width: 110px;
       scroll-snap-align: center;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px rgba(91,62,10,.13);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(91,62,10,.13);
       background: #fff8e8; margin-bottom: 3px;
-      border: 1.5px solid #e6be7e90;
-      transition: transform .19s, box-shadow .15s;
+      border: 1.2px solid #e6be7e90;
+      transition: transform .16s, box-shadow .12s;
     }
     .carousel img:hover {
       transform: scale(1.03) rotate(-1deg);
-      box-shadow: 0 5px 28px #e6be7e99;
+      box-shadow: 0 3px 20px #e6be7e77;
     }
 
-    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.06rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
-    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight:bold; text-align:center; margin:10px auto 10px auto;}
-    .offer-text, .price-text { text-align:center; font-size:1.08em; }
+    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.01rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
+    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight:bold; text-align:center; margin:10px auto;}
+    .offer-text, .price-text { text-align:center; font-size:1em; }
     .price-text { font-weight:bold; color:#e91e63;}
-    .cut-price { text-decoration:line-through; color:gray; font-size:1rem; margin-left:5px;}
-    .pulse-box { color: #c93a39; border:2.5px solid #e6b025; border-radius:10px; text-align:center; font-weight: bold; padding:10px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
+    .cut-price { text-decoration:line-through; color:gray; font-size:0.9rem; margin-left:4px;}
+    .pulse-box { color: #c93a39; border:2px solid #e6b025; border-radius:10px; text-align:center; font-weight: bold; padding:8px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
 
-    @keyframes pulse {
-      0% { transform:scale(1);}
-      50% { transform:scale(1.045);}
-      100% { transform:scale(1);}
-    }
+    @keyframes pulse {0% {transform:scale(1);}50% {transform:scale(1.03);}100% {transform:scale(1);}}
 
     .whatsapp-btn, .call-btn {
-      display:block; width:fit-content;
-      margin:13px auto 35px;
-      background:#25D366; color: white;
-      padding: 13px 26px;
-      border-radius: 36px;
-      font-weight: bold;
-      text-decoration:none;
-      font-size:1.04rem;
-      transition: background .17s, box-shadow .13s;
-      animation: pulse 2s infinite;
-      box-shadow: 0 1px 6px #25d36640; border:none;
+      display:block; width:fit-content; margin:13px auto 26px;
+      background:#25D366; color: white; padding:10px 20px;
+      border-radius:31px; font-weight:bold; text-decoration:none; font-size:1em;
+      box-shadow: 0 1px 4px #25d36640; border:none; transition: background .17s;
     }
     .whatsapp-btn:hover { background-color:#1ebe57;}
-    .call-btn { background:#004d43; color:white; padding:12px 22px; box-shadow:0 1px 7px #004d4340; font-size:1.01rem; }
-
-    /* Floating WhatsApp Button */
+    .call-btn { background:#004d43; color:white; padding:10px 20px; }
     .float-whatsapp {
-      position:fixed; bottom:22px; right:19px; z-index:99999;
-      background:#25D366; color:#fff; width:60px; height:60px;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:50%; box-shadow:0 4px 28px #25D36660;
-      font-size:2.35em; animation:pulse 1.8s infinite; cursor:pointer;
-      border:4px solid #e6be7e90; transition:box-shadow .15s;
+      position:fixed; bottom:18px; right:14px; z-index:3000;
+      background:#25D366; color:#fff; width:52px; height:52px;
+      display:flex; align-items:center; justify-content:center; border-radius:50%; box-shadow:0 4px 18px #25D36660;
+      font-size:2em; animation:pulse 2s infinite; cursor:pointer; border:3px solid #e6be7e90; transition:box-shadow .12s;
     }
-    .float-whatsapp:hover { box-shadow:0 6px 18px #06814bda;}
-
-    /* WhatsApp Logo in Button */
+    .float-whatsapp:hover { box-shadow:0 6px 12px #06814bba;}
     .whatsapp-logo-svg {
-      width: 32px;
-      height: 32px;
-      display: block;
-      margin: auto;
+      width: 32px; height: 32px; display: block; margin: auto;
     }
 
+    /* Product details grid */
     .jewelry-description-grid {
       display:grid; grid-template-columns:repeat(2,auto);
-      gap: 10px 22px; justify-content:center; text-align:center;
-      margin:18px auto 16px auto; font-size:15px; font-weight:500; color:#333;
+      gap: 7px 17px; justify-content:center; text-align:center;
+      margin:14px auto 10px auto; font-size:13.5px; font-weight:500; color:#333;
     }
 
+    /* Testimonials: compact for mobile */
     .testimonials-section {
-      background: #fff5e4; padding: 44px 6vw 30px 6vw; color:#442e08; text-align:center;
-      margin-top:34px; margin-bottom:30px;
+      background: #fff5e4; padding: 30px 2vw 20px 2vw; color:#442e08; text-align:center;
+      margin-top:22px; margin-bottom:20px;
     }
-    .testimonials-section h2 { margin-bottom: 28px; }
-    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:19px;}
+    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:13px;}
     .testimonial-card {
-      background:#fffaf3; border-radius:12px; padding:15px; width:260px;
-      box-shadow:0 0 14px rgba(179,134,26,.09); border:2px solid #f2e1c0cc;
-      margin-bottom:10px; display:flex; flex-direction:column; align-items:center;
-      animation: fadeUp 1s; opacity:0; transform:translateY(40px); transition:box-shadow .14s;
+      background:#fffaf3; border-radius:10px; padding:12px; width:220px;
+      box-shadow:0 0 11px rgba(179,134,26,.08); border:1px solid #f2e1c0cc;
+      margin-bottom:7px; display:flex; flex-direction:column; align-items:center;
+      animation: fadeUp 1s; opacity:0; transform:translateY(30px); transition:box-shadow .12s;
     }
     .testimonial-card.visible { opacity:1; transform:translateY(0);}
-    .testimonial-card img { width:58px; height:58px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:12px;}
-    .testimonial-card p { font-size:15px; line-height:1.6;}
-    .testimonial-card strong { margin-top:10px;}
-    @keyframes fadeUp { from { opacity:0; transform:translateY(60px);} to {opacity:1; transform:translateY(0);} }
-    .faq summary { font-weight:bold; cursor:pointer; padding:10px 0; color:#c69328;}
-    .faq details {margin:10px 0;}
-    footer { text-align:center; padding:30px 16px; font-size:0.98rem; color:#9a7c36; background:#f9eace; margin-top:28px; }
+    .testimonial-card img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:9px;}
+    .testimonial-card p { font-size:13px; line-height:1.6;}
+    .testimonial-card strong { margin-top:7px; font-size:0.96em;}
+    @keyframes fadeUp { from { opacity:0; transform:translateY(32px);} to {opacity:1; transform:translateY(0);} }
+    .faq summary { font-weight:bold; cursor:pointer; padding:6px 0; color:#c69328;}
+    .faq details {margin:7px 0;}
+    footer { text-align:center; padding:20px 10px; font-size:0.93rem; color:#9a7c36; background:#f9eace; margin-top:16px;}
 
-    /* Fade in up on scroll */
-    .fade-section { opacity:0; transform:translateY(40px); transition:opacity 1s, transform 1s; }
+    /* Reveal on scroll (sections) */
+    .fade-section { opacity:0; transform:translateY(28px); transition:opacity 1s, transform 1s; }
     .fade-section.visible { opacity:1; transform:translateY(0);}
-    @media (max-width:800px) {
-      .logo-hero-center { padding: 26px 3vw 14px 3vw;}
-      .main-logo-img { max-width:92px;}
-      .headline-highlight { font-size:1.07rem; }
-    }
-    @media (max-width:600px) {
-      .carousel img { min-width:110px;}
-      .testimonials-section { padding:18px 1vw 18px 1vw; }
-      .jewelry-description-grid { font-size:13px; gap:6px 10px;}
-      .headline-highlight { font-size:1rem; padding:0 7px;}
-    }
   </style>
 </head>
 <body>
@@ -239,11 +187,12 @@
   </div>
 </div>
 
-<!-- Top Logo and Subheading Centered -->
+<!-- Logo and Tagline Centered -->
 <div class="logo-hero-center">
   <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img">
   <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
 </div>
+
 <div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <section class="fade-section" id="about">
@@ -265,7 +214,6 @@
   <div class="keychain-offer-text">🔥 Grab a Keychain @ just ₹49/- <s>₹99/-</s> Only!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Canvas Art -->
 <section class="fade-section" id="canvas">
@@ -281,7 +229,6 @@
   <div class="canvas-offer-text">💥 Custom Canvas starts @ ₹199/- <s>₹499/-</s><br>🔥 Hurry! Offer ends soon!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Bottles Art -->
 <section class="fade-section" id="bottles">
@@ -297,7 +244,6 @@
   <div class="bottle-offer-text">🔥 Custom Bottle starts @ ₹149/- <s>₹399/-</s><br>💥 Limited Time Only!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Jewelry -->
 <section class="fade-section" id="jewelry">
@@ -323,7 +269,6 @@
   <div class="pulse-box">🔥 Limited Time Deal: Grab 3 or more, Get Flat 20% OFF!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Pendants -->
 <section class="fade-section" id="pendants">
@@ -340,7 +285,6 @@
   <p class="pulse-box">💎 Best Quality & Lowest Price: ₹99/- to ₹149/- <br>🎉 Enjoy Discounts up to 20% 🎉</p>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Earrings -->
 <section class="fade-section" id="earrings">
@@ -359,10 +303,9 @@
   <p class="price-text">💖 Starting from ₹89/- <span class="cut-price">₹119/-</span></p>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
 <!-- Bracelets -->
-<section class="fade-section" id="bracelets" style="padding: 30px 10px; background: #fff;">
+<section class="fade-section" id="bracelets" style="padding: 16px 5px; background: #fff;">
   <h2 style="text-align: center; font-size:1.1rem; margin-bottom:7px;">
     <span class="headline-highlight">✨ Premium Bracelets for You ✨</span>
   </h2>
@@ -379,9 +322,7 @@
   <p class="price-text">🎉 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
-
 <span class="section-divider"></span>
-
 <!-- Testimonials -->
 <div class="testimonials-section fade-section">
   <h2><span class="headline-highlight">Hear From Our Happy Clients</span></h2>
@@ -413,7 +354,6 @@
     </div>
   </div>
 </div>
-
 <!-- FAQ -->
 <section class="fade-section" id="faq">
   <h2><span class="headline-highlight">Frequently Asked Questions ❓</span></h2>
@@ -432,7 +372,6 @@
     </details>
   </div>
 </section>
-
 <!-- Contact -->
 <section class="fade-section" id="contact">
   <h2><span class="headline-highlight">Our Services & Contact</span></h2>
@@ -440,33 +379,28 @@
   <p>Timings: Monday to Sunday, 9:00 AM – 9:00 PM (ISD) </p>
   <a class="call-btn" href="tel:+919127210272">Call Us</a>
 </section>
-
 <footer>
   © 2025 Art by Bose. All rights reserved.
 </footer>
 
-<!-- Floating WhatsApp Button (with actual logo) -->
+<!-- Floating WhatsApp Button (SVG logo) -->
 <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose" class="float-whatsapp" aria-label="WhatsApp Chat" target="_blank">
-  <!-- WhatsApp logo SVG, white on green circle -->
   <svg class="whatsapp-logo-svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#25D366"/><path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z"/></svg>
 </a>
 
 <script>
-  // Loader fade
   window.addEventListener("load", function() {
     const loader = document.getElementById("loader-wrapper");
     loader.style.opacity = "0";
     loader.style.transition = "opacity 0.5s ease";
     setTimeout(() => loader.style.display = "none", 530);
   });
-  // Fade in sections on scroll
   function revealOnScroll() {
     document.querySelectorAll('.fade-section').forEach(function(el){
       const rect = el.getBoundingClientRect(),
             windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < windowHeight - 70) el.classList.add('visible');
+      if (rect.top < windowHeight - 50) el.classList.add('visible');
     });
-    // testimonials lazy-fade
     document.querySelectorAll('.testimonial-card').forEach(function(card){
       const rect = card.getBoundingClientRect(),
             windowHeight = window.innerHeight || document.documentElement.clientHeight;
@@ -476,7 +410,7 @@
   document.addEventListener('scroll', revealOnScroll);
   window.addEventListener('DOMContentLoaded', revealOnScroll);
   window.addEventListener('resize', revealOnScroll);
-  setTimeout(revealOnScroll, 300);
+  setTimeout(revealOnScroll, 350);
 </script>
 </body>
 </html>
