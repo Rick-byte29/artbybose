@@ -6,7 +6,6 @@
   <title>Art by Bose</title>
   <!-- LOGO AS FAVICON -->
   <link rel="icon" type="image/png" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true"/>
-  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
@@ -50,30 +49,36 @@
       0% { opacity: 0; transform: scale(0.95);}
       100% { opacity: 1; transform: scale(1);}
     }
-    /* Hero Logo & Tagline */
-    .hero-logo-area {
+    /* Centered Hero Logo with Subheading */
+    .logo-hero-center {
+      width: 100%;
       text-align: center;
+      padding: 44px 18px 28px 18px;
       background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
-      padding: 48px 0 18px 0;
-      box-shadow: 0 5px 24px 0px #ede8d740, 0 1px 10px 0 #c1b08620;
+      box-sizing: border-box;
     }
-    .main-logo {
-      max-width: 170px; width: 58vw;
-      box-shadow: 0 4px 24px 0px #dec48640, 0 1px 10px 0 #c1b08639;
+    .main-logo-img {
+      max-width: 175px;
+      width: 44vw;
       border-radius: 40%;
+      box-shadow: 0 3px 24px 0 #bfa66940, 0 1px 10px 0 #cbb68e39;
       margin-bottom: 8px;
-      border: 2px solid #dfb96f40;
-      background: #fff6e3;
-      transition: box-shadow .2s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .main-logo:hover { box-shadow: 0 6px 34px #ca9933bb;}
-    .site-tagline {
-      font-size: 1.08em;
+    .logo-subheading {
+      font-size: 1.11em;
+      color: #9e730c;
       font-family: 'Playfair Display', serif;
-      color: #a07229;
-      margin-top: 11px;
-      letter-spacing: 0.5px;
       font-weight: 500;
+      margin-top: 8px;
+      letter-spacing: 0.5px;
+      background: #f6e2ae;
+      display: inline-block;
+      padding: 5px 20px 4px 20px;
+      border-radius: 22px;
+      box-shadow: 0 2px 8px #ebcd7d3a;
     }
     /* --- Sticky Shipping Bar --- */
     #stickyBar {
@@ -89,42 +94,36 @@
       font-family: 'Poppins', sans-serif;
       letter-spacing: 0.02em;
     }
-    /* Artistic Dividers */
+    /* Artistic Section Divider */
     .section-divider {
       display:block; width:100%; height:50px; margin:0; padding:0;
       background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
     .shadow-divider { display: none;}
-    /* Nav/Section Titles */
+    /* Headings: High Contrast Highlight */
     h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
       text-align: center;
       margin: 40px 0 20px;
-      letter-spacing: 1.6px;
-      background: linear-gradient(to right, #ebc878 40%, #eee 60%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #705c0b;
       position: relative;
       z-index:2;
-      /* Prevent white fade for visibility */
-      text-shadow: 0 1px 12px #e9b77470, 0 2px 16px #fff9  ;
     }
-    /* Headline highlight fix for contrast */
-    .headline-bg {
-      display: inline;
-      background: linear-gradient(to right, #fffef7 60%, #f0e3cb 100%);
-      border-radius: 12px;
-      padding: 0 8px;
-      box-shadow: 0 2px 6px #d5b06233;
-      color: #7c6104 !important;
-      text-shadow: 0 2px 6px #a9861a44, 0 4px 14px #fff ;
-      font-weight: 600;
+    .headline-highlight {
+      background: linear-gradient(to right, #fff1b8 65%, #f8e98a 100%);
+      color: #473100 !important;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      border-radius: 13px;
+      padding: 0 18px;
+      box-shadow: 0 2px 7px #e9b77450, 0 0px 2px #fff8;
+      display: inline-block;
+      line-height: 1.35;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px #ceb23977, 0 0 2px #fff9;
+      font-size: 2rem;
     }
     @media (max-width:600px) {
-      h2 { font-size: 1.2rem;}
-      .headline-bg { padding:0 3px; }
+      .headline-highlight { font-size:1.2rem; padding:0 7px;}
     }
     /* Carousel */
     .carousel {
@@ -196,8 +195,7 @@
       margin-top:40px; margin-bottom:40px;
     }
     .testimonials-section h2 {
-      font-size: 26px; font-weight: bold; color: #b5852e; background:none;
-      -webkit-text-fill-color: unset;
+      font-size: 26px; font-weight: bold; color: #b5852e; background:none; -webkit-text-fill-color: unset;
       margin-bottom: 32px;
     }
     .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
@@ -232,12 +230,14 @@
       .testimonial-card { width:98vw; max-width:98vw;}
       .jewelry-description-grid {font-size:14px;}
       .testimonials-section { padding:32px 2vw 20px 2vw;}
+      .headline-highlight { font-size:1.1rem;padding:0 4px;}
     }
     @media (max-width:600px) {
       body { font-size:15px;}
       .carousel img { min-width:135px;}
-      .main-logo { max-width:120px; }
+      .main-logo-img { max-width:120px; }
       .testimonials-section {padding:28px 2vw 20px 2vw;}
+      .logo-subheading { font-size: 0.98em; padding:5px 10px;}
     }
   </style>
 </head>
@@ -249,17 +249,15 @@
     <div class="loader-brushstroke"></div>
   </div>
 </div>
-
-<!-- Hero Logo -->
-<div class="hero-logo-area">
-  <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo"/>
-  <div class="site-tagline headline-bg">Handcrafted Artistry by Parna Bose</div>
+<!-- Top Logo and Subheading Centered -->
+<div class="logo-hero-center">
+  <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img">
+  <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
 </div>
-
 <div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <section class="fade-section" id="about">
-  <h2><span class="headline-bg">Art by Bose</span></h2>
+  <h2><span class="headline-highlight">Art by Bose</span></h2>
   <p style="text-align:center;">Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
 </section>
 
@@ -267,7 +265,7 @@
 
 <!-- Keychains -->
 <section class="fade-section" id="keychains">
-  <h2><span class="headline-bg">Keychains You Must Have 🔑✨</span></h2>
+  <h2><span class="headline-highlight">Keychains You Must Have 🔑✨</span></h2>
   <p class="urgency-text">⚡ Limited Stock – Order Now Before It's Gone!</p>
   <div class="carousel" id="keychain-carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
@@ -283,7 +281,7 @@
 
 <!-- Canvas Art -->
 <section class="fade-section" id="canvas">
-  <h2><span class="headline-bg">Custom Canvas Art 🖌️🎨</span></h2>
+  <h2><span class="headline-highlight">Custom Canvas Art 🖌️🎨</span></h2>
   <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️ </p>
   <div class="carousel">
     <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
@@ -300,7 +298,7 @@
 
 <!-- Bottles Art -->
 <section class="fade-section" id="bottles">
-  <h2><span class="headline-bg">Custom Bottle Art 🍾🖌️</span></h2>
+  <h2><span class="headline-highlight">Custom Bottle Art 🍾🖌️</span></h2>
   <p class="urgency-text">🛑 Stock Alert: Selling Out Faster Than You Think! </p>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" alt="Bottle Art 5">
@@ -317,7 +315,7 @@
 
 <!-- Jewelry -->
 <section class="fade-section" id="jewelry">
-  <h2><span class="headline-bg">Jewelry You’ll Love 💍✨</span></h2>
+  <h2><span class="headline-highlight">Jewelry You’ll Love 💍✨</span></h2>
   <div class="jewelry-description-grid">
     <div>✨ Premium Quality Antitarnish</div>
     <div>✨ Stainless Steel</div>
@@ -344,7 +342,7 @@
 
 <!-- Pendants -->
 <section class="fade-section" id="pendants">
-  <h2 class="carousel-heading"><span class="headline-bg">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</span></h2>
+  <h2 class="carousel-heading"><span class="headline-highlight">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2">
@@ -362,7 +360,7 @@
 
 <!-- Earrings -->
 <section class="fade-section" id="earrings">
-  <h2 class="carousel-heading"><span class="headline-bg">✨ Elegant Earrings You Must Have ✨</span></h2>
+  <h2 class="carousel-heading"><span class="headline-highlight">✨ Elegant Earrings You Must Have ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
@@ -382,7 +380,7 @@
 
 <!-- Bracelets -->
 <section class="fade-section" id="bracelets" style="padding: 30px 10px; background: #fff;">
-  <h2 style="text-align: center; font-size:1.4rem; margin-bottom:7px;"><span class="headline-bg">✨ Premium Bracelets for You ✨</span></h2>
+  <h2 style="text-align: center; font-size:1.4rem; margin-bottom:7px;"><span class="headline-highlight">✨ Premium Bracelets for You ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2">
@@ -401,7 +399,7 @@
 
 <!-- Testimonials -->
 <div class="testimonials-section fade-section">
-  <h2><span class="headline-bg">Hear From Our Happy Clients</span></h2>
+  <h2><span class="headline-highlight">Hear From Our Happy Clients</span></h2>
   <div class="testimonials-cards">
     <div class="testimonial-card">
       <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" alt="Sneha">
@@ -433,7 +431,7 @@
 
 <!-- FAQ -->
 <section class="fade-section" id="faq">
-  <h2><span class="headline-bg">Frequently Asked Questions ❓</span></h2>
+  <h2><span class="headline-highlight">Frequently Asked Questions ❓</span></h2>
   <div class="faq">
     <details>
       <summary>How do I place an order?</summary>
@@ -452,7 +450,7 @@
 
 <!-- Contact -->
 <section class="fade-section" id="contact">
-  <h2><span class="headline-bg">Our Services & Contact</span></h2>
+  <h2><span class="headline-highlight">Our Services & Contact</span></h2>
   <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
   <p>Timings: Monday to Sunday, 9:00 AM – 9:00 PM (ISD) </p>
   <a class="call-btn" href="tel:+919127210272">Call Us</a>
@@ -467,33 +465,32 @@
   <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32" fill="white"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.4 20.9a8.486 8.486 0 0 1-4.8 1.5c-4.6 0-8.3-3.7-8.3-8.3 0-2.3.9-4.3 2.3-5.8C13.1 8.1 15 7.2 17 7.2c4.6 0 8.3 3.7 8.3 8.3 0 1.6-.5 3-1.3 4.2-.2.3-.5.5-.9.5-.2 0-.3 0-.5-.1z" fill="white"/><path d="M8.3 23.9l.8-2.9c-.7-1.4-1.2-2.9-1.2-4.6 0-6.6 7.3-11.9 13-11.9 5.7 0 13 5.3 13 11.9 0 6.6-7.3 11.9-13 11.9-2.2 0-4.3-.4-6.3-1.2l-6.3 1.8z" fill="#25D366"/></svg>
 </a>
 
-<!-- Loader fade and fade-in-on-scroll -->
 <script>
-  // Loader fade
-  window.addEventListener("load", function() {
-    const loader = document.getElementById("loader-wrapper");
-    loader.style.opacity = "0";
-    loader.style.transition = "opacity 0.5s ease";
-    setTimeout(() => loader.style.display = "none", 530);
+// Loader fade
+window.addEventListener("load", function() {
+  const loader = document.getElementById("loader-wrapper");
+  loader.style.opacity = "0";
+  loader.style.transition = "opacity 0.5s ease";
+  setTimeout(() => loader.style.display = "none", 530);
+});
+// Fade in sections on scroll
+function revealOnScroll() {
+  document.querySelectorAll('.fade-section').forEach(function(el){
+    const rect = el.getBoundingClientRect(),
+          windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < windowHeight - 70) el.classList.add('visible');
   });
-  // Fade in sections on scroll
-  function revealOnScroll() {
-    document.querySelectorAll('.fade-section').forEach(function(el){
-      const rect = el.getBoundingClientRect(),
-            windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < windowHeight - 70) el.classList.add('visible');
-    });
-    // testimonials lazy-fade
-    document.querySelectorAll('.testimonial-card').forEach(function(card){
-      const rect = card.getBoundingClientRect(),
-            windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      if(rect.top < windowHeight - 60) card.classList.add('visible');
-    });
-  }
-  document.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('DOMContentLoaded', revealOnScroll);
-  window.addEventListener('resize', revealOnScroll);
-  setTimeout(revealOnScroll, 400); // ensure visibility after load
+  // testimonials lazy-fade
+  document.querySelectorAll('.testimonial-card').forEach(function(card){
+    const rect = card.getBoundingClientRect(),
+          windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    if(rect.top < windowHeight - 60) card.classList.add('visible');
+  });
+}
+document.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
+window.addEventListener('resize', revealOnScroll);
+setTimeout(revealOnScroll, 400); // ensure visibility after load
 </script>
 </body>
 </html>
