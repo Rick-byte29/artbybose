@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
-  <!-- YOUR LOGO AS FAVICON -->
+  <!-- LOGO AS FAVICON -->
   <link rel="icon" type="image/png" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true"/>
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    /* ---- Artistic Paper Texture Background ---- */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -19,9 +18,9 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-    /* ---- Loader: Logo + Brushstroke ---- */
+    /* Loader: Logo + Brushstroke */
     #loader-wrapper {
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      position: fixed; top:0; left:0; right:0; bottom:0;
       background: #fcf7ea;
       z-index: 9999;
       display: flex; align-items: center; justify-content: center;
@@ -51,7 +50,7 @@
       0% { opacity: 0; transform: scale(0.95);}
       100% { opacity: 1; transform: scale(1);}
     }
-    /* ---- Hero Logo & Tagline ---- */
+    /* Hero Logo & Tagline */
     .hero-logo-area {
       text-align: center;
       background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
@@ -59,7 +58,7 @@
       box-shadow: 0 5px 24px 0px #ede8d740, 0 1px 10px 0 #c1b08620;
     }
     .main-logo {
-      max-width: 170px; width: 60vw;
+      max-width: 170px; width: 58vw;
       box-shadow: 0 4px 24px 0px #dec48640, 0 1px 10px 0 #c1b08639;
       border-radius: 40%;
       margin-bottom: 8px;
@@ -90,54 +89,59 @@
       font-family: 'Poppins', sans-serif;
       letter-spacing: 0.02em;
     }
-    /* ---- Artistic Dividers ---- */
+    /* Artistic Dividers */
     .section-divider {
-      display: block;
-      width: 100%;
-      height: 50px;
-      margin: 0; padding: 0;
+      display:block; width:100%; height:50px; margin:0; padding:0;
       background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
-    /* fallback for old shadow-divider for sections */
-    .shadow-divider {
-      display: none;
-    }
-    /* ---- Nav/Section Titles ---- */
+    .shadow-divider { display: none;}
+    /* Nav/Section Titles */
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       text-align: center;
       margin: 40px 0 20px;
-      color: #704f00;
-      letter-spacing:1.6px;
+      letter-spacing: 1.6px;
       background: linear-gradient(to right, #ebc878 40%, #eee 60%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      color: #705c0b;
+      position: relative;
+      z-index:2;
+      /* Prevent white fade for visibility */
+      text-shadow: 0 1px 12px #e9b77470, 0 2px 16px #fff9  ;
     }
-    @media (max-width: 600px) {
+    /* Headline highlight fix for contrast */
+    .headline-bg {
+      display: inline;
+      background: linear-gradient(to right, #fffef7 60%, #f0e3cb 100%);
+      border-radius: 12px;
+      padding: 0 8px;
+      box-shadow: 0 2px 6px #d5b06233;
+      color: #7c6104 !important;
+      text-shadow: 0 2px 6px #a9861a44, 0 4px 14px #fff ;
+      font-weight: 600;
+    }
+    @media (max-width:600px) {
       h2 { font-size: 1.2rem;}
+      .headline-bg { padding:0 3px; }
     }
-    /* ---- Carousel ---- */
+    /* Carousel */
     .carousel {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      gap: 10px;
-      padding: 10px 0;
-      margin-bottom: 7px;
+      gap: 10px; padding: 10px 0; margin-bottom: 7px;
       scrollbar-width: thin;
       scrollbar-color: #d4ae53 #ffefc4;
     }
     .carousel img {
-      flex: 0 0 78vw;
-      max-width: 340px;
-      min-width: 220px;
+      flex: 0 0 78vw; max-width: 340px; min-width: 220px;
       scroll-snap-align: center;
       border-radius: 14px;
       box-shadow: 0 2px 12px rgba(91,62,10,.13);
-      background: #fff8e8;
-      margin-bottom: 3px;
+      background: #fff8e8; margin-bottom: 3px;
       border: 1.5px solid #e6be7e90;
       transition: transform .19s, box-shadow .15s;
     }
@@ -145,25 +149,21 @@
       transform: scale(1.03) rotate(-1deg);
       box-shadow: 0 5px 28px #e6be7e99;
     }
-    /* ---- Product Offer/Stock Text ---- */
     .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.08rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
-    .keychain-offer-text, .canvas-offer-text, .bottle-offer-text { color:#d03016; font-weight: bold; text-align:center; margin:12px auto 10px auto; }
+    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight: bold; text-align:center; margin:12px auto 10px auto; }
     .offer-text, .price-text { text-align:center; font-size:1.08em; }
     .price-text { font-weight: bold; color: #e91e63; }
-    .cut-price { text-decoration: line-through; color: gray; font-size: 1rem; margin-left: 5px;}
-    .pulse-box { color: #c93a39; border: 2.5px solid #e6b025; border-radius: 10px; text-align:center; font-weight: bold; padding: 10px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
+    .cut-price { text-decoration: line-through; color: gray; font-size:1rem; margin-left:5px;}
+    .pulse-box { color: #c93a39; border:2.5px solid #e6b025; border-radius:10px; text-align:center; font-weight: bold; padding:10px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
     @keyframes pulse {
       0% { transform: scale(1);}
       50% { transform: scale(1.045);}
       100% { transform: scale(1);}
     }
-    /* ---- WhatsApp CTA ---- */
     .whatsapp-btn, .call-btn {
-      display: block;
-      width: fit-content;
+      display: block; width: fit-content;
       margin: 13px auto 35px;
-      background: #25D366;
-      color: white;
+      background: #25D366; color: white;
       padding: 13px 26px;
       border-radius: 36px;
       font-weight: bold;
@@ -171,156 +171,95 @@
       font-size: 1.04rem;
       transition: background .17s, box-shadow .13s;
       animation: pulse 2s infinite;
-      box-shadow: 0 1px 6px #25d36640;
-      border: none;
+      box-shadow: 0 1px 6px #25d36640; border: none;
     }
-    .whatsapp-btn:hover { background-color: #1ebe57; }
-    .call-btn {
-      background: #004d43;
-      color: #fff;
-      padding: 12px 22px;
-      box-shadow: 0 1px 7px #004d4340;
-      font-size: 1.01rem;
-    }
+    .whatsapp-btn:hover { background-color: #1ebe57;}
+    .call-btn { background: #004d43; color: #fff; padding:12px 22px; box-shadow: 0 1px 7px #004d4340; font-size:1.01rem; }
     /* Floating WhatsApp Button! */
     .float-whatsapp {
-      position: fixed; bottom: 22px; right: 19px;
-      z-index: 99999;
-      background: #25D366;
-      color: #fff;
-      width: 60px; height: 60px;
+      position:fixed; bottom:22px; right:19px; z-index:99999;
+      background:#25D366; color:#fff; width:60px; height:60px;
       display:flex; align-items:center; justify-content:center;
-      border-radius: 50%; box-shadow: 0 4px 28px #25D36660;
-      font-size: 2.35em;
-      animation: pulse 2.2s infinite;
-      cursor: pointer;
-      border: 4px solid #e6be7e90;
-      transition: box-shadow .15s;
+      border-radius:50%; box-shadow:0 4px 28px #25D36660;
+      font-size:2.35em; animation: pulse 2.2s infinite; cursor:pointer;
+      border:4px solid #e6be7e90; transition:box-shadow .15s;
     }
-    .float-whatsapp:hover { box-shadow: 0 6px 18px #06814bda;}
-    /* ---- Product section grid/text ---- */
+    .float-whatsapp:hover { box-shadow:0 6px 18px #06814bda;}
     .jewelry-description-grid {
-      display: grid; grid-template-columns: repeat(2, auto);
+      display: grid; grid-template-columns:repeat(2,auto);
       gap: 10px 30px; justify-content: center; text-align: center;
-      margin: 20px auto; font-size: 16px; font-weight: 500; color: #333;
+      margin:20px auto; font-size:16px; font-weight:500; color:#333;
     }
-    .pendant-section { text-align:center; padding: 40px 20px; background-color:#fdf9f3;}
-    .pendant-heading span {
-      font-family: 'Lucida Handwriting', cursive;
-      font-size: 2rem; font-weight: bold; color: #7b3f00;
-    }
-    /* ---- Testimonials Card Row ---- */
+    /* Testimonials Card Row */
     .testimonials-section {
-      background: #fff5e4; 
-      padding: 54px 8vw 40px 8vw;
-      color: #442e08;
-      text-align: center;
-      margin-top:40px;
-      margin-bottom:40px;
+      background: #fff5e4; padding:54px 8vw 40px 8vw; color:#442e08; text-align:center;
+      margin-top:40px; margin-bottom:40px;
     }
     .testimonials-section h2 {
-      font-size: 26px;
-      font-weight: bold;
-      color: #b5852e;
-      background: none;
+      font-size: 26px; font-weight: bold; color: #b5852e; background:none;
       -webkit-text-fill-color: unset;
       margin-bottom: 32px;
     }
-    .testimonials-cards {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
-    }
+    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
     .testimonial-card {
-      background: #fffaf3;
-      border-radius: 14px;
-      padding: 20px;
-      width: 280px;
-      box-shadow: 0 0 16px rgba(179,134,26,.09);
-      border: 2px solid #f2e1c0cc;
-      margin-bottom: 10px;
-      display: flex; flex-direction: column; align-items: center;
-      animation: fadeUp 1s;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: box-shadow .14s;
+      background: #fffaf3; border-radius:14px; padding:20px; width:280px;
+      box-shadow:0 0 16px rgba(179,134,26,.09); border:2px solid #f2e1c0cc;
+      margin-bottom:10px; display:flex; flex-direction:column; align-items:center;
+      animation: fadeUp 1s; opacity:0; transform:translateY(40px); transition:box-shadow .14s;
     }
-    .testimonial-card.visible {
-      opacity: 1; transform: translateY(0);
-    }
-    .testimonial-card img {
-      width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;
-    }
-    .testimonial-card p { font-size: 15px; line-height: 1.65;}
-    .testimonial-card strong { margin-top: 12px;}
+    .testimonial-card.visible { opacity:1; transform:translateY(0);}
+    .testimonial-card img { width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:12px;}
+    .testimonial-card p { font-size:15px; line-height: 1.65;}
+    .testimonial-card strong { margin-top:12px;}
     @keyframes fadeUp {
-      from {opacity: 0; transform: translateY(60px);}
-      to   {opacity: 1; transform: translateY(0);}
+      from { opacity:0; transform:translateY(60px);}
+      to   { opacity:1; transform:translateY(0);}
     }
-    /* ---- FAQ ---- */
-    .faq summary {
-      font-weight: bold;
-      cursor: pointer;
-      padding: 10px 0;
-      color: #c69328;
-    }
-    .faq details { margin: 10px 0;}
-    /* ---- Footer ---- */
+    .faq summary { font-weight:bold; cursor:pointer; padding:10px 0; color:#c69328;}
+    .faq details { margin:10px 0; }
     footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.98rem;
-      color: #9a7c36;
-      background: #f9eace;
-      margin-top: 50px;
+      text-align: center; padding: 40px 20px; font-size: 0.98rem;
+      color: #9a7c36; background: #f9eace; margin-top:50px;
       letter-spacing:0.02em;
     }
-    /* ---- Section fade-in up on scroll ---- */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s, transform 1s;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* ---- Responsive ---- */
-    @media (max-width: 750px) {
-      .carousel img { min-width: 170px;}
-      .carousel { gap: 6px;}
-      .testimonials-cards {gap:10px;}
-      .testimonial-card { width: 98vw; max-width: 98vw; }
+    /* Fade in up on scroll for all content */
+    .fade-section { opacity:0; transform:translateY(50px); transition:opacity 1s, transform 1s;}
+    .fade-section.visible { opacity:1; transform:translateY(0);}
+    @media (max-width:750px) {
+      .carousel img { min-width:170px;}
+      .carousel { gap:6px;}
+      .testimonials-cards { gap:10px;}
+      .testimonial-card { width:98vw; max-width:98vw;}
       .jewelry-description-grid {font-size:14px;}
-      .pendant-section,.testimonials-section {padding: 32px 2vw 20px 2vw;}
+      .testimonials-section { padding:32px 2vw 20px 2vw;}
     }
-    @media (max-width: 600px) {
-      body { font-size: 15px;}
-      .carousel img { min-width: 135px; }
-      .main-logo { max-width:120px;}
-      .pendant-section { padding:20px 4vw;}
-      .testimonials-section { padding:28px 2vw 20px 2vw;}
+    @media (max-width:600px) {
+      body { font-size:15px;}
+      .carousel img { min-width:135px;}
+      .main-logo { max-width:120px; }
+      .testimonials-section {padding:28px 2vw 20px 2vw;}
     }
   </style>
 </head>
-
 <body>
 <!-- Loader -->
 <div id="loader-wrapper">
   <div class="loader-hero">
-    <img src="YOUR_LOGO_URL" alt="Art by Bose Logo">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo">
     <div class="loader-brushstroke"></div>
   </div>
 </div>
 
 <!-- Hero Logo -->
 <div class="hero-logo-area">
-  <img src="YOUR_LOGO_URL" alt="Art by Bose Logo" class="main-logo"/>
-  <div class="site-tagline">Handcrafted Artistry by Parna Bose</div>
+  <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo"/>
+  <div class="site-tagline headline-bg">Handcrafted Artistry by Parna Bose</div>
 </div>
 
 <div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <section class="fade-section" id="about">
-  <h2>Art by Bose</h2>
+  <h2><span class="headline-bg">Art by Bose</span></h2>
   <p style="text-align:center;">Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
 </section>
 
@@ -328,7 +267,7 @@
 
 <!-- Keychains -->
 <section class="fade-section" id="keychains">
-  <h2>Keychains You Must Have 🔑✨</h2>
+  <h2><span class="headline-bg">Keychains You Must Have 🔑✨</span></h2>
   <p class="urgency-text">⚡ Limited Stock – Order Now Before It's Gone!</p>
   <div class="carousel" id="keychain-carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
@@ -344,7 +283,7 @@
 
 <!-- Canvas Art -->
 <section class="fade-section" id="canvas">
-  <h2>Custom Canvas Art 🖌️🎨</h2>
+  <h2><span class="headline-bg">Custom Canvas Art 🖌️🎨</span></h2>
   <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️ </p>
   <div class="carousel">
     <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
@@ -361,7 +300,7 @@
 
 <!-- Bottles Art -->
 <section class="fade-section" id="bottles">
-  <h2>Custom Bottle Art 🍾🖌️</h2>
+  <h2><span class="headline-bg">Custom Bottle Art 🍾🖌️</span></h2>
   <p class="urgency-text">🛑 Stock Alert: Selling Out Faster Than You Think! </p>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" alt="Bottle Art 5">
@@ -378,7 +317,7 @@
 
 <!-- Jewelry -->
 <section class="fade-section" id="jewelry">
-  <h2>Jewelry You’ll Love 💍✨</h2>
+  <h2><span class="headline-bg">Jewelry You’ll Love 💍✨</span></h2>
   <div class="jewelry-description-grid">
     <div>✨ Premium Quality Antitarnish</div>
     <div>✨ Stainless Steel</div>
@@ -405,7 +344,7 @@
 
 <!-- Pendants -->
 <section class="fade-section" id="pendants">
-  <h2 class="carousel-heading">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</h2>
+  <h2 class="carousel-heading"><span class="headline-bg">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2">
@@ -423,7 +362,7 @@
 
 <!-- Earrings -->
 <section class="fade-section" id="earrings">
-  <h2 class="carousel-heading">✨ Elegant Earrings You Must Have ✨</h2>
+  <h2 class="carousel-heading"><span class="headline-bg">✨ Elegant Earrings You Must Have ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
@@ -443,7 +382,7 @@
 
 <!-- Bracelets -->
 <section class="fade-section" id="bracelets" style="padding: 30px 10px; background: #fff;">
-  <h2 style="text-align: center; font-size: 1.4rem; margin-bottom: 7px;">✨ Premium Bracelets for You ✨</h2>
+  <h2 style="text-align: center; font-size:1.4rem; margin-bottom:7px;"><span class="headline-bg">✨ Premium Bracelets for You ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2">
@@ -462,7 +401,7 @@
 
 <!-- Testimonials -->
 <div class="testimonials-section fade-section">
-  <h2>Hear From Our Happy Clients</h2>
+  <h2><span class="headline-bg">Hear From Our Happy Clients</span></h2>
   <div class="testimonials-cards">
     <div class="testimonial-card">
       <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" alt="Sneha">
@@ -494,7 +433,7 @@
 
 <!-- FAQ -->
 <section class="fade-section" id="faq">
-  <h2>Frequently Asked Questions ❓</h2>
+  <h2><span class="headline-bg">Frequently Asked Questions ❓</span></h2>
   <div class="faq">
     <details>
       <summary>How do I place an order?</summary>
@@ -513,7 +452,7 @@
 
 <!-- Contact -->
 <section class="fade-section" id="contact">
-  <h2>Our Services & Contact</h2>
+  <h2><span class="headline-bg">Our Services & Contact</span></h2>
   <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
   <p>Timings: Monday to Sunday, 9:00 AM – 9:00 PM (ISD) </p>
   <a class="call-btn" href="tel:+919127210272">Call Us</a>
