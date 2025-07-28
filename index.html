@@ -14,19 +14,7 @@
       background-blend-mode: lighten;
       overflow-x: hidden;
       padding-top: 52px; /* for fixed bar */
-    }
-    #loader-wrapper {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #fcf7ea; display: flex; align-items: center; justify-content: center;
-      z-index: 9999; transition: opacity .46s;
-    }
-    .loader-hero { text-align: center; }
-    .loader-hero img { width: 68px; border-radius: 50%; margin-bottom: 10px; }
-    .loader-brushstroke {
-      width: 70px; height: 12px; margin: 12px auto 0 auto;
-      background: url('https://svgshare.com/i/1618.svg') no-repeat center/cover;
-      animation: brush-load 2s infinite alternate;
-    }
+   
     @keyframes brush-load { 0%{filter:grayscale(1) opacity(0.6);} 100%{filter:grayscale(0) opacity(1);} }
     #stickyBar {
       position: fixed; top: 0; left: 0; width: 100vw;
@@ -128,12 +116,6 @@
   </style>
 </head>
 <body>
-  <div id="loader-wrapper">
-    <div class="loader-hero">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo">
-      <div class="loader-brushstroke"></div>
-    </div>
-  </div>
   <div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
   <div class="logo-hero-center">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
@@ -346,14 +328,6 @@
     </svg>
   </a>
   <script>
-    window.addEventListener("load", function() {
-      const loader = document.getElementById("loader-wrapper");
-      if (loader) {
-        loader.style.opacity = "0";
-        loader.style.transition = "opacity 0.5s";
-        setTimeout(() => loader.style.display = "none", 530);
-      }
-    });
     function revealOnScroll() {
       document.querySelectorAll('.fade-section').forEach(function(el){
         const rect = el.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
