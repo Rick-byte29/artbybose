@@ -8,36 +8,32 @@
   <link rel="icon" type="image/png" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      color: #111;
+    html, body {
+      margin: 0; padding: 0;
+      min-height: 100%;
+      width: 100%;
       background: #fefcf7 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
       background-blend-mode: lighten;
-      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+      color: #111;
       overflow-x: hidden;
     }
-    /* Loader: Logo + Brushstroke */
+    /* Loader */
     #loader-wrapper {
-      position: fixed; top:0; left:0; right:0; bottom:0;
+      position: fixed; top:0; left:0; height:100vh; width:100vw;
       background: #fcf7ea;
       z-index: 9999;
       display: flex; align-items: center; justify-content: center;
       transition: opacity .46s;
     }
-    .loader-hero {
-      text-align: center;
-      animation: fadeInLogo 1.4s;
-    }
+    .loader-hero { text-align:center; }
     .loader-hero img {
-      width: 82px; border-radius: 50%;
-      margin-bottom: 10px;
+      width: 68px; border-radius: 50%; margin-bottom: 10px;
       box-shadow: 0 2px 19px #bfa66b40, 0 1px 8px 0 #dfd0a739;
       background: #f6e3c2;
     }
     .loader-brushstroke {
-      width: 90px; height: 14px;
-      margin: 12px auto 0 auto;
+      width: 70px; height: 12px; margin: 12px auto 0 auto;
       background: url('https://svgshare.com/i/1618.svg') no-repeat center/cover;
       animation: brush-load 2s infinite alternate;
     }
@@ -45,21 +41,20 @@
       0% { filter: grayscale(1) opacity(0.6);}
       100% { filter: grayscale(0) opacity(1);}
     }
-    @keyframes fadeInLogo {
-      0% { opacity: 0; transform: scale(0.95);}
-      100% { opacity: 1; transform: scale(1);}
-    }
-    /* Centered Hero Logo with Subheading */
+
+    /* LOGO HERO CENTERED */
     .logo-hero-center {
       width: 100%;
       text-align: center;
-      padding: 44px 18px 28px 18px;
+      padding: 40px 10px 18px 10px;
       background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
       box-sizing: border-box;
+      position: static;
+      z-index: 1;
     }
     .main-logo-img {
-      max-width: 175px;
-      width: 44vw;
+      max-width: 130px;
+      width: 40vw;
       border-radius: 40%;
       box-shadow: 0 3px 24px 0 #bfa66940, 0 1px 10px 0 #cbb68e39;
       margin-bottom: 8px;
@@ -68,8 +63,8 @@
       margin-right: auto;
     }
     .logo-subheading {
-      font-size: 1.11em;
-      color: #9e730c;
+      font-size: 1.05em;
+      color: #9E730C;
       font-family: 'Playfair Display', serif;
       font-weight: 500;
       margin-top: 8px;
@@ -80,33 +75,30 @@
       border-radius: 22px;
       box-shadow: 0 2px 8px #ebcd7d3a;
     }
-    /* --- Sticky Shipping Bar --- */
+
+    /* Sticky Shipping Bar */
     #stickyBar {
       position: sticky; top: 0;
       width: 100%;
       background: #ffefc4;
-      color: #222;
       text-align: center;
       padding: 9px 0 8px;
-      font-weight: bold; font-size: 16px;
-      z-index: 999;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 10;
       border-bottom: 2px solid #f5b301;
       font-family: 'Poppins', sans-serif;
       letter-spacing: 0.02em;
     }
+
     /* Artistic Section Divider */
     .section-divider {
-      display:block; width:100%; height:50px; margin:0; padding:0;
+      width:100%; height:38px; margin:0; padding:0;
       background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
-    .shadow-divider { display: none;}
-    /* Headings: High Contrast Highlight */
-    h2 {
-      text-align: center;
-      margin: 40px 0 20px;
-      position: relative;
-      z-index:2;
-    }
+
+    /* Headings: Highlight */
+    h2 { text-align: center; margin: 38px 0 18px 0; position:relative; z-index:2;}
     .headline-highlight {
       background: linear-gradient(to right, #fff1b8 65%, #f8e98a 100%);
       color: #473100 !important;
@@ -117,26 +109,24 @@
       box-shadow: 0 2px 7px #e9b77450, 0 0px 2px #fff8;
       display: inline-block;
       line-height: 1.35;
-      letter-spacing: 1.2px;
-      margin-bottom: 8px;
+      letter-spacing: 1.1px;
+      margin-bottom: 7px;
       text-shadow: 0 2px 8px #ceb23977, 0 0 2px #fff9;
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
-    @media (max-width:600px) {
-      .headline-highlight { font-size:1.2rem; padding:0 7px;}
-    }
+
     /* Carousel */
     .carousel {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      gap: 10px; padding: 10px 0; margin-bottom: 7px;
+      gap: 12px; padding: 10px 0; margin-bottom: 7px;
       scrollbar-width: thin;
       scrollbar-color: #d4ae53 #ffefc4;
     }
     .carousel img {
-      flex: 0 0 78vw; max-width: 340px; min-width: 220px;
+      flex: 0 0 78vw; max-width: 330px; min-width: 170px;
       scroll-snap-align: center;
       border-radius: 14px;
       box-shadow: 0 2px 12px rgba(91,62,10,.13);
@@ -148,96 +138,95 @@
       transform: scale(1.03) rotate(-1deg);
       box-shadow: 0 5px 28px #e6be7e99;
     }
-    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.08rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
-    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight: bold; text-align:center; margin:12px auto 10px auto; }
+
+    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.06rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
+    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight:bold; text-align:center; margin:10px auto 10px auto;}
     .offer-text, .price-text { text-align:center; font-size:1.08em; }
-    .price-text { font-weight: bold; color: #e91e63; }
-    .cut-price { text-decoration: line-through; color: gray; font-size:1rem; margin-left:5px;}
+    .price-text { font-weight:bold; color:#e91e63;}
+    .cut-price { text-decoration:line-through; color:gray; font-size:1rem; margin-left:5px;}
     .pulse-box { color: #c93a39; border:2.5px solid #e6b025; border-radius:10px; text-align:center; font-weight: bold; padding:10px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
+
     @keyframes pulse {
-      0% { transform: scale(1);}
-      50% { transform: scale(1.045);}
-      100% { transform: scale(1);}
+      0% { transform:scale(1);}
+      50% { transform:scale(1.045);}
+      100% { transform:scale(1);}
     }
+
     .whatsapp-btn, .call-btn {
-      display: block; width: fit-content;
-      margin: 13px auto 35px;
-      background: #25D366; color: white;
+      display:block; width:fit-content;
+      margin:13px auto 35px;
+      background:#25D366; color: white;
       padding: 13px 26px;
       border-radius: 36px;
       font-weight: bold;
       text-decoration:none;
-      font-size: 1.04rem;
+      font-size:1.04rem;
       transition: background .17s, box-shadow .13s;
       animation: pulse 2s infinite;
-      box-shadow: 0 1px 6px #25d36640; border: none;
+      box-shadow: 0 1px 6px #25d36640; border:none;
     }
-    .whatsapp-btn:hover { background-color: #1ebe57;}
-    .call-btn { background: #004d43; color: #fff; padding:12px 22px; box-shadow: 0 1px 7px #004d4340; font-size:1.01rem; }
-    /* Floating WhatsApp Button! */
+    .whatsapp-btn:hover { background-color:#1ebe57;}
+    .call-btn { background:#004d43; color:white; padding:12px 22px; box-shadow:0 1px 7px #004d4340; font-size:1.01rem; }
+
+    /* Floating WhatsApp Button */
     .float-whatsapp {
       position:fixed; bottom:22px; right:19px; z-index:99999;
       background:#25D366; color:#fff; width:60px; height:60px;
       display:flex; align-items:center; justify-content:center;
       border-radius:50%; box-shadow:0 4px 28px #25D36660;
-      font-size:2.35em; animation: pulse 2.2s infinite; cursor:pointer;
+      font-size:2.35em; animation:pulse 1.8s infinite; cursor:pointer;
       border:4px solid #e6be7e90; transition:box-shadow .15s;
     }
     .float-whatsapp:hover { box-shadow:0 6px 18px #06814bda;}
+
+    /* WhatsApp Logo in Button */
+    .whatsapp-logo-svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+      margin: auto;
+    }
+
     .jewelry-description-grid {
-      display: grid; grid-template-columns:repeat(2,auto);
-      gap: 10px 30px; justify-content: center; text-align: center;
-      margin:20px auto; font-size:16px; font-weight:500; color:#333;
+      display:grid; grid-template-columns:repeat(2,auto);
+      gap: 10px 22px; justify-content:center; text-align:center;
+      margin:18px auto 16px auto; font-size:15px; font-weight:500; color:#333;
     }
-    /* Testimonials Card Row */
+
     .testimonials-section {
-      background: #fff5e4; padding:54px 8vw 40px 8vw; color:#442e08; text-align:center;
-      margin-top:40px; margin-bottom:40px;
+      background: #fff5e4; padding: 44px 6vw 30px 6vw; color:#442e08; text-align:center;
+      margin-top:34px; margin-bottom:30px;
     }
-    .testimonials-section h2 {
-      font-size: 26px; font-weight: bold; color: #b5852e; background:none; -webkit-text-fill-color: unset;
-      margin-bottom: 32px;
-    }
-    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+    .testimonials-section h2 { margin-bottom: 28px; }
+    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:19px;}
     .testimonial-card {
-      background: #fffaf3; border-radius:14px; padding:20px; width:280px;
-      box-shadow:0 0 16px rgba(179,134,26,.09); border:2px solid #f2e1c0cc;
+      background:#fffaf3; border-radius:12px; padding:15px; width:260px;
+      box-shadow:0 0 14px rgba(179,134,26,.09); border:2px solid #f2e1c0cc;
       margin-bottom:10px; display:flex; flex-direction:column; align-items:center;
       animation: fadeUp 1s; opacity:0; transform:translateY(40px); transition:box-shadow .14s;
     }
     .testimonial-card.visible { opacity:1; transform:translateY(0);}
-    .testimonial-card img { width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:12px;}
-    .testimonial-card p { font-size:15px; line-height: 1.65;}
-    .testimonial-card strong { margin-top:12px;}
-    @keyframes fadeUp {
-      from { opacity:0; transform:translateY(60px);}
-      to   { opacity:1; transform:translateY(0);}
-    }
+    .testimonial-card img { width:58px; height:58px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:12px;}
+    .testimonial-card p { font-size:15px; line-height:1.6;}
+    .testimonial-card strong { margin-top:10px;}
+    @keyframes fadeUp { from { opacity:0; transform:translateY(60px);} to {opacity:1; transform:translateY(0);} }
     .faq summary { font-weight:bold; cursor:pointer; padding:10px 0; color:#c69328;}
-    .faq details { margin:10px 0; }
-    footer {
-      text-align: center; padding: 40px 20px; font-size: 0.98rem;
-      color: #9a7c36; background: #f9eace; margin-top:50px;
-      letter-spacing:0.02em;
-    }
-    /* Fade in up on scroll for all content */
-    .fade-section { opacity:0; transform:translateY(50px); transition:opacity 1s, transform 1s;}
+    .faq details {margin:10px 0;}
+    footer { text-align:center; padding:30px 16px; font-size:0.98rem; color:#9a7c36; background:#f9eace; margin-top:28px; }
+
+    /* Fade in up on scroll */
+    .fade-section { opacity:0; transform:translateY(40px); transition:opacity 1s, transform 1s; }
     .fade-section.visible { opacity:1; transform:translateY(0);}
-    @media (max-width:750px) {
-      .carousel img { min-width:170px;}
-      .carousel { gap:6px;}
-      .testimonials-cards { gap:10px;}
-      .testimonial-card { width:98vw; max-width:98vw;}
-      .jewelry-description-grid {font-size:14px;}
-      .testimonials-section { padding:32px 2vw 20px 2vw;}
-      .headline-highlight { font-size:1.1rem;padding:0 4px;}
+    @media (max-width:800px) {
+      .logo-hero-center { padding: 26px 3vw 14px 3vw;}
+      .main-logo-img { max-width:92px;}
+      .headline-highlight { font-size:1.07rem; }
     }
     @media (max-width:600px) {
-      body { font-size:15px;}
-      .carousel img { min-width:135px;}
-      .main-logo-img { max-width:120px; }
-      .testimonials-section {padding:28px 2vw 20px 2vw;}
-      .logo-subheading { font-size: 0.98em; padding:5px 10px;}
+      .carousel img { min-width:110px;}
+      .testimonials-section { padding:18px 1vw 18px 1vw; }
+      .jewelry-description-grid { font-size:13px; gap:6px 10px;}
+      .headline-highlight { font-size:1rem; padding:0 7px;}
     }
   </style>
 </head>
@@ -249,6 +238,7 @@
     <div class="loader-brushstroke"></div>
   </div>
 </div>
+
 <!-- Top Logo and Subheading Centered -->
 <div class="logo-hero-center">
   <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img">
@@ -262,7 +252,6 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Keychains -->
 <section class="fade-section" id="keychains">
   <h2><span class="headline-highlight">Keychains You Must Have 🔑✨</span></h2>
@@ -278,11 +267,10 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Canvas Art -->
 <section class="fade-section" id="canvas">
   <h2><span class="headline-highlight">Custom Canvas Art 🖌️🎨</span></h2>
-  <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️ </p>
+  <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️</p>
   <div class="carousel">
     <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
     <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png">
@@ -295,7 +283,6 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Bottles Art -->
 <section class="fade-section" id="bottles">
   <h2><span class="headline-highlight">Custom Bottle Art 🍾🖌️</span></h2>
@@ -312,7 +299,6 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Jewelry -->
 <section class="fade-section" id="jewelry">
   <h2><span class="headline-highlight">Jewelry You’ll Love 💍✨</span></h2>
@@ -339,10 +325,9 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Pendants -->
 <section class="fade-section" id="pendants">
- <h2 class="carousel-heading"><span class="headline-highlight">✨ Elegant and Classy Pendants ✨</span></h2>
+  <h2 class="carousel-heading"><span class="headline-highlight">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</span></h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2">
@@ -357,7 +342,6 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Earrings -->
 <section class="fade-section" id="earrings">
   <h2 class="carousel-heading"><span class="headline-highlight">✨ Elegant Earrings You Must Have ✨</span></h2>
@@ -377,10 +361,11 @@
 </section>
 
 <span class="section-divider"></span>
-
 <!-- Bracelets -->
 <section class="fade-section" id="bracelets" style="padding: 30px 10px; background: #fff;">
-  <h2 style="text-align: center; font-size:1.4rem; margin-bottom:7px;"><span class="headline-highlight">✨ Premium Bracelets for You ✨</span></h2>
+  <h2 style="text-align: center; font-size:1.1rem; margin-bottom:7px;">
+    <span class="headline-highlight">✨ Premium Bracelets for You ✨</span>
+  </h2>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2">
@@ -390,7 +375,7 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7">
   </div>
-  <p class="offer-text">✨ Premium-Quality Bracelets for Everyday Elegance </p>
+  <p class="offer-text">✨ Premium-Quality Bracelets for Everyday Elegance</p>
   <p class="price-text">🎉 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
@@ -460,37 +445,38 @@
   © 2025 Art by Bose. All rights reserved.
 </footer>
 
-<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp Button (with actual logo) -->
 <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose" class="float-whatsapp" aria-label="WhatsApp Chat" target="_blank">
-  <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32" fill="white"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.4 20.9a8.486 8.486 0 0 1-4.8 1.5c-4.6 0-8.3-3.7-8.3-8.3 0-2.3.9-4.3 2.3-5.8C13.1 8.1 15 7.2 17 7.2c4.6 0 8.3 3.7 8.3 8.3 0 1.6-.5 3-1.3 4.2-.2.3-.5.5-.9.5-.2 0-.3 0-.5-.1z" fill="white"/><path d="M8.3 23.9l.8-2.9c-.7-1.4-1.2-2.9-1.2-4.6 0-6.6 7.3-11.9 13-11.9 5.7 0 13 5.3 13 11.9 0 6.6-7.3 11.9-13 11.9-2.2 0-4.3-.4-6.3-1.2l-6.3 1.8z" fill="#25D366"/></svg>
+  <!-- WhatsApp logo SVG, white on green circle -->
+  <svg class="whatsapp-logo-svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#25D366"/><path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z"/></svg>
 </a>
 
 <script>
-// Loader fade
-window.addEventListener("load", function() {
-  const loader = document.getElementById("loader-wrapper");
-  loader.style.opacity = "0";
-  loader.style.transition = "opacity 0.5s ease";
-  setTimeout(() => loader.style.display = "none", 530);
-});
-// Fade in sections on scroll
-function revealOnScroll() {
-  document.querySelectorAll('.fade-section').forEach(function(el){
-    const rect = el.getBoundingClientRect(),
-          windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < windowHeight - 70) el.classList.add('visible');
+  // Loader fade
+  window.addEventListener("load", function() {
+    const loader = document.getElementById("loader-wrapper");
+    loader.style.opacity = "0";
+    loader.style.transition = "opacity 0.5s ease";
+    setTimeout(() => loader.style.display = "none", 530);
   });
-  // testimonials lazy-fade
-  document.querySelectorAll('.testimonial-card').forEach(function(card){
-    const rect = card.getBoundingClientRect(),
-          windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    if(rect.top < windowHeight - 60) card.classList.add('visible');
-  });
-}
-document.addEventListener('scroll', revealOnScroll);
-window.addEventListener('DOMContentLoaded', revealOnScroll);
-window.addEventListener('resize', revealOnScroll);
-setTimeout(revealOnScroll, 400); // ensure visibility after load
+  // Fade in sections on scroll
+  function revealOnScroll() {
+    document.querySelectorAll('.fade-section').forEach(function(el){
+      const rect = el.getBoundingClientRect(),
+            windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 70) el.classList.add('visible');
+    });
+    // testimonials lazy-fade
+    document.querySelectorAll('.testimonial-card').forEach(function(card){
+      const rect = card.getBoundingClientRect(),
+            windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if(rect.top < windowHeight - 60) card.classList.add('visible');
+    });
+  }
+  document.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+  window.addEventListener('resize', revealOnScroll);
+  setTimeout(revealOnScroll, 300);
 </script>
 </body>
 </html>
