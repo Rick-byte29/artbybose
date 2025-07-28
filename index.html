@@ -4,516 +4,387 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
+  <!-- YOUR LOGO AS FAVICON -->
+  <link rel="icon" type="image/png" href="YOUR_LOGO_URL"/>
+  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    /* Loader */
-    #loader-wrapper {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: #fff;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .loader {
-      border: 6px solid #e0e0e0;
-      border-top: 6px solid #000;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* General */
+    /* ---- Artistic Paper Texture Background ---- */
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: #fefefe;
       color: #111;
+      background: #fefcf7 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      background-blend-mode: lighten;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-
-    header {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
+    /* ---- Loader: Logo + Brushstroke ---- */
+    #loader-wrapper {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: #fcf7ea;
+      z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .46s;
+    }
+    .loader-hero {
+      text-align: center;
+      animation: fadeInLogo 1.4s;
+    }
+    .loader-hero img {
+      width: 82px; border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 19px #bfa66b40, 0 1px 8px 0 #dfd0a739;
+      background: #f6e3c2;
+    }
+    .loader-brushstroke {
+      width: 90px; height: 14px;
+      margin: 12px auto 0 auto;
+      background: url('https://svgshare.com/i/1618.svg') no-repeat center/cover;
+      animation: brush-load 2s infinite alternate;
+    }
+    @keyframes brush-load {
+      0% { filter: grayscale(1) opacity(0.6);}
+      100% { filter: grayscale(0) opacity(1);}
+    }
+    @keyframes fadeInLogo {
+      0% { opacity: 0; transform: scale(0.95);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    /* ---- Hero Logo & Tagline ---- */
+    .hero-logo-area {
+      text-align: center;
+      background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
+      padding: 48px 0 18px 0;
+      box-shadow: 0 5px 24px 0px #ede8d740, 0 1px 10px 0 #c1b08620;
+    }
+    .main-logo {
+      max-width: 170px; width: 60vw;
+      box-shadow: 0 4px 24px 0px #dec48640, 0 1px 10px 0 #c1b08639;
+      border-radius: 40%;
+      margin-bottom: 8px;
+      border: 2px solid #dfb96f40;
+      background: #fff6e3;
+      transition: box-shadow .2s;
+    }
+    .main-logo:hover { box-shadow: 0 6px 34px #ca9933bb;}
+    .site-tagline {
+      font-size: 1.08em;
+      font-family: 'Playfair Display', serif;
+      color: #a07229;
+      margin-top: 11px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+    /* --- Sticky Shipping Bar --- */
+    #stickyBar {
+      position: sticky; top: 0;
+      width: 100%;
+      background: #ffefc4;
+      color: #222;
+      text-align: center;
+      padding: 9px 0 8px;
+      font-weight: bold; font-size: 16px;
       z-index: 999;
+      border-bottom: 2px solid #f5b301;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.02em;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 1rem;
+    /* ---- Artistic Dividers ---- */
+    .section-divider {
+      display: block;
+      width: 100%;
+      height: 50px;
+      margin: 0; padding: 0;
+      background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
-    nav a {
-      text-decoration: none;
-      color: #111;
-      font-weight: bold;
-      scroll-behavior: smooth;
+    /* fallback for old shadow-divider for sections */
+    .shadow-divider {
+      display: none;
     }
-
+    /* ---- Nav/Section Titles ---- */
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       text-align: center;
       margin: 40px 0 20px;
+      color: #704f00;
+      letter-spacing:1.6px;
+      background: linear-gradient(to right, #ebc878 40%, #eee 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-
+    @media (max-width: 600px) {
+      h2 { font-size: 1.2rem;}
+    }
+    /* ---- Carousel ---- */
     .carousel {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       gap: 10px;
-      padding: 10px;
+      padding: 10px 0;
+      margin-bottom: 7px;
+      scrollbar-width: thin;
+      scrollbar-color: #d4ae53 #ffefc4;
     }
     .carousel img {
-      flex: 0 0 100%;
-      max-width: 100%;
+      flex: 0 0 78vw;
+      max-width: 340px;
+      min-width: 220px;
       scroll-snap-align: center;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(91,62,10,.13);
+      background: #fff8e8;
+      margin-bottom: 3px;
+      border: 1.5px solid #e6be7e90;
+      transition: transform .19s, box-shadow .15s;
     }
-
-    .offer {
-      text-align: center;
-      font-size: 1.2rem;
-      margin: 10px;
-      font-weight: bold;
-      animation: pulse 2s infinite;
+    .carousel img:hover {
+      transform: scale(1.03) rotate(-1deg);
+      box-shadow: 0 5px 28px #e6be7e99;
     }
-
+    /* ---- Product Offer/Stock Text ---- */
+    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.08rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
+    .keychain-offer-text, .canvas-offer-text, .bottle-offer-text { color:#d03016; font-weight: bold; text-align:center; margin:12px auto 10px auto; }
+    .offer-text, .price-text { text-align:center; font-size:1.08em; }
+    .price-text { font-weight: bold; color: #e91e63; }
+    .cut-price { text-decoration: line-through; color: gray; font-size: 1rem; margin-left: 5px;}
+    .pulse-box { color: #c93a39; border: 2.5px solid #e6b025; border-radius: 10px; text-align:center; font-weight: bold; padding: 10px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      0% { transform: scale(1);}
+      50% { transform: scale(1.045);}
+      100% { transform: scale(1);}
     }
-
-    .whatsapp-btn {
+    /* ---- WhatsApp CTA ---- */
+    .whatsapp-btn, .call-btn {
       display: block;
       width: fit-content;
-      margin: 10px auto 40px;
+      margin: 13px auto 35px;
       background: #25D366;
       color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
+      padding: 13px 26px;
+      border-radius: 36px;
       font-weight: bold;
-      text-decoration: none;
+      text-decoration:none;
+      font-size: 1.04rem;
+      transition: background .17s, box-shadow .13s;
       animation: pulse 2s infinite;
+      box-shadow: 0 1px 6px #25d36640;
+      border: none;
     }
-    /* ✅ Your new pulse line */
-.urgency-text {
-  text-align: center;
-  color: #e63946;
-  font-weight: bold;
-  font-size: 1.05rem;
-  animation: pulse 1.8s infinite;
-  margin-bottom: 5px;
-}
-
-    section {
-      padding: 0 20px;
-      max-width: 600px;
-      margin: auto;
+    .whatsapp-btn:hover { background-color: #1ebe57; }
+    .call-btn {
+      background: #004d43;
+      color: #fff;
+      padding: 12px 22px;
+      box-shadow: 0 1px 7px #004d4340;
+      font-size: 1.01rem;
     }
-
-    .divider {
-      border-top: 2px dashed #ccc;
-      margin: 40px auto;
-      width: 80%;
+    /* Floating WhatsApp Button! */
+    .float-whatsapp {
+      position: fixed; bottom: 22px; right: 19px;
+      z-index: 99999;
+      background: #25D366;
+      color: #fff;
+      width: 60px; height: 60px;
+      display:flex; align-items:center; justify-content:center;
+      border-radius: 50%; box-shadow: 0 4px 28px #25D36660;
+      font-size: 2.35em;
+      animation: pulse 2.2s infinite;
+      cursor: pointer;
+      border: 4px solid #e6be7e90;
+      transition: box-shadow .15s;
     }
-
-    footer {
+    .float-whatsapp:hover { box-shadow: 0 6px 18px #06814bda;}
+    /* ---- Product section grid/text ---- */
+    .jewelry-description-grid {
+      display: grid; grid-template-columns: repeat(2, auto);
+      gap: 10px 30px; justify-content: center; text-align: center;
+      margin: 20px auto; font-size: 16px; font-weight: 500; color: #333;
+    }
+    .pendant-section { text-align:center; padding: 40px 20px; background-color:#fdf9f3;}
+    .pendant-heading span {
+      font-family: 'Lucida Handwriting', cursive;
+      font-size: 2rem; font-weight: bold; color: #7b3f00;
+    }
+    /* ---- Testimonials Card Row ---- */
+    .testimonials-section {
+      background: #fff5e4; 
+      padding: 54px 8vw 40px 8vw;
+      color: #442e08;
       text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      color: #666;
+      margin-top:40px;
+      margin-bottom:40px;
     }
-
+    .testimonials-section h2 {
+      font-size: 26px;
+      font-weight: bold;
+      color: #b5852e;
+      background: none;
+      -webkit-text-fill-color: unset;
+      margin-bottom: 32px;
+    }
+    .testimonials-cards {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+    }
+    .testimonial-card {
+      background: #fffaf3;
+      border-radius: 14px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 0 16px rgba(179,134,26,.09);
+      border: 2px solid #f2e1c0cc;
+      margin-bottom: 10px;
+      display: flex; flex-direction: column; align-items: center;
+      animation: fadeUp 1s;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: box-shadow .14s;
+    }
+    .testimonial-card.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .testimonial-card img {
+      width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;
+    }
+    .testimonial-card p { font-size: 15px; line-height: 1.65;}
+    .testimonial-card strong { margin-top: 12px;}
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(60px);}
+      to   {opacity: 1; transform: translateY(0);}
+    }
+    /* ---- FAQ ---- */
     .faq summary {
       font-weight: bold;
       cursor: pointer;
       padding: 10px 0;
+      color: #c69328;
     }
-
-    .faq details {
-      margin: 10px 0;
+    .faq details { margin: 10px 0;}
+    /* ---- Footer ---- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.98rem;
+      color: #9a7c36;
+      background: #f9eace;
+      margin-top: 50px;
+      letter-spacing:0.02em;
     }
-    
-    .call-btn {
-      display: block;
-      width: fit-content;
-      margin: 10px auto;
-      padding: 12px 20px;
-      background: #000;
-      color: #fff;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
+    /* ---- Section fade-in up on scroll ---- */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s, transform 1s;
     }
-    .pricing-info {
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #e63946;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-   .jewelry-offer-text {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin: 10px auto;
-}
-
-
-.pulse-box {
-  color: red;
-  border: 2px solid red;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px;
-  width: fit-content;
-  margin: 10px auto;
-  animation: pulse 1.5s infinite;
-}
-
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}
-    .glow-divider {
-  height: 3px;
-  background: red;
-  box-shadow: 0 0 10px red;
-  width: 80%;
-  margin: 40px auto;
-  border-radius: 4px;
-  animation: glowPulse 2s infinite;
-}
-
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 5px red; }
-  50% { box-shadow: 0 0 15px red; }
-  100% { box-shadow: 0 0 5px red; }
-}
-.jewelry-description-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px 30px;
-  justify-content: center;
-  text-align: center;
-  margin: 20px auto;
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-}
-    <style>
-.pendant-section {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #fdf9f3;
-}
-
-.pendant-heading span {
-  font-family: 'Lucida Handwriting', cursive;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #7b3f00;
-}
-
-.pendant-offers {
-  margin-top: 10px;
-}
-
-.pulse-text {
-  color: #d60000;
-  font-weight: bold;
-  animation: pulse 1.8s infinite;
-  font-size: 1rem;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.pendant-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 20px;
-  padding: 20px 0;
-}
-
-.pendant-carousel img {
-  flex: 0 0 auto;
-  width: 250px;
-  height: auto;
-  scroll-snap-align: start;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
- .whatsapp-btn {
-      display: block;
-      width: fit-content;
-      margin: 10px auto 40px;
-      background: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      animation: pulse 2s infinite;
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
-#earrings {
-  text-align: center;
-  padding: 30px 15px;
-}
-
-.carousel-heading {
-  font-family: 'Cursive', sans-serif;
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.earrings-carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carousel-track {
-  display: flex;
-  scroll-behavior: smooth;
-}
-
-.carousel-track img {
-  flex: 0 0 100%;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  scroll-snap-align: center;
-  border-radius: 10px;
-  margin-right: 10px;
-}
-
-/* Pulse Animation */
-.pulse {
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.offer-text {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #222;
-}
-
-.price-text {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #e91e63;
-}
-
-.cut-price {
-  text-decoration: line-through;
-  color: gray;
-  font-size: 1rem;
-  margin-left: 5px;
-}
-
-
-
-.whatsapp-btn:hover {
-  background-color: #1ebe57;
-}
-
-/* Mobile Fix */
-@media (max-width: 600px) {
-  .carousel-heading {
-    font-size: 1.4rem;
-  }
-
-  .offer-text, .price-text {
-    font-size: 1rem;
-  }
-
-  .whatsapp-btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-
-  .carousel-track img {
-    border-radius: 8px;
-  }
-}
-
-    .shadow-divider {
-  height: 1px;
-  background-color: #eee;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  margin: 20px 0;
-}
-#stickyBar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background: #ffefc4;
-  color: #222;
-  text-align: center;
-  padding: 8px 0;
-  font-weight: bold;
-  font-size: 15px;
-  z-index: 9999;
-  border-bottom: 2px solid #f5b301;
-  font-family: 'Poppins', sans-serif;
-}
-
-    .carousel-bracelets {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 10px;
-  padding: 10px;
-}
-
-.carousel-bracelets div {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-}
-
-.carousel-bracelets img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Pulse Animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.07); }
-  100% { transform: scale(1); }
-}
-
-
-</style>
-  
+    /* ---- Responsive ---- */
+    @media (max-width: 750px) {
+      .carousel img { min-width: 170px;}
+      .carousel { gap: 6px;}
+      .testimonials-cards {gap:10px;}
+      .testimonial-card { width: 98vw; max-width: 98vw; }
+      .jewelry-description-grid {font-size:14px;}
+      .pendant-section,.testimonials-section {padding: 32px 2vw 20px 2vw;}
+    }
+    @media (max-width: 600px) {
+      body { font-size: 15px;}
+      .carousel img { min-width: 135px; }
+      .main-logo { max-width:120px;}
+      .pendant-section { padding:20px 4vw;}
+      .testimonials-section { padding:28px 2vw 20px 2vw;}
+    }
+  </style>
 </head>
-  
+
 <body>
-
 <!-- Loader -->
-<div id="loader-wrapper"><div class="loader"></div></div>
-
-  <body>
-
-<div id="stickyBar">
-  🚚 Free shipping on orders @ 599/- and above (Prepaid order)
+<div id="loader-wrapper">
+  <div class="loader-hero">
+    <img src="YOUR_LOGO_URL" alt="Art by Bose Logo">
+    <div class="loader-brushstroke"></div>
+  </div>
 </div>
 
-<h2>Art by Bose</h2>
+<!-- Hero Logo -->
+<div class="hero-logo-area">
+  <img src="YOUR_LOGO_URL" alt="Art by Bose Logo" class="main-logo"/>
+  <div class="site-tagline">Handcrafted Artistry by Parna Bose</div>
+</div>
 
-<section id="about">
-  <p>Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
+<div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
+
+<section class="fade-section" id="about">
+  <h2>Art by Bose</h2>
+  <p style="text-align:center;">Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
 </section>
 
-<!-- Keychains -->
-<section id="keychains">
-  <h2>Keychains You Must Have 🔑✨</h2>
-  
-  <p class="urgency-text">⚡ Limited Stock – Order Now Before It's Gone!</p>
+<span class="section-divider"></span>
 
+<!-- Keychains -->
+<section class="fade-section" id="keychains">
+  <h2>Keychains You Must Have 🔑✨</h2>
+  <p class="urgency-text">⚡ Limited Stock – Order Now Before It's Gone!</p>
   <div class="carousel" id="keychain-carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" />
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
   </div>
-
-  <div class="keychain-offer-text" style="color: red;">
-  🔥 Grab a Keychain @ just ₹49/- <s>₹99/-</s> Only!
-</div>
+  <div class="keychain-offer-text">🔥 Grab a Keychain @ just ₹49/- <s>₹99/-</s> Only!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-<div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-  
-<section id="canvas">
+<!-- Canvas Art -->
+<section class="fade-section" id="canvas">
   <h2>Custom Canvas Art 🖌️🎨</h2>
   <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️ </p>
   <div class="carousel">
-   <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
-<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png">
-<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png">
-<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png">
-<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png">
-
+    <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
+    <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png">
+    <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png">
+    <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png">
+    <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png">
   </div>
-  <div class="canvas-offer-text" style="color: red;">
-  💥 Custom Canvas starts @ ₹199/- <s>₹499/-</s><br>
-  🔥 Hurry! Offer ends soon!
-</div>
-
+  <div class="canvas-offer-text">💥 Custom Canvas starts @ ₹199/- <s>₹499/-</s><br>🔥 Hurry! Offer ends soon!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-<div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-  
-<section id="bottles">
+<!-- Bottles Art -->
+<section class="fade-section" id="bottles">
   <h2>Custom Bottle Art 🍾🖌️</h2>
   <p class="urgency-text">🛑 Stock Alert: Selling Out Faster Than You Think! </p>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" alt="Bottle Art 5">
-<img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%202.png?raw=true" alt="Bottle Art 2">
-<img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" alt="Bottle Art 1">
-<img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%203.png?raw=true" alt="Bottle Art 3">
-<img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" alt="Bottle Art 4">
-
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%202.png?raw=true" alt="Bottle Art 2">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" alt="Bottle Art 1">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%203.png?raw=true" alt="Bottle Art 3">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" alt="Bottle Art 4">
   </div>
-  <div class="bottle-offer-text" style="color: red;">
-  🔥 Custom Bottle starts @ ₹149/- <s>₹399/-</s><br>
-  💥 Limited Time Only!
-</div>
-
+  <div class="bottle-offer-text">🔥 Custom Bottle starts @ ₹149/- <s>₹399/-</s><br>💥 Limited Time Only!</div>
   <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-  <div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-
-   <!-- Jewelry Section -->
-<section id="jewelry">
+<!-- Jewelry -->
+<section class="fade-section" id="jewelry">
   <h2>Jewelry You’ll Love 💍✨</h2>
-
   <div class="jewelry-description-grid">
-  <div>✨ Premium Quality Antitarnish</div>
-  <div>✨ Stainless Steel</div>
-  <div>✨ 18k Goldplated</div>
-  <div>✨ Hypoallergenic</div>
-</div>
-
-
+    <div>✨ Premium Quality Antitarnish</div>
+    <div>✨ Stainless Steel</div>
+    <div>✨ 18k Goldplated</div>
+    <div>✨ Hypoallergenic</div>
+  </div>
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2">
@@ -523,26 +394,18 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7">
   </div>
+  <div style="color: red; text-align: center; font-weight: bold;">
+    💎 Premium Jewelry starts @ ₹59/- <s>₹129/-</s>
+  </div>
+  <div class="pulse-box">🔥 Limited Time Deal: Grab 3 or more, Get Flat 20% OFF!</div>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+</section>
 
- <div style="color: red; text-align: center; font-weight: bold;">
-  💎 Premium Jewelry starts @ ₹59/- <s>₹129/-</s>
-</div>
+<span class="section-divider"></span>
 
-<div class="pulse-box">
-  🔥 Limited Time Deal: Grab 3 or more, Get Flat 20% OFF!
-</div>
-
-<!-- WhatsApp CTA -->
-<a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
-
-<div class="shadow-divider"></div>
-
-
-<!-- Pendants Section -->
-<section id="pendants" class="section">
+<!-- Pendants -->
+<section class="fade-section" id="pendants">
   <h2 class="carousel-heading">✨ <span style="font-family: 'Lucida Handwriting', cursive; font-weight: bold;">Elegant & Classy Pendants</span> ✨</h2>
-
- 
   <div class="carousel">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2">
@@ -552,216 +415,85 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6">
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7">
   </div>
-
- <p class="pulse-text">💎 Best Quality & Lowest Price: ₹99/- to ₹149/- 💎</p>
-  <p class="pulse-text">🎉 Enjoy Discounts up to 20% 🎉</p>
-
-  
- <!-- WhatsApp CTA -->
-<a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <p class="pulse-box">💎 Best Quality & Lowest Price: ₹99/- to ₹149/- <br>🎉 Enjoy Discounts up to 20% 🎉</p>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-  <div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-
-<!-- Earrings Carousel Section -->
-<section id="earrings">
+<!-- Earrings -->
+<section class="fade-section" id="earrings">
   <h2 class="carousel-heading">✨ Elegant Earrings You Must Have ✨</h2>
-  <div class="earrings-carousel">
-    <div class="carousel-track">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
-    </div>
+  <div class="carousel">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
   </div>
-
-  <p class="offer-text pulse">✅ Best Quality and Lowest Price</p>
-  <p class="price-text pulse">💖 Starting from ₹89/- <span class="cut-price">₹119/-</span></p>
-
-<!-- WhatsApp CTA -->
-<a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <p class="offer-text">✅ Best Quality and Lowest Price</p>
+  <p class="price-text">💖 Starting from ₹89/- <span class="cut-price">₹119/-</span></p>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-  <div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-
-  <!-- Bracelets Section -->
-<section id="bracelets" style="padding: 30px 10px; background: #fff;">
-  <h2 style="text-align: center; font-family: 'Cursive'; font-size: 1.8rem; margin-bottom: 10px;">
-    ✨ Premium Bracelets for You ✨
-  </h2>
-
-  <div class="carousel-bracelets">
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/3.png?raw=true" alt="Bracelet 3"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/4.png?raw=true" alt="Bracelet 4"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/5.png?raw=true" alt="Bracelet 5"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6"></div>
-    <div><img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7"></div>
+<!-- Bracelets -->
+<section class="fade-section" id="bracelets" style="padding: 30px 10px; background: #fff;">
+  <h2 style="text-align: center; font-size: 1.4rem; margin-bottom: 7px;">✨ Premium Bracelets for You ✨</h2>
+  <div class="carousel">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/3.png?raw=true" alt="Bracelet 3">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/4.png?raw=true" alt="Bracelet 4">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/5.png?raw=true" alt="Bracelet 5">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7">
   </div>
-
-    <p class="offer-text pulse">✨ Premium-Quality Bracelets for Everyday Elegance </p>
-  <p class="price-text pulse">🎉 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
-
-
- <!-- WhatsApp CTA -->
-<a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <p class="offer-text">✨ Premium-Quality Bracelets for Everyday Elegance </p>
+  <p class="price-text">🎉 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
+  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 
-  <div class="shadow-divider"></div>
+<span class="section-divider"></span>
 
-
-
-<!-- ✅ Responsive Swipe Carousel CSS -->
-<style>
-  .swipe-carousel {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .swipe-wrapper {
-    display: flex;
-    gap: 12px;
-    padding: 10px 0;
-    width: max-content;
-  }
-
-  .swipe-item {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-    width: 280px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: contain;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-  }
-
-  @media (max-width: 600px) {
-    .swipe-item {
-      width: 220px;
-    }
-
-    #bottles h2 { font-size: 1.5rem; }
-    #bottles p { font-size: 0.95rem; }
-    #bottles a { font-size: 0.9rem; padding: 10px 20px; }
-  }
-</style>
-
-
-
-<!-- ✅ Pulse Animation CSS -->
-<style>
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-  }
-
-  @media (max-width: 600px) {
-    #bottles h2 { font-size: 1.5rem; }
-    #bottles p { font-size: 0.95rem; }
-    #bottles a { font-size: 0.9rem; }
-  }
-
-  .swipe-track img {
-    user-select: none;
-    pointer-events: none;
-  }
-</style>
-
-<script>
-  let jewelryIndex = 0;
-  const jewelryTrack = document.querySelector('#jewelry .carousel-track');
-  const jewelrySlides = jewelryTrack.children;
-
-  function updateJewelryCarousel() {
-    jewelryTrack.style.transform = `translateX(-${jewelryIndex * 100}%)`;
-  }
-
-  function nextJewelry() {
-    jewelryIndex = (jewelryIndex + 1) % jewelrySlides.length;
-    updateJewelryCarousel();
-  }
-
-  function prevJewelry() {
-    jewelryIndex = (jewelryIndex - 1 + jewelrySlides.length) % jewelrySlides.length;
-    updateJewelryCarousel();
-  }
-</script>
-
-<style>
-  @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 94, 94, 0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 94, 94, 0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 94, 94, 0); }
-  }
-</style>
-
-  <!-- FULL TESTIMONIAL SECTION -->
-<div style="background-color: #000; padding: 40px 20px; color: #fff; font-family: sans-serif; text-align: center;">
-
-  <!-- Heading -->
-  <h2 style="font-size: 28px; font-weight: bold; text-transform: uppercase; margin-bottom: 30px;">
-    Hear From Our Happy Clients
-  </h2>
-
-  <!-- Testimonial Cards Container -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-
-    <!-- Card 1 -->
-    <div style="background: #111; border-radius: 14px; padding: 20px; width: 280px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;">
-      <p style="font-size: 14px; line-height: 1.6;">“Parna, you've got a great eye for design! I love these jewelry pieces, and I'll be back for more.”</p>
-      <strong style="display: block; margin-top: 10px;">— Sneha</strong>
+<!-- Testimonials -->
+<div class="testimonials-section fade-section">
+  <h2>Hear From Our Happy Clients</h2>
+  <div class="testimonials-cards">
+    <div class="testimonial-card">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" alt="Sneha">
+      <p>“Parna, you've got a great eye for design! I love these jewelry pieces, and I'll be back for more.”</p>
+      <strong>— Sneha</strong>
     </div>
-
-    <!-- Card 2 -->
-    <div style="background: #111; border-radius: 14px; padding: 20px; width: 280px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf593e114a_1000217239.jpg" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;">
-      <p style="font-size: 14px; line-height: 1.6;">“The custom Christmas jars are beyond my expectations! Your drawing skills are impressive.”</p>
-      <strong style="display: block; margin-top: 10px;">— Rajdeep</strong>
+    <div class="testimonial-card">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf593e114a_1000217239.jpg" alt="Rajdeep">
+      <p>“The custom Christmas jars are beyond my expectations! Your drawing skills are impressive.”</p>
+      <strong>— Rajdeep</strong>
     </div>
-
-    <!-- Card 3 -->
-    <div style="background: #111; border-radius: 14px; padding: 20px; width: 280px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf59e6fcfa_1000217226.jpg" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;">
-      <p style="font-size: 14px; line-height: 1.6;">“My friend in Delhi just loved the artwork on the kurti you designed! She's absolutely thrilled with it.”</p>
-      <strong style="display: block; margin-top: 10px;">— Parijat</strong>
+    <div class="testimonial-card">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf59e6fcfa_1000217226.jpg" alt="Parijat">
+      <p>“My friend in Delhi just loved the artwork on the kurti you designed! She's absolutely thrilled with it.”</p>
+      <strong>— Parijat</strong>
     </div>
-
-    <!-- Card 4 -->
-    <div style="background: #111; border-radius: 14px; padding: 20px; width: 280px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5c140742_1000217241.jpg" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;">
-      <p style="font-size: 14px; line-height: 1.6;">“I love the 4 canvas paintings you created for my home. They're a perfect addition and showcase your amazing skill.”</p>
-      <strong style="display: block; margin-top: 10px;">— Priyanka</strong>
+    <div class="testimonial-card">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5c140742_1000217241.jpg" alt="Priyanka">
+      <p>“I love the 4 canvas paintings you created for my home. They're a perfect addition and showcase your amazing skill.”</p>
+      <strong>— Priyanka</strong>
     </div>
-
-    <!-- Card 5 -->
-    <div style="background: #111; border-radius: 14px; padding: 20px; width: 280px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5b873525_1000217235.jpg" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #25D366; margin-bottom: 12px;">
-      <p style="font-size: 14px; line-height: 1.6;">“Great work Parna. Everyone has praised your Artwork. Thank you so much 👏🏻👏🏻👏🏻”</p>
-      <strong style="display: block; margin-top: 10px;">— Subimal</strong>
+    <div class="testimonial-card">
+      <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5b873525_1000217235.jpg" alt="Subimal">
+      <p>“Great work Parna. Everyone has praised your Artwork. Thank you so much 👏🏻👏🏻👏🏻”</p>
+      <strong>— Subimal</strong>
     </div>
-
   </div>
 </div>
 
-
 <!-- FAQ -->
-<section id="faq">
+<section class="fade-section" id="faq">
   <h2>Frequently Asked Questions ❓</h2>
   <div class="faq">
     <details>
@@ -780,7 +512,7 @@
 </section>
 
 <!-- Contact -->
-<section id="contact">
+<section class="fade-section" id="contact">
   <h2>Our Services & Contact</h2>
   <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
   <p>Timings: Monday to Sunday, 9:00 AM – 9:00 PM (ISD) </p>
@@ -791,15 +523,38 @@
   © 2025 Art by Bose. All rights reserved.
 </footer>
 
-<!-- Loader script -->
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose" class="float-whatsapp" aria-label="WhatsApp Chat" target="_blank">
+  <svg aria-hidden="true" viewBox="0 0 32 32" width="32" height="32" fill="white"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.4 20.9a8.486 8.486 0 0 1-4.8 1.5c-4.6 0-8.3-3.7-8.3-8.3 0-2.3.9-4.3 2.3-5.8C13.1 8.1 15 7.2 17 7.2c4.6 0 8.3 3.7 8.3 8.3 0 1.6-.5 3-1.3 4.2-.2.3-.5.5-.9.5-.2 0-.3 0-.5-.1z" fill="white"/><path d="M8.3 23.9l.8-2.9c-.7-1.4-1.2-2.9-1.2-4.6 0-6.6 7.3-11.9 13-11.9 5.7 0 13 5.3 13 11.9 0 6.6-7.3 11.9-13 11.9-2.2 0-4.3-.4-6.3-1.2l-6.3 1.8z" fill="#25D366"/></svg>
+</a>
+
+<!-- Loader fade and fade-in-on-scroll -->
 <script>
+  // Loader fade
   window.addEventListener("load", function() {
     const loader = document.getElementById("loader-wrapper");
     loader.style.opacity = "0";
     loader.style.transition = "opacity 0.5s ease";
-    setTimeout(() => loader.style.display = "none", 500);
+    setTimeout(() => loader.style.display = "none", 530);
   });
+  // Fade in sections on scroll
+  function revealOnScroll() {
+    document.querySelectorAll('.fade-section').forEach(function(el){
+      const rect = el.getBoundingClientRect(),
+            windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 70) el.classList.add('visible');
+    });
+    // testimonials lazy-fade
+    document.querySelectorAll('.testimonial-card').forEach(function(card){
+      const rect = card.getBoundingClientRect(),
+            windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if(rect.top < windowHeight - 60) card.classList.add('visible');
+    });
+  }
+  document.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('DOMContentLoaded', revealOnScroll);
+  window.addEventListener('resize', revealOnScroll);
+  setTimeout(revealOnScroll, 400); // ensure visibility after load
 </script>
-
 </body>
 </html>
