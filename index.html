@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Art by Bose</title>
+  <!-- Logo as Favicon -->
   <link rel="icon" type="image/png" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
@@ -36,66 +37,81 @@
     }
     @keyframes brush-load { 0% { filter: grayscale(1) opacity(0.6);} 100% { filter: grayscale(0) opacity(1);} }
 
+    /* Sticky Free Shipping Bar */
+    #stickyBar {
+      position: sticky; top: 0;
+      width: 100%;
+      background: #ffefc4;
+      text-align: center;
+      padding: 8px 0 7px 0;
+      font-weight: bold;
+      font-size: 15px;
+      z-index: 100;
+      border-bottom: 2px solid #f5b301;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
     /* Logo and Tagline Responsive */
     .logo-hero-center {
-      width: 100%; text-align: center;
+      width: 100%;
+      text-align: center;
       background: linear-gradient(135deg, #fefcf5 60%, #f7e4bb 100%);
-      padding: 32px 10px 12px 10px;
-      box-sizing: border-box; position: static; z-index: 1;
+      padding: 26px 10px 8px 10px;
+      box-sizing: border-box;
+      position: static;
+      z-index: 1;
     }
     .main-logo-img {
-      max-width: 115px; width: 40vw; border-radius: 40%;
-      box-shadow: 0 3px 24px 0 #bfa66940, 0 1px 10px 0 #cbb68e39;
-      margin-bottom: 7px; display: block; margin-left: auto; margin-right: auto;
+      max-width: 110px;
+      width: 36vw;
+      border-radius: 40%;
+      box-shadow: 0 2px 18px 0 #bfa66940, 0 1px 10px 0 #cbb68e39;
+      margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto;
     }
     .logo-subheading {
-      font-size: 1.04em; color: #9e730c; font-family: 'Playfair Display', serif;
+      font-size: 1em; color: #9e730c; font-family: 'Playfair Display', serif;
       font-weight: 500; margin-top: 7px; letter-spacing: 0.4px;
       background: #f6e2ae;
-      display: inline-block; padding: 4px 13px 4px 13px;
+      display: inline-block; padding: 3px 11px 3px 11px;
       border-radius: 22px; box-shadow: 0 2px 8px #ebcd7d3a;
     }
 
-    /* Responsive Logo Area */
     @media (max-width: 600px) {
-      .logo-hero-center { padding: 13px 3vw 3px 3vw; }
-      .main-logo-img { max-width: 62px; width: 32vw; margin-bottom: 4px;}
-      .logo-subheading { font-size: 0.93em; padding: 2px 6px 2px 6px; margin-top:3px; }
+      .logo-hero-center { padding: 8px 3vw 2px 3vw; }
+      .main-logo-img { max-width: 50px; width: 28vw; margin-bottom: 3px;}
+      .logo-subheading { font-size: 0.92em; padding: 2px 4px 2px 4px; margin-top:2px; }
     }
 
-    /* Sticky Free Shipping Bar */
-    #stickyBar {
-      position: sticky; top: 0; width: 100%;
-      background: #ffefc4; text-align: center;
-      padding: 8px 0 7px; font-weight: bold; font-size: 15px;
-      z-index: 10; border-bottom: 2px solid #f5b301;
-      font-family: 'Poppins', sans-serif; letter-spacing: 0.01em;
+    /* Section gap consistency */
+    section.fade-section {
+      margin: 0 auto 30px auto;
+      max-width: 900px;
+      padding-bottom: 10px;
+      box-sizing: border-box;
     }
-
-    /* Artistic Section Divider */
     .section-divider {
-      width:100%; height:36px; margin:0; padding:0;
+      width:100%; height:30px; margin: 0 0 22px 0; padding:0;
       background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
     }
 
     /* Headings: Highlight */
-    h2 { text-align: center; margin: 28px 0 12px 0; position:relative; z-index:2; }
+    h2 { text-align: center; margin: 22px 0 11px 0; position:relative; z-index:2; }
     .headline-highlight {
       background: linear-gradient(to right, #fff1b8 65%, #f8e98a 100%);
       color: #473100 !important;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       border-radius: 12px;
-      padding: 0 13px;
+      padding: 0 11px;
       box-shadow: 0 2px 7px #e9b77450, 0 0px 2px #fff8;
       display: inline-block;
       line-height: 1.32;
       letter-spacing: 1px;
-      margin-bottom: 5px;
       text-shadow: 0 2px 5px #ceb23977, 0 0 2px #fff9;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
-    @media (max-width:600px) {.headline-highlight{font-size:0.91rem;padding:0 4px;}}
+    @media (max-width:600px) {.headline-highlight{font-size:0.95rem;padding:0 3px;}}
 
     /* Carousel */
     .carousel {
@@ -104,7 +120,7 @@
       scrollbar-width: thin; scrollbar-color: #d4ae53 #ffefc4;
     }
     .carousel img {
-      flex: 0 0 75vw; max-width: 310px; min-width: 110px;
+      flex: 0 0 75vw; max-width: 260px; min-width: 90px;
       scroll-snap-align: center;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(91,62,10,.13);
@@ -117,35 +133,42 @@
       box-shadow: 0 3px 20px #e6be7e77;
     }
 
-    .urgency-text { text-align:center; color:#c96219; font-weight:bold; font-size:1.01rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
-    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight:bold; text-align:center; margin:10px auto;}
-    .offer-text, .price-text { text-align:center; font-size:1em; }
-    .price-text { font-weight:bold; color:#e91e63;}
-    .cut-price { text-decoration:line-through; color:gray; font-size:0.9rem; margin-left:4px;}
-    .pulse-box { color: #c93a39; border:2px solid #e6b025; border-radius:10px; text-align:center; font-weight: bold; padding:8px; width:fit-content; margin:10px auto; animation: pulse 1.5s infinite; background: #fff7e4;}
+    .urgency-text { text-align:center; color:#c96219; font-weight:500; font-size:0.99rem;margin-bottom:7px; animation: pulse 1.6s infinite;}
+    .keychain-offer-text,.canvas-offer-text,.bottle-offer-text { color:#d03016; font-weight:600; text-align:center;
+      margin:10px auto;}
+    .offer-text, .price-text { text-align:center; font-size:0.96em; }
+    .price-text { font-weight:600; color:#e91e63;}
+    .cut-price { text-decoration:line-through; color:gray; font-size:0.88rem; margin-left:4px;}
+    .pulse-box { color: #c93a39; border:2px solid #e6b025; border-radius:10px; text-align:center; font-weight: 600; padding:8px; width:fit-content; margin:10px auto; background: #fff7e4;}
 
-    @keyframes pulse {0% {transform:scale(1);}50% {transform:scale(1.03);}100% {transform:scale(1);}}
+    /* WhatsApp Button + Pulse Animation */
+    .pulse {
+      animation: pulse 1.7s infinite;
+    }
+    @keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.09);}100%{transform:scale(1);}}
 
     .whatsapp-btn, .call-btn {
-      display:block; width:fit-content; margin:13px auto 26px;
+      display:block; width:fit-content; margin:13px auto 21px;
       background:#25D366; color: white; padding:10px 20px;
       border-radius:31px; font-weight:bold; text-decoration:none; font-size:1em;
       box-shadow: 0 1px 4px #25d36640; border:none; transition: background .17s;
     }
     .whatsapp-btn:hover { background-color:#1ebe57;}
     .call-btn { background:#004d43; color:white; padding:10px 20px; }
+
+    /* Floating WhatsApp Button with Pulse */
     .float-whatsapp {
       position:fixed; bottom:18px; right:14px; z-index:3000;
       background:#25D366; color:#fff; width:52px; height:52px;
       display:flex; align-items:center; justify-content:center; border-radius:50%; box-shadow:0 4px 18px #25D36660;
-      font-size:2em; animation:pulse 2s infinite; cursor:pointer; border:3px solid #e6be7e90; transition:box-shadow .12s;
+      font-size:2em; border:3px solid #e6be7e90; transition:box-shadow .12s;
     }
+    .float-whatsapp.pulse { animation: pulse 1.7s infinite; }
     .float-whatsapp:hover { box-shadow:0 6px 12px #06814bba;}
     .whatsapp-logo-svg {
       width: 32px; height: 32px; display: block; margin: auto;
     }
 
-    /* Product details grid */
     .jewelry-description-grid {
       display:grid; grid-template-columns:repeat(2,auto);
       gap: 7px 17px; justify-content:center; text-align:center;
@@ -153,28 +176,25 @@
     }
 
     /* Testimonials: compact for mobile */
-    .testimonials-section {
-      background: #fff5e4; padding: 30px 2vw 20px 2vw; color:#442e08; text-align:center;
-      margin-top:22px; margin-bottom:20px;
-    }
-    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:13px;}
+    .testimonials-section { background: #fff5e4; padding: 22px 2vw 8px 2vw; color:#442e08; text-align:center; margin-top:18px; margin-bottom:14px;}
+    .testimonials-cards { display:flex; flex-wrap:wrap; justify-content:center; gap:11px;}
     .testimonial-card {
-      background:#fffaf3; border-radius:10px; padding:12px; width:220px;
+      background:#fffaf3; border-radius:10px; padding:10px; width:180px;
       box-shadow:0 0 11px rgba(179,134,26,.08); border:1px solid #f2e1c0cc;
-      margin-bottom:7px; display:flex; flex-direction:column; align-items:center;
-      animation: fadeUp 1s; opacity:0; transform:translateY(30px); transition:box-shadow .12s;
+      margin-bottom:8px; display:flex; flex-direction:column; align-items:center;
+      animation: fadeUp 1s; opacity:0; transform:translateY(18px); transition:box-shadow .12s;
     }
     .testimonial-card.visible { opacity:1; transform:translateY(0);}
-    .testimonial-card img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:9px;}
+    .testimonial-card img { width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #25D366; margin-bottom:7px;}
     .testimonial-card p { font-size:13px; line-height:1.6;}
-    .testimonial-card strong { margin-top:7px; font-size:0.96em;}
-    @keyframes fadeUp { from { opacity:0; transform:translateY(32px);} to {opacity:1; transform:translateY(0);} }
-    .faq summary { font-weight:bold; cursor:pointer; padding:6px 0; color:#c69328;}
-    .faq details {margin:7px 0;}
-    footer { text-align:center; padding:20px 10px; font-size:0.93rem; color:#9a7c36; background:#f9eace; margin-top:16px;}
+    .testimonial-card strong { margin-top:6px; font-size:0.95em;}
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px);} to {opacity:1; transform:translateY(0);} }
 
-    /* Reveal on scroll (sections) */
-    .fade-section { opacity:0; transform:translateY(28px); transition:opacity 1s, transform 1s; }
+    .faq summary { font-weight:600; cursor:pointer; padding:5px 0; color:#c69328;}
+    .faq details {margin:6px 0;}
+    footer { text-align:center; padding:13px 7px; font-size:0.93rem; color:#9a7c36; background:#f9eace; margin-top:11px;}
+
+    .fade-section { opacity:0; transform:translateY(20px); transition:opacity 1s, transform 1s; }
     .fade-section.visible { opacity:1; transform:translateY(0);}
   </style>
 </head>
@@ -187,13 +207,14 @@
   </div>
 </div>
 
+<!-- Sticky Free Shipping Bar -->
+<div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
+
 <!-- Logo and Tagline Centered -->
 <div class="logo-hero-center">
   <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img">
   <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
 </div>
-
-<div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <section class="fade-section" id="about">
   <h2><span class="headline-highlight">Art by Bose</span></h2>
@@ -212,7 +233,7 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
   </div>
   <div class="keychain-offer-text">🔥 Grab a Keychain @ just ₹49/- <s>₹99/-</s> Only!</div>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Canvas Art -->
@@ -227,7 +248,7 @@
     <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png">
   </div>
   <div class="canvas-offer-text">💥 Custom Canvas starts @ ₹199/- <s>₹499/-</s><br>🔥 Hurry! Offer ends soon!</div>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Bottles Art -->
@@ -242,7 +263,7 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" alt="Bottle Art 4">
   </div>
   <div class="bottle-offer-text">🔥 Custom Bottle starts @ ₹149/- <s>₹399/-</s><br>💥 Limited Time Only!</div>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Jewelry -->
@@ -267,7 +288,7 @@
     💎 Premium Jewelry starts @ ₹59/- <s>₹129/-</s>
   </div>
   <div class="pulse-box">🔥 Limited Time Deal: Grab 3 or more, Get Flat 20% OFF!</div>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Pendants -->
@@ -283,7 +304,7 @@
     <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7">
   </div>
   <p class="pulse-box">💎 Best Quality & Lowest Price: ₹99/- to ₹149/- <br>🎉 Enjoy Discounts up to 20% 🎉</p>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Earrings -->
@@ -301,11 +322,11 @@
   </div>
   <p class="offer-text">✅ Best Quality and Lowest Price</p>
   <p class="price-text">💖 Starting from ₹89/- <span class="cut-price">₹119/-</span></p>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Bracelets -->
-<section class="fade-section" id="bracelets" style="padding: 16px 5px; background: #fff;">
+<section class="fade-section" id="bracelets" style="padding: 12px 5px; background: #fff;">
   <h2 style="text-align: center; font-size:1.1rem; margin-bottom:7px;">
     <span class="headline-highlight">✨ Premium Bracelets for You ✨</span>
   </h2>
@@ -320,7 +341,7 @@
   </div>
   <p class="offer-text">✨ Premium-Quality Bracelets for Everyday Elegance</p>
   <p class="price-text">🎉 Starting from ₹79/- <span class="cut-price">₹99/-</span></p>
-  <a class="whatsapp-btn" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
 </section>
 <span class="section-divider"></span>
 <!-- Testimonials -->
@@ -383,8 +404,8 @@
   © 2025 Art by Bose. All rights reserved.
 </footer>
 
-<!-- Floating WhatsApp Button (SVG logo) -->
-<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose" class="float-whatsapp" aria-label="WhatsApp Chat" target="_blank">
+<!-- Floating WhatsApp Button with Pulse and SVG -->
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose" class="float-whatsapp pulse" aria-label="WhatsApp Chat" target="_blank">
   <svg class="whatsapp-logo-svg" viewBox="0 0 256 256"><circle cx="128" cy="128" r="128" fill="#25D366"/><path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z"/></svg>
 </a>
 
@@ -395,6 +416,7 @@
     loader.style.transition = "opacity 0.5s ease";
     setTimeout(() => loader.style.display = "none", 530);
   });
+
   function revealOnScroll() {
     document.querySelectorAll('.fade-section').forEach(function(el){
       const rect = el.getBoundingClientRect(),
