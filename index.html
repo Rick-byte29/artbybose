@@ -64,6 +64,18 @@
     section.fade-section { margin: 0 auto 30px auto; max-width: 900px; }
     .section-divider { width:100%;height:32px; margin: 0 0 23px 0;
       padding:0;background:url('https://svgshare.com/i/1798.svg') no-repeat center/cover;}
+    .carousel {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; gap: 10px; padding: 10px 0;
+    }
+    .carousel img {
+      flex: 0 0 95vw; max-width: 420px; height: auto; border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(91,62,10,0.17); scroll-snap-align: center;
+      object-fit: cover; border:1.5px solid #e6be7e90; margin:0 auto;
+      transition: transform .16s, box-shadow .12s;
+    }
+    .carousel img:hover {transform: scale(1.05) rotate(-1deg);}
+    @media (max-width:650px) {.carousel img { max-width: 98vw; min-width: 98vw;}}
     .pulse { animation: pulse 1.7s infinite; }
     @keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.09);}100%{transform:scale(1);}}
     .whatsapp-btn, .call-btn {
@@ -101,81 +113,16 @@
     footer { text-align:center; padding:13px 7px; font-size:0.93rem; color:#9a7c36; background:#f9eace; margin-top:11px;}
     .fade-section {opacity:0; transform:translateY(20px); transition:opacity 1s, transform 1s; }
     .fade-section.visible { opacity: 1; transform: translateY(0);}
-    
-    .whatsapp-btn.pulse {
-      animation: pulse 1.7s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1);}
-      50% { transform: scale(1.09);}
-      100% { transform: scale(1);}
-    }
+      
+.whatsapp-btn.pulse {
+  animation: pulse 1.7s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.09);}
+  100% { transform: scale(1);}
+}
 
-    /* 3D coverflow carousel */
-    .coverflow-wrapper {
-      position: relative;
-      perspective: 1200px;
-      margin: 0 auto;
-      padding: 40px 0;
-      overflow: visible;
-    }
-    .coverflow {
-      display: flex;
-      gap: 0;
-      user-select: none;
-      touch-action: pan-x;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      padding: 0;
-      margin: 0;
-    }
-    .coverflow-slide {
-      flex: 0 0 60%;
-      max-width: 60%;
-      margin: 0 5%;
-      position: relative;
-      transform-origin: center center;
-      transition: transform .35s ease, opacity .35s ease;
-      cursor: pointer;
-    }
-    .coverflow-slide img {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      box-shadow: 0 20px 60px rgba(91,62,10,0.15);
-      object-fit: cover;
-      border: 2px solid #e6be7e90;
-    }
-    .coverflow-slide.inactive {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-    .coverflow-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      left: 0;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10px;
-      box-sizing: border-box;
-      pointer-events: none;
-    }
-    .coverflow-btn {
-      background: rgba(255,255,255,0.85);
-      border: none;
-      font-size: 1.2rem;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      pointer-events: all;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-      backdrop-filter: blur(6px);
-    }
-    @media (max-width: 900px) {
-      .coverflow-slide { flex: 0 0 80%; max-width: 80%; }
-    }
   </style>
 </head>
 <body>
@@ -189,110 +136,47 @@
     <p style="text-align:center;">Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.</p>
   </section>
   <span class="section-divider"></span>
-
-  <!-- Keychains -->
   <section class="fade-section" id="keychains">
     <h2>Keychains You Must Have 🔑✨</h2>
     <p class="urgency-text">⚡ Limited Stock – Order Now Before It's Gone!</p>
-
-    <div class="coverflow-wrapper" data-section="Keychains">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the keychains from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" data-name="Keychain 1">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2" data-name="Keychain 2">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" data-name="Keychain 3">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" data-name="Keychain 4">
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel" id="keychain-carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
     </div>
-
     <div class="pulse-box">🔥 Grab a Keychain @ just ₹49/- <s>₹99/-</s> Only!</div>
-    <a class="whatsapp-btn pulse dynamic-whatsapp" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+    <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20keychains%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Canvas -->
   <section class="fade-section" id="canvas">
     <h2>Custom Canvas Art 🖌️🎨</h2>
     <p class="urgency-text">🎨 Your Wall Deserves This – Limited Time Pricing ⚠️</p>
-
-    <div class="coverflow-wrapper" data-section="Canvas">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the canvas art from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png" alt="Canvas 1" data-name="Canvas 1">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png" alt="Canvas 2" data-name="Canvas 2">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png" alt="Canvas 4" data-name="Canvas 4">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png" alt="Canvas 5" data-name="Canvas 5">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png" alt="Canvas 6" data-name="Canvas 6">
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel">
+      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png">
+      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png">
+      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png">
+      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png">
+      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png">
     </div>
-
     <div class="pulse-box">💥 Custom Canvas starts @ ₹199/- <s>₹499/-</s><br>🔥 Hurry! Offer ends soon!</div>
-    <a class="whatsapp-btn pulse dynamic-whatsapp" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+    <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Bottles -->
   <section class="fade-section" id="bottles">
     <h2>Custom Bottle Art 🍾🖌️</h2>
     <p class="urgency-text">🛑 Stock Alert: Selling Out Faster Than You Think!</p>
-
-    <div class="coverflow-wrapper" data-section="Bottles">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the custom bottles from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" alt="Bottle Art 5" data-name="Bottle Art 5">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/bottle%20image%202.png?raw=true" alt="Bottle Art 2" data-name="Bottle Art 2">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" alt="Bottle Art 1" data-name="Bottle Art 1">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/bottle%203.png?raw=true" alt="Bottle Art 3" data-name="Bottle Art 3">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/bottle%204.png?raw=true" alt="Bottle Art 4" data-name="Bottle Art 4">
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%205.png?raw=true" alt="Bottle Art 5">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%202.png?raw=true" alt="Bottle Art 2">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%20image%201.png?raw=true" alt="Bottle Art 1">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%203.png?raw=true" alt="Bottle Art 3">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/bottle%204.png?raw=true" alt="Bottle Art 4">
     </div>
-
     <div class="pulse-box">🔥 Custom Bottle starts @ ₹149/- <s>₹399/-</s><br>💥 Limited Time Only!</div>
-    <a class="whatsapp-btn pulse dynamic-whatsapp" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
+    <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20custom%20bottles%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Jewelry -->
   <section class="fade-section" id="jewelry">
     <h2>Jewelry You’ll Love 💍✨</h2>
     <div class="jewelry-description-grid">
@@ -301,176 +185,95 @@
       <div>✨ 18k Goldplated</div>
       <div>✨ Hypoallergenic</div>
     </div>
-
-    <div class="coverflow-wrapper" data-section="Jewelry">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the jewelry collection from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1" data-name="Jewelry 1">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2" data-name="Jewelry 2">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%203.jpg?raw=true" alt="Jewelry 3" data-name="Jewelry 3">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%204.jpg?raw=true" alt="Jewelry 4" data-name="Jewelry 4">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%205.jpg?raw=true" alt="Jewelry 5" data-name="Jewelry 5">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6" data-name="Jewelry 6">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7" data-name="Jewelry 7">
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%203.jpg?raw=true" alt="Jewelry 3">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%204.jpg?raw=true" alt="Jewelry 4">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%205.jpg?raw=true" alt="Jewelry 5">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7">
     </div>
-
     <div style="color: red; text-align: center; font-weight: bold;">
       💎 Premium Jewelry starts @ ₹59/- <s>₹129/-</s>
     </div>
     <div class="pulse-box">🔥 Limited Time Deal: Grab 3 or more, Get Flat 20% OFF!</div>
     <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Pendants -->
   <section class="fade-section" id="pendants">
      <h2>✨ Elegant and Classy Pendants ✨</h2>
-
-    <div class="coverflow-wrapper" data-section="Pendants">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the pendant collection from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1" data-name="Pendant 1">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2" data-name="Pendant 2">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%203.png?raw=true" alt="Pendant 3" data-name="Pendant 3">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%204.png?raw=true" alt="Pendant 4" data-name="Pendant 4">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%205.png?raw=true" alt="Pendant 5" data-name="Pendant 5">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6" data-name="Pendant 6">
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7" data-name="Pendant 7">
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%203.png?raw=true" alt="Pendant 3">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%204.png?raw=true" alt="Pendant 4">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%205.png?raw=true" alt="Pendant 5">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7">
     </div>
-
     <div class="pulse-box">💎 Best Quality & Lowest Price: ₹99/- to ₹149/- <br>🎉 Enjoy Discounts up to 20% 🎉</div>
     <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Earrings -->
   <section class="fade-section" id="earrings">
     <h2>✨ Elegant Earrings You Must Have ✨</h2>
-
-    <div class="coverflow-wrapper" data-section="Earrings">
-      <div class="coverflow" data-whatsapp-template="I'm interested in the earrings collection from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" data-name="Earring 1" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" data-name="Earring 2" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" data-name="Earring 3" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" data-name="Earring 4" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" data-name="Earring 5" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" data-name="Earring 6" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" data-name="Earring 7" />
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" data-name="Earring 8" />
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
+    <div class="carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
     </div>
-
     <div class="pulse-box">✅ Best Quality and Lowest Price<br>💖 Starting from ₹89/- <span style="text-decoration:line-through; color:gray;">₹119/-</span></div>
     <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
-
   <span class="section-divider"></span>
-
-  <!-- Traditional Attire -->
-  <section class="fade-section" id="traditional-attire">
-    <h2>
-      Custom design traditional attire ✨
-    </h2>
-    <div style="text-align:center; color:#6a4006; font-size:1.02em; margin-bottom:7px;">
-      Hand-painted, crafted onto real readywear—each outfit is unique and made just for you!
+  <section class="fade-section" id="bracelets" style="padding: 12px 5px; background: #fff;">
+    <h2>✨ Premium Bracelets for You ✨</h2>
+    <div class="carousel">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/3.png?raw=true" alt="Bracelet 3">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/4.png?raw=true" alt="Bracelet 4">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/5.png?raw=true" alt="Bracelet 5">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7">
     </div>
-    <div style="font-size:1.1em; color:#d60000; font-weight:bold; text-align:center; margin-bottom:8px;">
-      Price starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹499/-</span>
-    </div>
-    <div class="pulse-box" style="font-size:1.04em;">
-      Stand out in tradition—no more mass-market looks! Flaunt a style as original as you are.
-    </div>
-
-    <div class="coverflow-wrapper" data-section="Traditional Attire">
-      <div class="coverflow" data-whatsapp-template="I'm interested in custom design traditional attire from Art by Bose: [PRODUCT_NAME]">
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Traditional%20Attire%201.png?raw=true" alt="Traditional Attire 1" data-name="Traditional Attire 1"/>
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Traditional%20Attire%202.png?raw=true" alt="Traditional Attire 2" data-name="Traditional Attire 2"/>
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Traditional%20Attire%203.png?raw=true" alt="Traditional Attire 3" data-name="Traditional Attire 3"/>
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Traditional%20Attire%204%20New.png?raw=true" alt="Traditional Attire 4" data-name="Traditional Attire 4"/>
-        </div>
-        <div class="coverflow-slide">
-          <img src="https://github.com/Rick-byte29.artbybose/blob/main/Traditional%20Attire%205.png?raw=true" alt="Traditional Attire 5" data-name="Traditional Attire 5"/>
-        </div>
-      </div>
-      <div class="coverflow-controls">
-        <button class="coverflow-btn prev-btn" aria-label="Previous slide">&larr;</button>
-        <button class="coverflow-btn next-btn" aria-label="Next slide">&rarr;</button>
-      </div>
-    </div>
-
-    <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20custom%20design%20traditional%20attire%20from%20Art%20by%20Bose">
-      Order Now via WhatsApp
-    </a>
+    <div class="pulse-box">✨ Premium-Quality Bracelets for Everyday Elegance<br>🎉 Starting from ₹79/- <span style="text-decoration:line-through; color:gray;">₹99/-</span></div>
+    <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20jewelry%20collection%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
   </section>
 
-  <span class="section-divider"></span>
+  <section class="fade-section" id="traditional-attire">
+  <h2>
+    Custom design traditional attire ✨
+  </h2>
+  <div style="text-align:center; color:#6a4006; font-size:1.02em; margin-bottom:7px;">
+    Hand-painted, crafted onto real readywear—each outfit is unique and made just for you!
+  </div>
+  <div style="font-size:1.1em; color:#d60000; font-weight:bold; text-align:center; margin-bottom:8px;">
+    Price starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹499/-</span>
+  </div>
+  <div class="pulse-box" style="font-size:1.04em;">
+    Stand out in tradition—no more mass-market looks! Flaunt a style as original as you are.
+  </div>
+  <!-- Carousel -->
+  <div class="carousel" id="traditional-attire-carousel">
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%201.png?raw=true" alt="Traditional Attire 1"/>
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%202.png?raw=true" alt="Traditional Attire 2"/>
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%203.png?raw=true" alt="Traditional Attire 3"/>
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%204%20New.png?raw=true" alt="Traditional Attire 4"/>
+    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%205.png?raw=true" alt="Traditional Attire 5"/>
+  </div>
+  <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20custom%20design%20traditional%20attire%20from%20Art%20by%20Bose">
+    Order Now via WhatsApp
+  </a>
+</section>
 
-  <!-- Testimonials -->
+  <span class="section-divider"></span>
   <div class="testimonials-section fade-section">
     <h2>Hear From Our Happy Clients</h2>
     <div class="testimonials-cards">
@@ -501,8 +304,6 @@
       </div>
     </div>
   </div>
-
-  <!-- FAQ -->
   <section class="fade-section" id="faq">
     <h2>Frequently Asked Questions ❓</h2>
     <div class="faq">
@@ -520,163 +321,37 @@
       </details>
     </div>
   </section>
-
-  <!-- Contact -->
   <section class="fade-section" id="contact">
     <h2>Our Services & Contact</h2>
     <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
     <p>Timings: Monday to Sunday, 9:00 AM – 9:00 PM (ISD) </p>
     <a class="call-btn" href="tel:+919127210272">Call Us</a>
   </section>
-
   <footer>© 2025 Art by Bose. All rights reserved.</footer>
-
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20handcrafted%20art%20from%20Art%20by%20Bose"
-     class="float-whatsapp pulse"
+     class="float-whatsapp pulse" 
      aria-label="WhatsApp Chat" target="_blank" rel="noopener">
     <svg class="whatsapp-logo-svg" viewBox="0 0 256 256">
       <circle cx="128" cy="128" r="128" fill="#25D366"/>
       <path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z"/>
     </svg>
   </a>
-
- <script>
-  // Reveal on scroll (unchanged)
-  function revealOnScroll() {
-    document.querySelectorAll('.fade-section').forEach(function(el){
-      const rect = el.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      if (rect.top < windowHeight - 50) el.classList.add('visible');
-    });
-    document.querySelectorAll('.testimonial-card').forEach(function(card){
-      const rect = card.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
-      if(rect.top < windowHeight - 60) card.classList.add('visible');
-    });
-  }
-  document.addEventListener('scroll', revealOnScroll);
-  window.addEventListener('DOMContentLoaded', revealOnScroll);
-  window.addEventListener('resize', revealOnScroll);
-  setTimeout(revealOnScroll, 350);
-
-  // Robust 3D coverflow logic
-  document.querySelectorAll('.coverflow-wrapper').forEach(function(wrapper){
-    const coverflow = wrapper.querySelector('.coverflow');
-    const slides = Array.from(coverflow.children);
-    let current = 0;
-    let isDragging = false;
-    let startX = 0;
-    let deltaX = 0;
-    const swipeThreshold = 40; // pixels required to trigger
-
-    // Center and style slides based on current index
-    function updateCoverflow(animate = true) {
-      slides.forEach((slide, i) => {
-        const offset = i - current;
-        const absOffset = Math.abs(offset);
-        // 3D transform: side slides tilt, center is flat
-        let transform;
-        if (i === current) {
-          transform = 'translateX(0px) translateZ(0px) scale(1) rotateY(0deg)';
-          slide.style.zIndex = 50;
-          slide.classList.remove('inactive');
-        } else if (i < current) {
-          transform = `translateX(${-absOffset * 100}px) translateZ(-60px) scale(${1 - 0.15 * absOffset}) rotateY(25deg)`;
-          slide.style.zIndex = 50 - absOffset;
-          slide.classList.add('inactive');
-        } else {
-          transform = `translateX(${absOffset * 100}px) translateZ(-60px) scale(${1 - 0.15 * absOffset}) rotateY(-25deg)`;
-          slide.style.zIndex = 50 - absOffset;
-          slide.classList.add('inactive');
-        }
-        if (animate) {
-          slide.style.transition = 'transform .45s cubic-bezier(.22,.61,.36,1), opacity .3s';
-        } else {
-          slide.style.transition = 'none';
-        }
-        slide.style.transform = transform;
-        slide.style.opacity = i === current ? '1' : '0.5';
+  <script>
+    function revealOnScroll() {
+      document.querySelectorAll('.fade-section').forEach(function(el){
+        const rect = el.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < windowHeight - 50) el.classList.add('visible');
       });
-      updateWhatsAppCTA();
-    }
-
-    function updateWhatsAppCTA() {
-      const section = wrapper.closest('section');
-      const template = coverflow.getAttribute('data-whatsapp-template') || '';
-      const activeSlide = slides[current];
-      const productName = activeSlide.querySelector('img')?.getAttribute('data-name') || '';
-      const msg = encodeURIComponent(template.replace('[PRODUCT_NAME]', productName));
-      const base = 'https://wa.me/919127210272?text=';
-      const btn = section.querySelector('.dynamic-whatsapp');
-      if (btn) btn.href = base + msg;
-    }
-
-    // Arrow controls
-    wrapper.querySelector('.prev-btn')?.addEventListener('click', () => {
-      if (current > 0) {
-        current -= 1;
-        updateCoverflow();
-      }
-    });
-    wrapper.querySelector('.next-btn')?.addEventListener('click', () => {
-      if (current < slides.length -1) {
-        current += 1;
-        updateCoverflow();
-      }
-    });
-
-    // Click to focus
-    slides.forEach((slide, i) => {
-      slide.addEventListener('click', () => {
-        if (i !== current) {
-          current = i;
-          updateCoverflow();
-        }
+      document.querySelectorAll('.testimonial-card').forEach(function(card){
+        const rect = card.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if(rect.top < windowHeight - 60) card.classList.add('visible');
       });
-    });
-
-    // Pointer (mouse/touch) drag
-    coverflow.addEventListener('pointerdown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      deltaX = 0;
-      coverflow.setPointerCapture(e.pointerId);
-      slides.forEach(s => s.style.transition = 'none'); // freeze transition during drag
-    });
-    coverflow.addEventListener('pointermove', (e) => {
-      if (!isDragging) return;
-      deltaX = e.clientX - startX;
-    });
-    coverflow.addEventListener('pointerup', () => {
-      if (!isDragging) return;
-      if (deltaX > swipeThreshold && current > 0) {
-        current -= 1;
-      } else if (deltaX < -swipeThreshold && current < slides.length -1) {
-        current += 1;
-      }
-      updateCoverflow();
-      isDragging = false;
-      deltaX = 0;
-    });
-    coverflow.addEventListener('pointerleave', () => {
-      if (isDragging) {
-        updateCoverflow();
-        isDragging = false;
-        deltaX = 0;
-      }
-    });
-
-    // Initialize positions without animation first
-    updateCoverflow(false);
-  });
-
-  // Smooth scroll anchors
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      const t = document.querySelector(this.getAttribute('href'));
-      if (t) t.scrollIntoView({behavior:'smooth'});
-    });
-  });
-</script>
+    }
+    document.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+    window.addEventListener('resize', revealOnScroll);
+    setTimeout(revealOnScroll, 350);
+  </script>
 </body>
 </html>
