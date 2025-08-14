@@ -484,24 +484,44 @@ aria-label="WhatsApp Chat" target="_blank" rel="noopener">
 
 </div>
 <script>
-document.addEventListener("DOMContentLoaded", function(){
-    document.documentElement.classList.remove("no-js");
+document.addEventListener("DOMContentLoaded", function() {
+var text = "Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.";
+var container = document.getElementById("aboutReveal");
 
-    function revealOnScroll() {
-        var windowHeight = window.innerHeight;
-        document.querySelectorAll('.fade-section').forEach(function(el){
-            if (el.getBoundingClientRect().top <= windowHeight - 20) el.classList.add('visible');
-        });
-        document.querySelectorAll('.testimonial-card').forEach(function(card){
-            if (card.getBoundingClientRect().top <= windowHeight - 20) card.classList.add('visible');
-        });
-    }
-
-    revealOnScroll();
-    document.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('resize', revealOnScroll);
-    setTimeout(revealOnScroll, 300);
+var words = text.split(/(\s+)/);
+container.innerHTML = "";
+words.forEach(function(word, i){
+if(word.trim() === "") {
+container.appendChild(document.createTextNode(word));
+} else {
+var span = document.createElement("span");
+span.textContent = word + " ";
+container.appendChild(span);
+}
 });
+
+var spans = container.querySelectorAll('span');
+spans.forEach(function(span, i){
+setTimeout(function(){
+span.classList.add("show");
+}, 80*i + 150);
+});
+});
+
+function revealOnScroll() {
+document.querySelectorAll('.fade-section').forEach(function(el){
+const rect = el.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
+if (rect.top < windowHeight - 50) el.classList.add('visible');
+});
+document.querySelectorAll('.testimonial-card').forEach(function(card){
+const rect = card.getBoundingClientRect(), windowHeight = window.innerHeight || document.documentElement.clientHeight;
+if(rect.top < windowHeight - 60) card.classList.add('visible');
+});
+}
+document.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
+window.addEventListener('resize', revealOnScroll);
+setTimeout(revealOnScroll, 350);
 </script>
 </body>
 </html>
