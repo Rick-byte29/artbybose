@@ -5,49 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Art by Bose</title>
 <link rel="icon" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" type="image/png"/>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=Bio+Rhyme:wght@400&display=swap" rel="stylesheet"/>
+
+<!-- Import Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&family=BioRhyme:wght@400&display=swap" rel="stylesheet"/>
+
 <style>
 :root {
   --glow-bg: 0 0 20px 4px #f7e59188, 0 0 40px 10px #faeab4cc;
   --testimonials-glow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
 }
-/* Default to Bio Rhyme everywhere */
-html, body, * {
-  font-family: 'Bio Rhyme', serif !important;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
+html, body {
+  margin: 0; padding: 0;
+  font-family: 'BioRhyme', serif !important;
   color: #15130f;
-  min-height: 100vh;
-  background: #f7f6f2;
-  padding-top: 52px;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  min-height: 100vh; overflow-x: hidden;
+  background: #f7f6f2; padding-top: 52px;
+  scroll-behavior: smooth; box-sizing: border-box;
 }
-/* Apply Tangerine only to headings + logo subheading */
-h2, .logo-subheading, .text-reveal-glow-bg h2 {
+* {
+  font-family: 'BioRhyme', serif !important;
+}
+/* Apply Tangerine font only on headings & logo-subheading */
+h2, .logo-subheading {
   font-family: 'Tangerine', cursive !important;
 }
-/* --- Your original CSS styles below (unchanged except font rules above) --- */
-#stickyBar {position:fixed;top:0;left:0;width:100%;background:#ffefc4;color:#222;text-align:center;font-weight:bold;z-index:30000;border-bottom:2px solid #f5b301;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:12px 0}
-.logo-hero-center {width:100%;text-align:center;padding:27px 8px 18px;background:rgba(255,249,219,0.97);border-bottom:1.5px solid #f1e5b7}
-.main-logo-img {max-width:165px;border-radius:40%;display:block;margin:0 auto;}
-.logo-subheading {font-size:2.4em;color:#9e730c;background:#f6e2ae;display:inline-block;padding:4px 18px;border-radius:22px;box-shadow:0 2px 18px #ebcd7d3a;margin-top:7px;letter-spacing:.4px}
-h2 {font-size:2.6rem;color:#473100!important;background:rgba(255,241,184,0.96);border-radius:11px;padding:0 11px;box-shadow:0 2px 7px #e9b77440,0 0 2px #fff6;margin:18px auto 8px auto;display:block;text-align:center}
-.section-divider {width:100%;height:32px;margin:0 0 23px 0;background:url('https://svgshare.com/i/1798.svg') no-repeat center/cover}
-.fade-section {opacity:0;transform:translateY(44px);transition:all 1s;}
-.fade-section.visible {opacity:1;transform:translateY(0);}
-.carousel {display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding:10px 0;}
-.carousel img {flex:0 0 90vw;max-width:430px;border-radius:13px;object-fit:cover;border:1.5px solid #e6be7e90;}
-.pulse-box {padding:8px;margin:10px auto;background:#fff7e4;border:2px solid #e6b025;border-radius:10px;text-align:center}
-.whatsapp-btn, .call-btn {display:block;width:fit-content;margin:13px auto;padding:10px 28px;border-radius:31px;font-weight:700;text-decoration:none;font-size:1.5em}
-.whatsapp-btn {background:#25d366;color:#fff;}
-.call-btn {background:#004d43;color:#fff;}
-.testimonials-section {background:#fff7e4f7;padding:28px 2vw 14px;color:#442e08;border-radius:23px;box-shadow:var(--testimonials-glow);}
-.testimonial-card {background:#fffaf3;border-radius:13px;padding:13px;width:220px;text-align:center;border:1px solid #f2e1c0cc;margin-bottom:8px;}
+#bg-video {
+  position: fixed; top:0; left:0; width:100vw; height:100vh;
+  object-fit: cover; z-index:0;
+  filter: blur(2.7px) brightness(0.91) grayscale(0.08) saturate(1.18);
+  pointer-events: none; display: none;
+}
+#overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(140deg, #fefae394 64%, #e6c27e83 97%);
+  z-index: 1; pointer-events: none;
+}
+.main-content { position: relative; z-index: 2; }
+#stickyBar {
+  position:fixed; top:0; left:0; width:100vw;
+  background: #ffefc4; color: #222; text-align:center;
+  font-weight:bold; font-size:1.06rem; z-index:30000;
+  border-bottom:2px solid #f5b301; padding:12px 0 10px;
+}
+.logo-hero-center {
+  text-align:center; padding:27px 8px 18px;
+  background: rgba(255, 249, 219, 0.97);
+  border-bottom:1.5px solid #f1e5b7;
+}
+.main-logo-img {
+  max-width:165px; width:30vw; border-radius:40%;
+  box-shadow:0 4px 24px #f3cc7077;
+  animation:logo3dfloat 3.8s infinite linear alternate, logo-entrance 1.13s;
+  filter: drop-shadow(0 0 10px #ffe59f99);
+}
+@keyframes logo3dfloat {
+  0% { transform: rotateY(-10deg) scale(1);}
+  32% { transform: rotateY(7deg) scale(1.095);}
+  100% { transform: rotateY(7deg) scale(1.06);}
+}
+@keyframes logo-entrance {
+  from { transform:rotateX(23deg) scale(0.82) translateY(-38px); opacity:0;}
+  to { transform:rotateX(0) scale(1) translateY(0); opacity:1;}
+}
+.logo-subheading {
+  font-size:1.4em; color:#9e730c; margin-top:7px;
+  background:#f6e2ae; padding:4px 18px; border-radius:22px;
+}
+.text-reveal-glow-bg {
+  background: rgba(253, 246, 214, 0.98);
+  box-shadow: var(--glow-bg);
+  max-width:700px; margin:0 auto 16px; padding:32px 6vw 24px;
+  border-radius:32px;
+}
+.text-reveal { letter-spacing:0.02em; font-size:1.2em; text-align:center; }
+h2 {
+  text-align:center; font-weight:600; font-size:2.2rem; background:rgba(255,241,184,0.96); border-radius:11px;
+}
+.section-divider {
+  width:100%; height:32px; background:url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
+  margin:0 0 23px 0;
+}
+.fade-section { opacity:0; transform:translateY(44px); }
+.fade-section.visible { opacity:1; transform:translateY(0); }
+.carousel {
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:10px;
+}
+.carousel img {
+  border-radius:13px; scroll-snap-align:center;
+  border:1.5px solid #e6be7e90;
+}
+.whatsapp-btn, .call-btn {
+  display:block; margin:13px auto 19px; background:#25d366; color:#fff;
+  padding:10px 28px; border-radius:31px; font-weight:700;
+}
+.call-btn { background:#004d43; }
 </style>
 </head>
 <body>
@@ -57,38 +108,17 @@ h2 {font-size:2.6rem;color:#473100!important;background:rgba(255,241,184,0.96);b
 <div id="stickyBar">🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <div class="logo-hero-center">
-  <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img"/>
+  <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
   <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
 </div>
 
 <section class="fade-section" id="about">
   <div class="text-reveal-glow-bg">
-    <h2>Art by Bose</h2>
+    <h2 style="background:none; box-shadow:none;">Art by Bose</h2>
     <div class="text-reveal" id="aboutReveal">
-      Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style...
+      Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.
     </div>
   </div>
-</section>
-<span class="section-divider"></span>
-
-<section class="fade-section" id="Custom-Paintings">
-  <h2>Custom Paintings on any Objects</h2>
-  <p class="urgency-text">⚡ Hurry– Order Now Before It's Late! </p>
-  <div class="carousel" id="CustomPaintings-carousel">
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%201.png?raw=true" alt="Custom Painting 1" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%202.png?raw=true" alt="Custom Painting 2" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%203.png?raw=true" alt="Custom Painting 3" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%204.png?raw=true" alt="Custom Painting 4" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%205.png?raw=true" alt="Custom Painting 5" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%206.png?raw=true" alt="Custom Painting 6" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%207.png?raw=true" alt="Custom Painting 7" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%208.png?raw=true" alt="Custom Painting 8" />
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%209.png?raw=true" alt="Custom Painting 9" />
-  </div>
-  <div class="pulse-box">💥 Custom Art on any objects of all sizes starting @ just ₹299/- <span style="text-decoration:line-through; color:gray;">₹699/- </span>
-  </div>
-   <a class="whatsapp-btn pulse" href="https://wa.me/919127210272?text=I'm%20interested%20in%20the%20canvas%20art%20from%20Art%20by%20Bose">Order Now via WhatsApp</a>
-</section>
 </section>
 <span class="section-divider"></span>
 
