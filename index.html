@@ -4,480 +4,414 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Art by Bose</title>
-  <!-- Coral Lovers Font -->
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+ 
+<link rel="icon" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" type="image/png"/>
+ <!-- Font imports (place these in your <head>): -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Spooky+Unicorn&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" type="image/png"/>
-  <style>
-   :root {
+<style>
+:root {
   --spooky-unicorn: 'Spooky Unicorn', cursive;
   --montserrat: 'Montserrat', sans-serif;
   --sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--sans-serif);
-      color: #15130f;
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: #f7f6f2;
-      padding-top: 52px;
-      scroll-behavior: smooth;
-      box-sizing: border-box;
-    }
-    * {
-      font-family: var(--sans-serif);
-      box-sizing: inherit;
-    }
-    #bg-video {
-      position: fixed;
-      top:0; left:0; width:100vw; height:100vh;
-      min-width:100vw; min-height:100vh;
-      object-fit: cover; z-index:0;
-      filter: blur(2.7px) brightness(0.91) grayscale(0.08) saturate(1.18);
-      pointer-events: none; transition: filter 0.33s;
-      display: none;
-    }
-    #overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(140deg, #fefae394 64%, #e6c27e83 97%);
-      z-index: 1; pointer-events: none;
-    }
-    .main-content {
-      position: relative; z-index: 2;
-      padding: 0 15px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    #stickyBar {
-      position: fixed; top:0; left:0; width: 100vw;
-      background: #ffefc4; color: #222;
-      text-align: center;
-      font-weight: bold; font-size: 1.06rem;
-      z-index: 30000;
-      border-bottom: 2px solid #f5b301;
-      box-sizing: border-box;
-      padding: 12px 0 10px;
-      user-select: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-    .logo-hero-center {
-      width: 100%;
-      text-align: center;
-      padding: 27px 8px 18px;
-      box-sizing: border-box;
-      background: rgba(255, 249, 219, 0.97);
-      border-bottom: 1.5px solid #f1e5b7;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .main-logo-img {
-      max-width: 165px;
-      min-width: 76px;
-      width: 30vw;
-      border-radius: 40%;
-      box-shadow: 0 4px 24px #f3cc7077, 0 2px 8px #d6b75a55;
-      margin-bottom: 7px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      will-change: transform;
-      transform-origin: 50% 50%;
-      animation: logo3dfloat 3.8s infinite linear alternate, logo-entrance 1.13s cubic-bezier(.19,.93,.77,1.03);
-      perspective: 600px;
-      perspective-origin: 50% 60%;
-      filter: drop-shadow(0 0 10px #ffe59f99);
-      transition: max-width 0.33s, min-width 0.33s, width 0.33s;
-    }
-    .logo-subheading {
-      font-size: 1.4em;
-      color: #9e730c;
-      font-weight: 500;
-      margin-top: 7px;
-      letter-spacing: 0.4px;
-      background: #f6e2ae;
-      display: inline-block;
-      padding: 4px 18px;
-      border-radius: 22px;
-      box-shadow: 0 2px 18px #ebcd7d3a;
-    }
-    /* Centre align and pad the "Art by Bose" box */
-    .text-reveal-glow-bg {
-      background: rgba(253, 246, 214, 0.98);
-      box-shadow: var(--glow-bg);
-      max-width: 700px;
-      margin: 0 auto 16px auto;
-      padding: 32px 6vw 24px 6vw;
-      border-radius: 32px;
-      animation: glowUp 1.5s;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .text-reveal {
-      letter-spacing: 0.02em;
-      font-size: 2em;
-      color: #2f240a;
-      font-weight: 400;
-      margin: 0 auto;
-      text-align: center;
-      overflow: hidden;
-      white-space: pre-line;
-      min-height: 9em;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-    }
-    @keyframes glowUp {
-      from { box-shadow: 0 0 1px #ffe99e; }
-      to { box-shadow: var(--glow-bg); }
-    }
-    .text-reveal span {
-      opacity: 0;
-      display: inline-block;
-      filter: blur(4px);
-      transform: translateY(35px) scale(1.04) skewX(-8deg);
-      animation: revealInWords 0.77s cubic-bezier(.18,.95,.6,1.12) forwards;
-    }
-    .text-reveal span.show {
-      opacity: 1;
-      filter: blur(0);
-      transform: translateY(0) scale(1) skewX(0);
-    }
-    @keyframes revealInWords {
-      to {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0) scale(1) skewX(0);
-      }
-    }
-    h2 {
-      text-align: center;
-      font-weight: 600;
-      font-size: 2.2rem;
-      color: #473100 !important;
-      background: rgba(255,241,184,0.96);
-      border-radius: 11px;
-      padding: 0 11px;
-      box-shadow: 0 2px 7px #e9b77440, 0 0 2px #fff6;
-      margin: 18px auto 8px auto;
-      display: inline-block;
-      line-height: 1.28;
-      letter-spacing: 1px;
-      font-family: var(--spooky-unicorn), cursive !important;
-    }
-    .section-divider {
-      width: 100%;
-      height: 32px;
-      margin: 0 0 23px 0;
-      padding: 0;
-      background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
-    }
-    .fade-section {
-      opacity: 0;
-      transform: perspective(1000px) rotateX(13deg) scale(0.98) translateY(44px);
-      will-change: transform,opacity;
-      transition: opacity 1.1s cubic-bezier(.19,.93,.77,1.03), transform 1s cubic-bezier(.19,.93,.77,1.03);
-      padding: 0 10px;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: perspective(900px) rotateX(0deg) scale(1) translateY(0);
-    }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 10px;
-      padding: 10px 0;
-      -webkit-overflow-scrolling: touch;
-    }
-    .carousel img {
-      flex: 0 0 90vw;
-      max-width: 430px;
-      height: auto;
-      border-radius: 13px;
-      box-shadow: 0 2px 14px 0 #ffeabb80, 0 1px 8px 0 #cbb68e34;
-      scroll-snap-align: center;
-      object-fit: cover;
-      border: 1.5px solid #e6be7e90;
-      margin: 0 auto;
-      transition: transform 0.19s, box-shadow 0.12s;
-      background: #fff8e5c0;
-    }
-    .carousel img:hover {
-      transform: scale(1.045) rotateY(-1.1deg);
-    }
-    /* CTA BUTTON STYLE (Order now via Whatsapp) with pulse animation */
-    .whatsapp-btn, .call-btn {
-      display: block;
-      width: fit-content;
-      margin: 13px auto 19px;
-      background: #25d366;
-      color: #fff;
-      padding: 10px 28px;
-      border-radius: 31px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 2em;
-      box-shadow: 0 0 0 rgba(37,211,102,0.22), 0 0 12px #a8ffba44, 0 0 20px #ffe09922;
-      border: none;
-      transition: background 0.23s, box-shadow 0.25s, transform 0.14s, color 0.15s;
-      outline: none;
-      text-align: center;
-      font-family: var(--montserrat), sans-serif !important;
-      animation: pulse 1.4s infinite alternate;
-      cursor: pointer;
-    
-    .call-btn {
-      background: #004d43;
-      box-shadow: 0 0 16px #33cea0a0, 0 0 12px #d6fffd33;
-   
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 #ffe09922, 0 0 12px #a8ffba44;
-      }
-      50% {
-        box-shadow: 0 0 20px 5px #ffe99e88, 0 0 12px #a8ffba65;
-      }
-      100% {
-        box-shadow: 0 0 6px #ffe09944, 0 0 12px #a8ffba44;
-      }
-    }
-    .pulse-box {
-      color: #c93a39;
-      border: 2px solid #e6b025;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: 500;
-      padding: 8px;
-      width: fit-content;
-      margin: 10px auto;
-      background: #fff7e4;
-      filter: drop-shadow(0 1px 1.3px #e3c48719) drop-shadow(0 3px 12px #fffbeebb);
-      font-size: 2em;
-      line-height: 1.2;
-      max-width: 94vw;
-      word-wrap: break-word;
-      font-family: var(--montserrat), sans-serif !important;
-    }
-    .float-whatsapp.pulse {
-      position: fixed;
-      bottom: 18px;
-      right: 14px;
-      z-index: 3000;
-      background: #25D366;
-      color: #fff;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      box-shadow: 0 4px 18px #25D36660;
-      font-size: 2em;
-      border: 3px solid #e6be7e90;
-      transition: box-shadow 0.12s, background 0.21s;
-      animation: pulse 1.7s infinite;
-    }
-    .float-whatsapp.pulse:hover {
-      background: #43e484;
-      animation: pulse 1s infinite alternate;
-    }
-    .whatsapp-logo-svg {
-      width: 38px;
-      height: 38px;
-      display: block;
-      margin: auto;
-    }
-    .jewelry-description-grid {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      gap: 7px 17px;
-      justify-content: center;
-      text-align: center;
-      margin: 14px auto 10px auto;
-      font-size: 1.3em;
-      font-weight: 500;
-      color: #333;
-      max-width: 400px;
-      font-family: var(--brand-font), cursive;
-    }
-    /* testimonials */
-    .testimonials-section {
-      background: #fff7e4f7;
-      padding: 28px 2vw 14px 2vw;
-      color: #442e08;
-      text-align: center;
-      margin-top: 18px;
-      margin-bottom: 14px;
-      border-radius: 23px;
-      box-shadow: var(--testimonials-glow);
-      transition: box-shadow 0.34s;
-      position: relative;
-      filter: drop-shadow(0 0 42px #ffe59999) brightness(1.04);
-    }
-    .testimonials-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-    .testimonial-card {
-      background: #fffaf3;
-      border-radius: 13px;
-      padding: 13px;
-      width: 220px;
-      box-shadow: 0 0 17px 0 #efeadd45, 0 0 0 #fff6;
-      border: 1px solid #f2e1c0cc;
-      margin-bottom: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: box-shadow 0.12s;
-      animation: fadeUp 1.1s;
-      font-size: 1.2em;
-      word-wrap: break-word;
-      font-family: var(--brand-font), cursive;
-    }
-    .testimonial-card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .testimonial-card img {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #25D366;
-      margin-bottom: 7px;
-      box-shadow: 0 0 11px #f7e59170;
-    }
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .faq summary {
-      font-weight: 600;
-      cursor: pointer;
-      padding: 5px 0;
-      color: #c69328;
-      font-size: 1.3em;
-      font-family: var(--brand-font), cursive;
-    }
-    .faq details {
-      margin: 6px 0;
-      font-family: var(--brand-font), cursive;
-    }
-    footer {
-      text-align: center;
-      padding: 15px 8px;
-      font-size: 1.2em;
-      color: #9a7c36;
-      background: #f9eacec0;
-      margin-top: 11px;
-      border-radius: 11px;
-      user-select: none;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: var(--brand-font), cursive;
-    }
-    .urgency-text {
-      text-align: center;
-      font-weight: 600;
-      color: #a72d03;
-      font-size: 1.25em;
-      margin: 4px 0 10px 0;
-    }
-    .jewelry-description-grid > div {
-      padding: 0 6px;
-    }
 
-    /* Responsive styles */
-    @media (max-width: 900px) {
-      .main-content {
-        max-width: 100vw;
-        padding: 0 2vw;
-      }
-    }
-    @media (max-width: 650px) {
-      .main-logo-img {
-        max-width: 124px;
-        min-width: 52px;
-        width: 38vw;
-      }
-      .logo-hero-center {
-        padding: 20px 4vw 13px;
-      }
-      .text-reveal-glow-bg {
-        padding: 17px 3vw 14px 3vw;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-      .carousel img {
-        max-width: 98vw;
-        min-width: 98vw;
-      }
-      .testimonials-cards {
-        gap: 8px;
-      }
-      .testimonial-card {
-        width: 86vw;
-        max-width: 220px;
-      }
-      .logo-subheading {
-        font-size: 1.15em;
-        padding: 2px 9px;
-      }
-      .jewelry-description-grid {
-        grid-template-columns: 1fr;
-        font-size: 1em;
-        gap: 7px 0;
-      }
-      .pulse-box {
-        font-size: 1.05em;
-        padding: 5px 4vw;
-      }
-    }
-    @media (max-width: 410px) {
-      .main-logo-img {
-        width: 56vw;
-        max-width: 92px;
-        min-width: 54px;
-      }
-      h2 {
-        font-size: 1.1rem;
-        padding: 0 4px;
-      }
-      .testimonial-card {
-        font-size: 1em;
-        padding: 8px;
-      }
-      .pulse-box {
-        font-size: 1em;
-      }
-    }
-  </style>
+/* General defaults */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sans-serif);
+  color: #15130f;
+  background: #f7f6f2;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding-top: 52px;
+}
+
+* {
+  font-family: var(--sans-serif);
+  box-sizing: inherit;
+}
+
+/* StickyBar */
+#stickyBar {
+  position: fixed;
+  top: 0; left: 0; width: 100vw;
+  background: #ffefc4; color: #222;
+  text-align: center;
+  font-weight: bold; font-size: 1.06rem;
+  z-index: 30000;
+  border-bottom: 2px solid #f5b301;
+  box-sizing: border-box;
+  padding: 12px 0 10px;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+/* Logo Center */
+.logo-hero-center {
+  width: 100%;
+  text-align: center;
+  padding: 27px 8px 18px;
+  box-sizing: border-box;
+  background: rgba(255, 249, 219, 0.97);
+  border-bottom: 1.5px solid #f1e5b7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main-logo-img {
+  max-width: 165px;
+  min-width: 76px;
+  width: 30vw;
+  border-radius: 40%;
+  box-shadow: 0 4px 24px #f3cc7077, 0 2px 8px #d6b75a55;
+  margin-bottom: 7px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  will-change: transform;
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 10px #ffe59f99);
+  transition: max-width 0.33s, min-width 0.33s, width 0.33s;
+}
+.logo-subheading {
+  font-size: 1.4em;
+  color: #9e730c;
+  font-weight: 500;
+  margin-top: 7px;
+  letter-spacing: 0.4px;
+  background: #f6e2ae;
+  display: inline-block;
+  padding: 4px 18px;
+  border-radius: 22px;
+  box-shadow: 0 2px 18px #ebcd7d3a;
+}
+
+/* Responsive wrap for content */
+.main-content {
+  position: relative; z-index: 2;
+  padding: 0 15px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section Divider */
+.section-divider {
+  width: 100%;
+  height: 32px;
+  margin: 0 0 23px 0;
+  padding: 0;
+  background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
+}
+
+/* Section Titles (All h2) */
+h2, #about h2 {
+  font-family: var(--spooky-unicorn), cursive !important;
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #473100 !important;
+  background: rgba(255,241,184,0.96);
+  border-radius: 11px;
+  padding: 0 11px;
+  box-shadow: 0 2px 7px #e9b77440, 0 0 2px #fff6;
+  margin: 18px auto 8px auto;
+  display: inline-block;
+  line-height: 1.28;
+  letter-spacing: 1px;
+}
+
+/* About Section Text Reveal Prevent No Space Bug */
+.text-reveal {
+  font-size: 2em;
+  color: #2f240a;
+  font-weight: 400;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 9em;
+  word-break: break-word;
+  display: block;
+  white-space: normal;
+}
+.text-reveal span {
+  opacity: 0;
+  display: inline-block;
+  filter: blur(4px);
+  transform: translateY(35px) scale(1.04) skewX(-8deg);
+  animation: revealInWords 0.77s cubic-bezier(.18,.95,.6,1.12) forwards;
+  margin-right: 0.2em;  /* ensures space visually between words */
+}
+.text-reveal span.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1) skewX(0);
+}
+@keyframes revealInWords {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1) skewX(0);
+  }
+}
+/* About reveal block */
+.text-reveal-glow-bg {
+  background: rgba(253, 246, 214, 0.98);
+  box-shadow: 0 0 20px 4px #f7e59188, 0 0 40px 10px #faeab4cc;
+  max-width: 700px;
+  margin: 0 auto 16px auto;
+  padding: 32px 6vw 24px 6vw;
+  border-radius: 32px;
+  animation: glowUp 1.5s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes glowUp {
+  from { box-shadow: 0 0 1px #ffe99e; }
+  to { box-shadow: 0 0 20px 4px #f7e59188, 0 0 40px 10px #faeab4cc; }
+}
+
+/* CTA Buttons (Whatsapp, Call) */
+.whatsapp-btn,
+.call-btn {
+  display: block;
+  width: fit-content;
+  margin: 13px auto 19px;
+  background: #25d366;
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 31px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  box-shadow: 0 0 0 rgba(37,211,102,0.22), 0 0 12px #a8ffba44, 0 0 20px #ffe09922;
+  border: none;
+  transition: background 0.23s, box-shadow 0.25s, transform 0.14s, color 0.15s;
+  outline: none;
+  text-align: center;
+  font-family: var(--montserrat), sans-serif !important;
+  animation: pulse 1.4s infinite alternate;
+  cursor: pointer;
+}
+.whatsapp-btn:hover, .call-btn:hover {
+  background: #43e484;
+  color: #181902;
+  box-shadow: 0 0 24px 8px #ffe675bb, 0 2px 24px 0 #aaffca95;
+  transform: translateY(-3px) scale(1.04);
+  animation: pulse 0.7s infinite alternate;
+}
+.call-btn {
+  background: #004d43;
+  box-shadow: 0 0 16px #33cea0a0, 0 0 12px #d6fffd33;
+}
+.call-btn:hover {
+  background: #0e7967;
+  color: #ffefc4;
+}
+
+/* Pulse Animations for CTA */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 #ffe09922, 0 0 12px #a8ffba44; }
+  50% { box-shadow: 0 0 20px 5px #ffe99e88, 0 0 12px #a8ffba65; }
+  100% { box-shadow: 0 0 6px #ffe09944, 0 0 12px #a8ffba44; }
+}
+
+/* Carousel (images) */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel img {
+  flex: 0 0 90vw;
+  max-width: 430px;
+  height: auto;
+  border-radius: 13px;
+  box-shadow: 0 2px 14px 0 #ffeabb80, 0 1px 8px 0 #cbb68e34;
+  scroll-snap-align: center;
+  object-fit: cover;
+  border: 1.5px solid #e6be7e90;
+  margin: 0 auto;
+  transition: transform 0.19s, box-shadow 0.12s;
+  background: #fff8e5c0;
+}
+.carousel img:hover {
+  transform: scale(1.045) rotateY(-1.1deg);
+}
+
+/* Pulse Box for info */
+.pulse-box {
+  color: #c93a39;
+  border: 2px solid #e6b025;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  padding: 8px;
+  width: fit-content;
+  margin: 10px auto;
+  background: #fff7e4;
+  filter: drop-shadow(0 1px 1.3px #e3c48719) drop-shadow(0 3px 12px #fffbeebb);
+  font-size: 2em;
+  line-height: 1.2;
+  max-width: 94vw;
+  word-wrap: break-word;
+}
+
+.jewelry-description-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 7px 17px;
+  justify-content: center;
+  text-align: center;
+  margin: 14px auto 10px auto;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #333;
+  max-width: 400px;
+}
+
+.testimonials-section {
+  background: #fff7e4f7;
+  padding: 28px 2vw 14px 2vw;
+  color: #442e08;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  border-radius: 23px;
+  box-shadow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
+  transition: box-shadow 0.34s;
+  position: relative;
+  filter: drop-shadow(0 0 42px #ffe59999) brightness(1.04);
+}
+.testimonials-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.testimonial-card {
+  background: #fffaf3;
+  border-radius: 13px;
+  padding: 13px;
+  width: 220px;
+  box-shadow: 0 0 17px 0 #efeadd45, 0 0 0 #fff6;
+  border: 1px solid #f2e1c0cc;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: box-shadow 0.12s;
+  animation: fadeUp 1.1s;
+  font-size: 1.2em;
+  word-wrap: break-word;
+}
+.testimonial-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.testimonial-card img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #25D366;
+  margin-bottom: 7px;
+  box-shadow: 0 0 11px #f7e59170;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FAQ */
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  padding: 5px 0;
+  color: #c69328;
+  font-size: 1.3em;
+}
+.faq details {
+  margin: 6px 0;
+}
+footer {
+  text-align: center;
+  padding: 15px 8px;
+  font-size: 1.2em;
+  color: #9a7c36;
+  background: #f9eacec0;
+  margin-top: 11px;
+  border-radius: 11px;
+  user-select: none;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.urgency-text {
+  text-align: center;
+  font-weight: 600;
+  color: #a72d03;
+  font-size: 1.25em;
+  margin: 4px 0 10px 0;
+}
+
+.jewelry-description-grid > div { padding: 0 6px; }
+
+/* Responsiveness adjustments */
+@media (max-width: 900px) {
+  .main-content { max-width: 100vw; padding: 0 2vw; }
+}
+@media (max-width: 650px) {
+  .main-logo-img {
+    max-width: 124px;
+    min-width: 52px;
+    width: 38vw;
+  }
+  .logo-hero-center { padding: 20px 4vw 13px; }
+  .text-reveal-glow-bg { padding: 17px 3vw 14px 3vw; }
+  h2, #about h2 { font-size: 1.3rem; }
+  .carousel img {
+    max-width: 98vw;
+    min-width: 98vw;
+  }
+  .testimonials-cards { gap: 8px; }
+  .testimonial-card { width: 86vw; max-width: 220px; }
+  .logo-subheading { font-size: 1.15em; padding: 2px 9px; }
+  .jewelry-description-grid { grid-template-columns: 1fr; font-size: 1em; gap: 7px 0; }
+  .pulse-box { font-size: 1.05em; padding: 5px 4vw; }
+}
+@media (max-width: 410px) {
+  .main-logo-img {
+    width: 56vw;
+    max-width: 92px;
+    min-width: 54px;
+  }
+  h2, #about h2 { font-size: 1.1rem; padding: 0 4px; }
+  .testimonial-card { font-size: 1em; padding: 8px; }
+  .pulse-box { font-size: 1em; }
+}
+</style>
+
 </head>
 <body>
 <div id="overlay"></div>
@@ -774,17 +708,21 @@
 document.addEventListener("DOMContentLoaded", function() {
   var text = "Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.";
   var container = document.getElementById("aboutReveal");
-  var words = text.split(/(\s+)/);
+  var words = text.split(" ");
   container.innerHTML = "";
   words.forEach(function(word, i){
-    if(word.trim() === "") {
-      container.appendChild(document.createTextNode(word));
-    } else {
-      var span = document.createElement("span");
-      span.textContent = word + " ";
-      container.appendChild(span);
-    }
+    var span = document.createElement("span");
+    span.textContent = word;
+    container.appendChild(span);
+    container.appendChild(document.createTextNode(" "));
   });
+  var spans = container.querySelectorAll('span');
+  spans.forEach(function(span, i){
+    setTimeout(function(){
+      span.classList.add("show");
+    }, 80*i + 150);
+  });
+});
   var spans = container.querySelectorAll('span');
   spans.forEach(function(span, i){
     setTimeout(function(){
