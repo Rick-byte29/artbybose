@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Art by Bose</title>
   <!-- Coral Lovers Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Coral+Lovers:wght@400;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spooky+Unicorn&display=swap" rel="stylesheet">
 
   <link rel="icon" href="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" type="image/png"/>
   <style>
-    :root {
-      --glow-bg: 0 0 20px 4px #f7e59188, 0 0 40px 10px #faeab4cc;
-      --testimonials-glow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
-      --brand-font: 'Coral Lovers', cursive;
-    }
+   :root {
+  --spooky-unicorn: 'Spooky Unicorn', cursive;
+  --montserrat: 'Montserrat', sans-serif;
+  --sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
     html, body {
       margin: 0;
       padding: 0;
-      font-family: var(--brand-font), sans-serif;
+      font-family: var(--sans-serif);
       color: #15130f;
       min-height: 100vh;
       overflow-x: hidden;
@@ -27,7 +28,7 @@
       box-sizing: border-box;
     }
     * {
-      font-family: var(--brand-font), sans-serif;
+      font-family: var(--sans-serif);
       box-sizing: inherit;
     }
     #bg-video {
@@ -172,7 +173,7 @@
       display: inline-block;
       line-height: 1.28;
       letter-spacing: 1px;
-      font-family: var(--brand-font), sans-serif;
+      font-family: var(--spooky-unicorn), cursive !important;
     }
     .section-divider {
       width: 100%;
@@ -234,25 +235,14 @@
       transition: background 0.23s, box-shadow 0.25s, transform 0.14s, color 0.15s;
       outline: none;
       text-align: center;
-      font-family: var(--brand-font), cursive;
+      font-family: var(--montserrat), sans-serif !important;
       animation: pulse 1.4s infinite alternate;
       cursor: pointer;
-    }
-    .whatsapp-btn:hover, .call-btn:hover {
-      background: #43e484;
-      color: #181902;
-      box-shadow: 0 0 24px 8px #ffe675bb, 0 2px 24px 0 #aaffca95;
-      transform: translateY(-3px) scale(1.04);
-      animation: pulse 0.7s infinite alternate;
-    }
+    
     .call-btn {
       background: #004d43;
       box-shadow: 0 0 16px #33cea0a0, 0 0 12px #d6fffd33;
-    }
-    .call-btn:hover {
-      background: #0e7967;
-      color: #ffefc4;
-    }
+   
     @keyframes pulse {
       0% {
         box-shadow: 0 0 0 #ffe09922, 0 0 12px #a8ffba44;
@@ -279,7 +269,7 @@
       line-height: 1.2;
       max-width: 94vw;
       word-wrap: break-word;
-      font-family: var(--brand-font), cursive;
+      font-family: var(--montserrat), sans-serif !important;
     }
     .float-whatsapp.pulse {
       position: fixed;
