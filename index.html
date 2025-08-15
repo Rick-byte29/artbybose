@@ -126,7 +126,7 @@ h2, #about h2 {
   letter-spacing: 1px;
 }
 
-/* About Section Text Reveal Prevent No Space Bug */
+/* About Section Text Reveal Fix for spacing */
 .text-reveal {
   font-size: 2em;
   color: #2f240a;
@@ -144,7 +144,7 @@ h2, #about h2 {
   filter: blur(4px);
   transform: translateY(35px) scale(1.04) skewX(-8deg);
   animation: revealInWords 0.77s cubic-bezier(.18,.95,.6,1.12) forwards;
-  margin-right: 0.2em;  /* ensures space visually between words */
+  margin-right: 0.2em;  /* spacing between words */
 }
 .text-reveal span.show {
   opacity: 1;
@@ -158,6 +158,7 @@ h2, #about h2 {
     transform: translateY(0) scale(1) skewX(0);
   }
 }
+
 /* About reveal block */
 .text-reveal-glow-bg {
   background: rgba(253, 246, 214, 0.98);
@@ -250,7 +251,7 @@ h2, #about h2 {
   transform: scale(1.045) rotateY(-1.1deg);
 }
 
-/* Pulse Box for info */
+/* Pulse Info Box */
 .pulse-box {
   color: #c93a39;
   border: 2px solid #e6b025;
@@ -268,6 +269,7 @@ h2, #about h2 {
   word-wrap: break-word;
 }
 
+/* Jewelry description grid */
 .jewelry-description-grid {
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -281,6 +283,7 @@ h2, #about h2 {
   max-width: 400px;
 }
 
+/* Testimonials Section */
 .testimonials-section {
   background: #fff7e4f7;
   padding: 28px 2vw 14px 2vw;
@@ -290,38 +293,36 @@ h2, #about h2 {
   margin-bottom: 14px;
   border-radius: 23px;
   box-shadow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
-  transition: box-shadow 0.34s;
   position: relative;
-  filter: drop-shadow(0 0 42px #ffe59999) brightness(1.04);
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .testimonials-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
 }
+
 .testimonial-card {
   background: #fffaf3;
   border-radius: 13px;
   padding: 13px;
   width: 220px;
-  box-shadow: 0 0 17px 0 #efeadd45, 0 0 0 #fff6;
+  box-shadow: 0 0 17px 0 #efeadd45;
   border: 1px solid #f2e1c0cc;
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
-  transform: translateY(18px);
-  transition: box-shadow 0.12s;
-  animation: fadeUp 1.1s;
   font-size: 1.2em;
   word-wrap: break-word;
-}
-.testimonial-card.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
+
 .testimonial-card img {
   width: 46px;
   height: 46px;
@@ -331,53 +332,8 @@ h2, #about h2 {
   margin-bottom: 7px;
   box-shadow: 0 0 11px #f7e59170;
 }
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* FAQ */
-.faq summary {
-  font-weight: 600;
-  cursor: pointer;
-  padding: 5px 0;
-  color: #c69328;
-  font-size: 1.3em;
-}
-.faq details {
-  margin: 6px 0;
-}
-footer {
-  text-align: center;
-  padding: 15px 8px;
-  font-size: 1.2em;
-  color: #9a7c36;
-  background: #f9eacec0;
-  margin-top: 11px;
-  border-radius: 11px;
-  user-select: none;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.urgency-text {
-  text-align: center;
-  font-weight: 600;
-  color: #a72d03;
-  font-size: 1.25em;
-  margin: 4px 0 10px 0;
-}
-
-.jewelry-description-grid > div { padding: 0 6px; }
-
-/* Responsiveness adjustments */
+/* Responsive for mobile devices */
 @media (max-width: 900px) {
   .main-content { max-width: 100vw; padding: 0 2vw; }
 }
@@ -395,7 +351,11 @@ footer {
     min-width: 98vw;
   }
   .testimonials-cards { gap: 8px; }
-  .testimonial-card { width: 86vw; max-width: 220px; }
+  .testimonial-card {
+    width: 86vw;
+    max-width: 220px;
+    font-size: 1em;
+  }
   .logo-subheading { font-size: 1.15em; padding: 2px 9px; }
   .jewelry-description-grid { grid-template-columns: 1fr; font-size: 1em; gap: 7px 0; }
   .pulse-box { font-size: 1.05em; padding: 5px 4vw; }
@@ -406,9 +366,61 @@ footer {
     max-width: 92px;
     min-width: 54px;
   }
-  h2, #about h2 { font-size: 1.1rem; padding: 0 4px; }
-  .testimonial-card { font-size: 1em; padding: 8px; }
+  h2, #about h2 {
+    font-size: 1.1rem;
+    padding: 0 4px;
+  }
+  .testimonial-card {
+    font-size: 1em;
+    padding: 8px;
+  }
   .pulse-box { font-size: 1em; }
+}
+
+/* Floating Sticky WhatsApp Button */
+.float-whatsapp.pulse {
+  position: fixed;
+  bottom: 18px;
+  right: 14px;
+  z-index: 3000;
+  background: #25D366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 18px #25D36660;
+  font-size: 2em;
+  border: 3px solid #e6be7e90;
+  transition: box-shadow 0.12s, background 0.21s;
+  animation: pulse 1.7s infinite;
+  cursor: pointer;
+}
+.float-whatsapp.pulse:hover {
+  background: #43e484;
+  animation: pulse 1s infinite alternate;
+}
+.whatsapp-logo-svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+  margin: auto;
+}
+
+/* Responsive size adjustments for WhatsApp button */
+@media (max-width: 650px) {
+  .float-whatsapp.pulse {
+    width: 72px;
+    height: 72px;
+    bottom: 16px;
+    right: 11px;
+  }
+  .whatsapp-logo-svg {
+    width: 47px;
+    height: 47px;
+  }
 }
 </style>
 
