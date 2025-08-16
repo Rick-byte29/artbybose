@@ -133,6 +133,8 @@
       justify-content: flex-start;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      /* added for smooth bullet jumps */
+      scroll-behavior: smooth;
     }
     .carousel img {
       max-width: 180px;
@@ -294,6 +296,31 @@
       font-family: var(--body-font);
       box-shadow: 0 0 14px 2px #f7e59177;
     }
+
+    /* ====== ADDED: per-carousel dots (no arrows) ====== */
+    .carousel-dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      padding:6px 0 2px;
+      user-select:none;
+    }
+    .carousel-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#d9c899;          /* soft gold to match theme */
+      border:1px solid #f2e1c0cc;   /* subtle ring */
+      opacity:.55;
+      cursor:pointer;
+      transition:transform .18s ease, opacity .18s ease, background .18s ease;
+    }
+    .carousel-dot.active{
+      opacity:1;
+      transform:scale(1.2);
+      background:#9e730c;          /* headline brown */
+    }
+    /* ================================================ */
   </style>
 </head>
 <body>
@@ -324,8 +351,8 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%207.png?raw=true" alt="Custom Painting 7" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%208.png?raw=true" alt="Custom Painting 8" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%209.png?raw=true" alt="Custom Painting 9" />
-
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Custom Art on any objects of all sizes starting @ just ₹299/- <span style="text-decoration:line-through; color:gray;">₹699/- </span>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20custom%20painting" class="cta-btn">Order Now via WhatsApp</a>
   </section>
@@ -340,6 +367,7 @@
       <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png" alt="Canvas 5" />
       <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png" alt="Canvas 6" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Custom Canvas starts @ ₹149/- <span style="text-decoration:line-through; color:gray;">₹499/- </span> For smaller sizes and increase accordingly as size increases!
 </div>
 
@@ -356,6 +384,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%204%20New.png?raw=true" alt="Traditional Attire 4" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%205.png?raw=true" alt="Traditional Attire 5" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Price starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/- </span> depends on the design complexity
 </div>
 
@@ -372,6 +401,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%204.png?raw=true" alt="Modern Attire 4" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%205.png?raw=true" alt="Modern Attire 5" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Prices vary based on designs customization, starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/-</span>
 </div>
 
@@ -388,6 +418,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0013.jpg?raw=true" alt="Posters & Bookmarks 5" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0012.jpg?raw=true" alt="Posters & Bookmarks 6" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Prices vary based on designs and sizes starts @ just ₹99/- <span style="text-decoration:line-through; color:gray;">₹199/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
 </div>
 
@@ -400,6 +431,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Starting @ just ₹59/- <span style="text-decoration:line-through; color:gray;">₹99/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
 </div>
 
@@ -420,8 +452,8 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%208.jpg?raw=true" alt="Gift Hampers 8" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%209.jpg?raw=true" alt="Gift Hampers 9" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%2010.jpg?raw=true" alt="Gift Hampers 10" />
-
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Share your ideas or references and we’ll craft something special within your budget @ just ₹199/- <span style="text-decoration:line-through; color:gray;">₹499/-</span> 🔥</div>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20gift%20hampers" class="cta-btn">Order Now via WhatsApp</a>
   </section>
@@ -445,6 +477,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Premium Jewelry starts @ ₹59/- <span style="text-decoration:line-through; color:gray;">₹129/-</span>
     </div>
 
@@ -463,6 +496,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Best Quality & Lowest Price: ₹99/- to ₹149/- <br> Enjoy Discounts up to 20% </div>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20pendants" class="cta-btn">Order Now via WhatsApp</a>
   </section>
@@ -480,6 +514,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Best Quality and Lowest Price<br> Starting from ₹89/- <span style="text-decoration:line-through; color:gray;">₹119/-</span>
     </div>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20earrings" class="cta-btn">Order Now via WhatsApp</a>
@@ -497,6 +532,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> Premium-Quality Bracelets for Everyday Elegance<br> Starting from ₹79/- <span style="text-decoration:line-through; color:gray;">₹99/-</span>
     </div>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20bracelets" class="cta-btn">Order Now via WhatsApp</a>
@@ -512,6 +548,7 @@
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%204.jpg?raw=true" alt="Wall Art 4" />
       <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%205.jpg?raw=true" alt="Wall Art 5" />
     </div>
+    <!-- dots will be inserted here by JS -->
     <div class="pulse-box"> All types of Art depending on how you want to customize the size and the level of detailing<br>🎉 Starting from ₹599/- <span style="text-decoration:line-through; color:gray;">₹1499/-</span>
     </div>
     <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20wall%20art" class="cta-btn">Order Now via WhatsApp</a>
@@ -563,5 +600,54 @@
       <path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z" />
     </svg>
   </a>
+
+  <!-- ====== ADDED: tiny JS to create & sync dots per carousel ====== -->
+  <script>
+    (function () {
+      const carousels = document.querySelectorAll('.carousel');
+
+      carousels.forEach((carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('img'));
+        if (slides.length <= 1) return; // no dots for single-image rows
+
+        // create dots container after this carousel
+        const dots = document.createElement('div');
+        dots.className = 'carousel-dots';
+        dots.setAttribute('role', 'tablist');
+        slides.forEach((img, i) => {
+          const b = document.createElement('button');
+          b.className = 'carousel-dot';
+          b.type = 'button';
+          b.setAttribute('role', 'tab');
+          b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          b.addEventListener('click', () => {
+            // center this image in view
+            img.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          });
+          dots.appendChild(b);
+        });
+        carousel.insertAdjacentElement('afterend', dots);
+
+        // observe which image is centered to set active dot
+        const setActive = (idx) => {
+          const btns = dots.querySelectorAll('.carousel-dot');
+          btns.forEach((d, j) => d.classList.toggle('active', j === idx));
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+              const idx = slides.indexOf(entry.target);
+              if (idx > -1) setActive(idx);
+            }
+          });
+        }, { root: carousel, threshold: [0.5, 0.75] });
+
+        slides.forEach((img) => observer.observe(img));
+        setActive(0); // default
+      });
+    })();
+  </script>
+  <!-- ============================================================ -->
 </body>
 </html>
