@@ -37,8 +37,8 @@ html, body {
   position: sticky;
   top: 0;
   width: 100vw;
-  background: #1a1a1a;
-  color: #00bfa6;
+  background: #1a1a1a;             /* matte dark background */
+  color: #00bfa6;                  /* teal text */
   text-align: center;
   font-weight: bold;
   font-size: 1.06rem;
@@ -47,7 +47,9 @@ html, body {
   padding: 12px 0 10px;
   user-select: none;
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  animation: pulse 1.8s infinite alternate; /* ✅ teal pulse glow */
 }
+
 
 /* Logo hero */
 .logo-hero-center {
@@ -343,6 +345,15 @@ footer {
   transform:scale(1.2);
   background:#00bfa6;
 }
+  .jewelry-description-grid {
+  display: grid;
+  grid-template-columns: 1fr;      
+  gap: 8px;                        
+  justify-items: center;            
+  text-align: center;               
+  margin-top: 12px;
+}
+
 </style>
 
 
@@ -350,7 +361,7 @@ footer {
 
 </head>
 <body>
-<div id="stickyBar"> Free shipping on orders @ 599/- and above (Prepaid order)</div>
+<div id="stickyBar"> 🚚 Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
 <div class="logo-hero-center">
 <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
@@ -482,7 +493,7 @@ Welcome to Art by Bose – where every creation is handmade with love, designed 
 <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%2010.jpg?raw=true" alt="Gift Hampers 10" />
 </div>
 <!-- dots will be inserted here by JS -->
-<div class="pulse-box"> Share your ideas or references and we’ll craft something special within your budget @ just ₹199/- <span style="text-decoration:line-through; color:gray;">₹499/-</span> 🔥</div>
+<div class="pulse-box"> Share your ideas or references and we’ll craft something special within your budget @ just ₹199/- <span style="text-decoration:line-through; color:gray;">₹499/-</span> </div>
 <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20gift%20hampers" class="cta-btn">Order Now via WhatsApp</a>
 </section>
 
