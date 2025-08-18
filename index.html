@@ -349,6 +349,56 @@ background:#9e730c;
   font-weight: 500;
   font-size: 1.1rem;
 }
+  /* FAQ Section */
+.faq-section {
+  background: #fff7e4f7; /* soft earthy card color */
+  padding: 24px 12px;
+  margin: 20px auto;
+  border-radius: 16px;
+  max-width: 900px;
+  box-shadow: 0 0 18px #ffe59f33;
+  text-align: left;
+  user-select: none;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid #f2e1c0cc;
+  border-radius: 12px;
+  background: #fffaf3;
+  box-shadow: 0 0 12px #efeadd45;
+  padding: 14px 16px;
+}
+
+.faq-question {
+  font-weight: 700;
+  color: #473100; /* earthy brown */
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+.faq-answer {
+  font-weight: 400;
+  color: #442e08; /* slightly lighter brown */
+  display: none;
+  line-height: 1.35;
+}
+
+/* Toggle answer on click */
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* Optional: hover effect */
+.faq-item:hover {
+  box-shadow: 0 0 18px #ffe59f66;
+  transition: 0.25s;
+}
 
 </style>
 
@@ -618,6 +668,56 @@ Welcome to Art by Bose – where every creation is handmade with love, designed 
 </div>
 </div>
 
+  <section class="faq-section">
+  <h2 class="section-headline">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span class="faq-arrow">▶</span> What materials are your jewelry made from?
+    </div>
+    <div class="faq-answer">
+      Our jewelry is crafted from premium stainless steel and plated with 18k gold or rose gold for durability and shine.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span class="faq-arrow">▶</span> Are your pieces hypoallergenic?
+    </div>
+    <div class="faq-answer">
+      Yes! All our jewelry is hypoallergenic and safe for sensitive skin.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span class="faq-arrow">▶</span> How should I care for my jewelry?
+    </div>
+    <div class="faq-answer">
+      Avoid contact with water, perfumes, and harsh chemicals. Clean gently with a soft cloth.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span class="faq-arrow">▶</span> Do you offer international shipping?
+    </div>
+    <div class="faq-answer">
+      Yes, we ship worldwide! Shipping times may vary depending on your location.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span class="faq-arrow">▶</span>  What payment methods do you accept?
+    </div>
+    <div class="faq-answer">
+     We accept all kinds of secure payment methods.
+    </div>
+  </div>
+</section>
+
+
 <section class="fade-section" id="contact">
 <h2>Our Services & Contact</h2>
 <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
@@ -672,6 +772,15 @@ Welcome to Art by Bose – where every creation is handmade with love, designed 
       });
     });
   });
+
+  const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
+
 </script>
 
 <!-- ============================================================ -->
