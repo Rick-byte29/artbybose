@@ -1,14 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Art by Bose</title>
-<!-- Font imports -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Spooky+Unicorn&display=swap" rel="stylesheet" />
-
 <style>
 :root {
   --heading-font: 'Spooky Unicorn', cursive;
@@ -23,38 +12,36 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
-  background: #0d0d0d;
-  color: #eaeaea;
+  background: #0f1417;           /* deep slate */
+  color: #e7f3f1;                 /* light cool text */
   min-height: 100vh;
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
 *, *:before, *:after { box-sizing: inherit; }
 
-/* Sticky Bar */
 #stickyBar {
   position: sticky;
   top: 0;
   width: 100vw;
-  background: #111;
-  color: #00bfa6;
+  background: #0e2b2f;            /* dark teal bar */
+  color: #c9fffa;                 /* mint text */
   text-align: center;
   font-weight: bold;
   font-size: 1.06rem;
   z-index: 30000;
-  border-bottom: 2px solid #00bfa6;
+  border-bottom: 2px solid #12c9be; /* teal edge */
   padding: 12px 0 10px;
   user-select: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
-/* Hero / Logo section */
 .logo-hero-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
+  background: rgba(12,26,29,0.97);
   padding: 20px 0 5px 0;
 }
 .main-logo-img {
@@ -62,40 +49,38 @@ html, body {
   height: 90px;
   border-radius: 50%;
   margin-bottom: 10px;
-  box-shadow: 0 4px 18px rgba(0,191,166,0.4);
+  box-shadow: 0 4px 18px #0bd0c766;
   object-fit: contain;
 }
 .logo-subheading {
   font-family: var(--body-font);
-  color: #00bfa6;
+  color: #9ff6eb;
   font-weight: 500;
   font-size: 1.1rem;
   padding: 2px 14px;
   border-radius: 20px;
-  background: #222;
-  box-shadow: 0 2px 18px rgba(0,191,166,0.2);
+  background: #10363a;
+  box-shadow: 0 2px 18px #0bd0c72a;
   user-select: none;
 }
 .main-title {
   font-family: var(--heading-font);
   font-size: var(--headline-size-main);
-  color: #00e6cc;
+  color: #baf7f1;
   text-align: center;
   font-weight: 700;
   margin: 15px 10px 10px 10px;
-  background: #141414;
+  background: rgba(14,38,41,0.96);
   border-radius: 10px;
   padding: 10px 0;
-  box-shadow: 0 2px 7px rgba(0,191,166,0.2);
+  box-shadow: 0 2px 7px #0bd0c733, 0 0 2px #ffffff22;
   line-height: 1.1;
   letter-spacing: 1px;
   user-select: none;
 }
-
-/* Intro text */
 .text-reveal-glow-bg {
-  background: #1a1a1a;
-  box-shadow: 0 0 13px rgba(0,191,166,0.25);
+  background: rgba(15,31,34,0.98);
+  box-shadow: 0 0 13px #0bd0c73d;
   max-width: 650px;
   margin: 0 auto 16px auto;
   padding: 18px 12px;
@@ -105,37 +90,32 @@ html, body {
   line-height: 1.35;
   user-select: text;
 }
-
-/* Section headline */
 .section-divider {
   width: 100%;
   height: 24px;
   margin: 0 0 18px 0;
   background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
-  opacity: 0.5;
+  filter: hue-rotate(170deg) saturate(0.8); /* cool the accent */
+  opacity: .6;
 }
 h2.section-headline {
   font-family: var(--heading-font);
   font-size: var(--headline-size-mobile);
-  color: #00e6cc;
+  color: #7df1e7;
   text-align: center;
   margin: 24px 0 12px 0;
   font-weight: 700;
-  background: #141414;
+  background: rgba(14,38,41,0.96);
   border-radius: 9px;
   padding: 7px 0;
-  box-shadow: 0 2px 7px rgba(0,191,166,0.25);
+  box-shadow: 0 2px 7px #0bd0c733;
   letter-spacing: 1px;
   user-select: none;
 }
-
-/* Generic section block */
 .section-block {
   padding: var(--section-padding-mobile);
   margin-bottom: 18px;
 }
-
-/* Carousel */
 .carousel {
   display: flex;
   overflow-x: auto;
@@ -150,22 +130,20 @@ h2.section-headline {
   max-width: 180px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 14px 0 rgba(0,0,0,0.7);
+  box-shadow: 0 2px 14px 0 #07181a88, 0 1px 8px 0 #0bd0c71e;
   scroll-snap-align: center;
   object-fit: cover;
-  border: 1px solid #333;
+  border: 1px solid #1d4448;
   margin: 0 6px;
-  background: #222;
+  background: #0f1f22cc;
   user-select: none;
 }
-
-/* CTA button */
 .cta-btn {
   display: block;
   width: 90%;
   max-width: 330px;
   margin: 18px auto 4px auto;
-  background: #00bfa6;
+  background: #25d366;              /* keep WhatsApp brand */
   color: #fff;
   padding: 13px 0;
   border-radius: 31px;
@@ -174,7 +152,7 @@ h2.section-headline {
   font-size: var(--cta-size-mobile);
   font-family: var(--cta-font);
   text-align: center;
-  box-shadow: 0 1px 12px rgba(0,191,166,0.25);
+  box-shadow: 0 1px 12px #0bd0c729, 0 0 20px #0bd0c71a;
   border: none;
   cursor: pointer;
   transition: background 0.21s, box-shadow 0.22s, transform 0.13s;
@@ -182,44 +160,166 @@ h2.section-headline {
   user-select: none;
 }
 .cta-btn:hover {
-  background: #1de9b6;
-  color: #111;
-  box-shadow: 0 0 24px 8px rgba(0,191,166,0.5);
+  background: #43e484;
+  color: #0b1415;
+  box-shadow: 0 0 24px 8px #16e2d4aa, 0 2px 24px 0 #16e2d47a;
   transform: translateY(-2px) scale(1.03);
 }
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 rgba(0,191,166,0.2), 0 0 12px rgba(0,191,166,0.25); }
-  50% { box-shadow: 0 0 15px 4px rgba(0,191,166,0.35); }
-  100% { box-shadow: 0 0 2px rgba(0,191,166,0.25), 0 0 12px rgba(0,191,166,0.25); }
+  0%   { box-shadow: 0 0 0 #16e2d41c, 0 0 12px #16e2d429; }
+  50%  { box-shadow: 0 0 15px 4px #16e2d453, 0 0 11px #16e2d445; }
+  100% { box-shadow: 0 0 2px #16e2d43a, 0 0 12px #16e2d429; }
 }
 
-/* Carousel dots */
-.carousel-dots {
+/* Testimonials */
+.testimonials-section {
+  background: #0d1b1eeb;
+  padding: 28px 2vw 14px 2vw;
+  color: #cfeeed;
+  text-align: center;
+  margin-top: 18px;
+  margin-bottom: 14px;
+  border-radius: 23px;
+  box-shadow: 0 0 28px 9px #0bd0c73d, 0 0 14px 5px #0bd0c71f;
+  position: relative;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+}
+.testimonials-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.testimonial-card {
+  background: #0f2226;
+  border-radius: 13px;
+  padding: 13px;
+  width: 220px;
+  box-shadow: 0 0 17px 0 #0bd0c712;
+  border: 1px solid #1e4448cc;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  word-wrap: break-word;
+  opacity: 1;
+  transform: none;
+}
+.testimonial-card img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #25d366;
+  margin-bottom: 7px;
+  box-shadow: 0 0 11px #0bd0c730;
+  user-select: none;
+}
+
+/* Floating WhatsApp */
+.float-whatsapp.pulse {
+  position: fixed;
+  bottom: 18px;
+  right: 14px;
+  z-index: 3000;
+  background: #25d366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 18px #16e2d433;
+  font-size: 2em;
+  border: 3px solid #156f69aa;
+  transition: box-shadow 0.12s, background 0.21s;
+  animation: pulse 1.7s infinite;
+  cursor: pointer;
+  user-select: none;
+}
+.float-whatsapp.pulse:hover {
+  background: #43e484;
+  animation: pulse 1s infinite alternate;
+}
+.whatsapp-logo-svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+  margin: auto;
+  user-select: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .main-content { max-width: 100vw; padding: 0 2vw; }
+}
+@media (max-width: 650px) {
+  .main-logo-img { width: 110px; height: 110px; }
+  .logo-hero-center { padding: 16px 3vw 10px 3vw; }
+  .main-title { font-size: 2.2rem; margin: 10px; padding: 8px 0; }
+  h2.section-headline { font-size: 1.6rem; padding: 7px 0; }
+  .text-reveal-glow-bg { font-size: 1.1rem; padding: 14px 10px; }
+  .carousel img { max-width: 95vw; margin: 0 8px; }
+  .cta-btn { font-size: 1.15rem; padding: 14px 0; width: 95%; max-width: 280px; }
+  .testimonial-card { width: 90vw; max-width: 320px; font-size: 1em; padding: 12px; }
+  .logo-subheading { font-size: 1.1em; padding: 3px 12px; }
+  #stickyBar { font-size: 0.95rem; padding: 9px 0 8px; }
+}
+@media (max-width: 400px) {
+  .main-title { font-size: 1.8rem; }
+  h2.section-headline { font-size: 1.3rem; }
+  .text-reveal-glow-bg { font-size: 1rem; padding: 10px 8px; }
+  .cta-btn { font-size: 1rem; max-width: 90%; padding: 12px 0; }
+  .testimonial-card { font-size: 0.9em; padding: 10px 8px; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 8px;
+  font-size: 1.2em;
+  color: #8fd3cd;
+  background: #0f2427cc;
+  margin-top: 11px;
+  border-radius: 11px;
+  user-select: none;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--body-font);
+  box-shadow: 0 0 14px 2px #0bd0c72e;
+}
+
+/* Carousel dots (cool theme) */
+.carousel-dots{
   display:flex;
   justify-content:center;
   gap:8px;
   padding:6px 0 2px;
   user-select:none;
 }
-.carousel-dot {
+.carousel-dot{
   width:9px;
   height:9px;
   border-radius:50%;
-  background:#444;
-  border:1px solid #00bfa6;
+  background:#28474b;             /* muted teal */
+  border:1px solid #12c9be;        /* teal ring */
   opacity:.55;
   cursor:pointer;
   transition:transform .18s ease, opacity .18s ease, background .18s ease;
 }
-.carousel-dot.active {
+.carousel-dot.active{
   opacity:1;
   transform:scale(1.2);
-  background:#00e6cc;
+  background:#0be7d2;              /* active teal */
 }
-
-/* Responsive tweaks remain same… */
-@media (max-width: 900px) { .main-content { max-width: 100vw; padding: 0 2vw; } }
 </style>
+
 
 </head>
 <body>
