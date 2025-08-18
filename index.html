@@ -1,640 +1,592 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Art by Bose</title>
-  <!-- Font imports -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Spooky+Unicorn&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Art by Bose</title>
+<!-- Font imports -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Spooky+Unicorn&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --heading-font: 'Spooky Unicorn', cursive;
-      --body-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --cta-font: 'Montserrat', sans-serif;
-      --headline-size-mobile: 2.2rem;
-      --headline-size-main: 2.6rem;
-      --cta-size-mobile: 1.3rem;
-      --section-padding-mobile: 18px 10px;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--body-font);
-      background: #f7f6f2;
-      color: #15130f;
-      min-height: 100vh;
-      scroll-behavior: smooth;
-      box-sizing: border-box;
-    }
-    *, *:before, *:after { box-sizing: inherit; }
+<style>
+:root {
+--heading-font: 'Spooky Unicorn', cursive;
+--body-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+--cta-font: 'Montserrat', sans-serif;
+--headline-size-mobile: 2.2rem;
+--headline-size-main: 2.6rem;
+--cta-size-mobile: 1.3rem;
+--section-padding-mobile: 18px 10px;
+}
+html, body {
+margin: 0;
+padding: 0;
+font-family: var(--body-font);
+background: #f7f6f2;
+color: #15130f;
+min-height: 100vh;
+scroll-behavior: smooth;
+box-sizing: border-box;
+}
+*, *:before, *:after { box-sizing: inherit; }
 
-    #stickyBar {
-      position: sticky;
-      top: 0;
-      width: 100vw;
-      background: #ffefc4;
-      color: #222;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.06rem;
-      z-index: 30000;
-      border-bottom: 2px solid #f5b301;
-      padding: 12px 0 10px;
-      user-select: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    }
-
-    .logo-hero-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,249,219,0.97);
-      padding: 20px 0 5px 0;
-    }
-    .main-logo-img {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      box-shadow: 0 4px 18px #ffe59f77;
-      object-fit: contain;
-    }
-    .logo-subheading {
-      font-family: var(--body-font);
-      color: #9e730c;
-      font-weight: 500;
-      font-size: 1.1rem;
-      padding: 2px 14px;
-      border-radius: 20px;
-      background: #f6e2ae;
-      box-shadow: 0 2px 18px #ebcd7d3a;
-      user-select: none;
-    }
-    .main-title {
-      font-family: var(--heading-font);
-      font-size: var(--headline-size-main);
-      color: #473100;
-      text-align: center;
-      font-weight: 700;
-      margin: 15px 10px 10px 10px;
-      background: rgba(255,241,184,0.96);
-      border-radius: 10px;
-      padding: 10px 0;
-      box-shadow: 0 2px 7px #e9b77440, 0 0 2px #fff6;
-      line-height: 1.1;
-      letter-spacing: 1px;
-      user-select: none;
-    }
-    .text-reveal-glow-bg {
-      background: rgba(253,246,214,0.98);
-      box-shadow: 0 0 13px #faeab4cc;
-      max-width: 650px;
-      margin: 0 auto 16px auto;
-      padding: 18px 12px;
-      border-radius: 16px;
-      text-align: center;
-      font-size: 1.22rem;
-      line-height: 1.35;
-      user-select: text;
-    }
-    .section-divider {
-      width: 100%;
-      height: 24px;
-      margin: 0 0 18px 0;
-      background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
-    }
-    h2.section-headline {
-      font-family: var(--heading-font);
-      font-size: var(--headline-size-mobile);
-      color: #473100;
-      text-align: center;
-      margin: 24px 0 12px 0;
-      font-weight: 700;
-      background: rgba(255,241,184,0.96);
-      border-radius: 9px;
-      padding: 7px 0;
-      box-shadow: 0 2px 7px #e9b77440;
-      letter-spacing: 1px;
-      user-select: none;
-    }
-    .section-block {
-      padding: var(--section-padding-mobile);
-      margin-bottom: 18px;
-    }
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 10px;
-      padding: 10px 0;
-      justify-content: flex-start;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      /* added for smooth bullet jumps */
-      scroll-behavior: smooth;
-    }
-    .carousel img {
-      max-width: 180px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 14px 0 #ffeabb50, 0 1px 8px 0 #cbb68e34;
-      scroll-snap-align: center;
-      object-fit: cover;
-      border: 1px solid #ffd77e75;
-      margin: 0 6px;
-      background: #fff8e5c0;
-      user-select: none;
-    }
-    .cta-btn {
-      display: block;
-      width: 90%;
-      max-width: 330px;
-      margin: 18px auto 4px auto;
-      background: #25d366;
-      color: #fff;
-      padding: 13px 0;
-      border-radius: 31px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: var(--cta-size-mobile);
-      font-family: var(--cta-font);
-      text-align: center;
-      box-shadow: 0 1px 12px #a8ffba44, 0 0 20px #ffe09922;
-      border: none;
-      cursor: pointer;
-      transition: background 0.21s, box-shadow 0.22s, transform 0.13s;
-      animation: pulse 1.5s infinite alternate;
-      user-select: none;
-    }
-    .cta-btn:hover {
-      background: #43e484;
-      color: #181902;
-      box-shadow: 0 0 24px 8px #ffe675bb, 0 2px 24px 0 #aaffca95;
-      transform: translateY(-2px) scale(1.03);
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 #ffe09922, 0 0 12px #a8ffba44; }
-      50% { box-shadow: 0 0 15px 4px #ffe99e88, 0 0 11px #a8ffba65; }
-      100% { box-shadow: 0 0 2px #ffe09944, 0 0 12px #a8ffba44; }
-    }
-    .testimonials-section {
-      background: #fff7e4f7;
-      padding: 28px 2vw 14px 2vw;
-      color: #442e08;
-      text-align: center;
-      margin-top: 18px;
-      margin-bottom: 14px;
-      border-radius: 23px;
-      box-shadow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
-      position: relative;
-      max-width: 950px;
-      margin-left: auto;
-      margin-right: auto;
-      user-select: none;
-    }
-    .testimonials-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-    .testimonial-card {
-      background: #fffaf3;
-      border-radius: 13px;
-      padding: 13px;
-      width: 220px;
-      box-shadow: 0 0 17px 0 #efeadd45;
-      border: 1px solid #f2e1c0cc;
-      margin-bottom: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 1.2em;
-      word-wrap: break-word;
-      opacity: 1;
-      transform: none;
-    }
-    .testimonial-card img {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #25d366;
-      margin-bottom: 7px;
-      box-shadow: 0 0 11px #f7e59170;
-      user-select: none;
-    }
-    .float-whatsapp.pulse {
-      position: fixed;
-      bottom: 18px;
-      right: 14px;
-      z-index: 3000;
-      background: #25d366;
-      color: #fff;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      box-shadow: 0 4px 18px #25d36660;
-      font-size: 2em;
-      border: 3px solid #e6be7e90;
-      transition: box-shadow 0.12s, background 0.21s;
-      animation: pulse 1.7s infinite;
-      cursor: pointer;
-      user-select: none;
-    }
-    .float-whatsapp.pulse:hover {
-      background: #43e484;
-      animation: pulse 1s infinite alternate;
-    }
-    .whatsapp-logo-svg {
-      width: 38px;
-      height: 38px;
-      display: block;
-      margin: auto;
-      user-select: none;
-    }
-    @media (max-width: 900px) {
-      .main-content { max-width: 100vw; padding: 0 2vw; }
-    }
-    @media (max-width: 650px) {
-      .main-logo-img { width: 110px; height: 110px; }
-      .logo-hero-center { padding: 16px 3vw 10px 3vw; }
-      .main-title { font-size: 2.2rem; margin: 10px; padding: 8px 0; }
-      h2.section-headline { font-size: 1.6rem; padding: 7px 0; }
-      .text-reveal-glow-bg { font-size: 1.1rem; padding: 14px 10px; }
-      .carousel img { max-width: 95vw; margin: 0 8px; }
-      .cta-btn { font-size: 1.15rem; padding: 14px 0; width: 95%; max-width: 280px; }
-      .testimonial-card { width: 90vw; max-width: 320px; font-size: 1em; padding: 12px; }
-      .logo-subheading { font-size: 1.1em; padding: 3px 12px; }
-      #stickyBar { font-size: 0.95rem; padding: 9px 0 8px; }
-    }
-    @media (max-width: 400px) {
-      .main-title { font-size: 1.8rem; }
-      h2.section-headline { font-size: 1.3rem; }
-      .text-reveal-glow-bg { font-size: 1rem; padding: 10px 8px; }
-      .cta-btn { font-size: 1rem; max-width: 90%; padding: 12px 0; }
-      .testimonial-card { font-size: 0.9em; padding: 10px 8px; }
-    }
-    footer {
-      text-align: center;
-      padding: 15px 8px;
-      font-size: 1.2em;
-      color: #9a7c36;
-      background: #f9eacec0;
-      margin-top: 11px;
-      border-radius: 11px;
-      user-select: none;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: var(--body-font);
-      box-shadow: 0 0 14px 2px #f7e59177;
-    }
-
-    /* ====== ADDED: per-carousel dots (no arrows) ====== */
-    .carousel-dots{
-      display:flex;
-      justify-content:center;
-      gap:8px;
-      padding:6px 0 2px;
-      user-select:none;
-    }
-    .carousel-dot{
-      width:9px;
-      height:9px;
-      border-radius:50%;
-      background:#d9c899;          /* soft gold to match theme */
-      border:1px solid #f2e1c0cc;   /* subtle ring */
-      opacity:.55;
-      cursor:pointer;
-      transition:transform .18s ease, opacity .18s ease, background .18s ease;
-    }
-    .carousel-dot.active{
-      opacity:1;
-      transform:scale(1.2);
-      background:#9e730c;          /* headline brown */
-    }
-    /* ================================================ */
-    .hero {
-  position: relative;
-  height: 100vh; /* full-screen hero */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  color: white; /* text visible over video */
+#stickyBar {
+position: sticky;
+top: 0;
+width: 100vw;
+background: #ffefc4;
+color: #222;
+text-align: center;
+font-weight: bold;
+font-size: 1.06rem;
+z-index: 30000;
+border-bottom: 2px solid #f5b301;
+padding: 12px 0 10px;
+user-select: none;
+box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-#hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* keeps video behind content */
+.logo-hero-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: rgba(255,249,219,0.97);
+padding: 20px 0 5px 0;
+}
+.main-logo-img {
+width: 90px;
+height: 90px;
+border-radius: 50%;
+margin-bottom: 10px;
+box-shadow: 0 4px 18px #ffe59f77;
+object-fit: contain;
+}
+.logo-subheading {
+font-family: var(--body-font);
+color: #9e730c;
+font-weight: 500;
+font-size: 1.1rem;
+padding: 2px 14px;
+border-radius: 20px;
+background: #f6e2ae;
+box-shadow: 0 2px 18px #ebcd7d3a;
+user-select: none;
+}
+.main-title {
+font-family: var(--heading-font);
+font-size: var(--headline-size-main);
+color: #473100;
+text-align: center;
+font-weight: 700;
+margin: 15px 10px 10px 10px;
+background: rgba(255,241,184,0.96);
+border-radius: 10px;
+padding: 10px 0;
+box-shadow: 0 2px 7px #e9b77440, 0 0 2px #fff6;
+line-height: 1.1;
+letter-spacing: 1px;
+user-select: none;
+}
+.text-reveal-glow-bg {
+background: rgba(253,246,214,0.98);
+box-shadow: 0 0 13px #faeab4cc;
+max-width: 650px;
+margin: 0 auto 16px auto;
+padding: 18px 12px;
+border-radius: 16px;
+text-align: center;
+font-size: 1.22rem;
+line-height: 1.35;
+user-select: text;
+}
+.section-divider {
+width: 100%;
+height: 24px;
+margin: 0 0 18px 0;
+background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
+}
+h2.section-headline {
+font-family: var(--heading-font);
+font-size: var(--headline-size-mobile);
+color: #473100;
+text-align: center;
+margin: 24px 0 12px 0;
+font-weight: 700;
+background: rgba(255,241,184,0.96);
+border-radius: 9px;
+padding: 7px 0;
+box-shadow: 0 2px 7px #e9b77440;
+letter-spacing: 1px;
+user-select: none;
+}
+.section-block {
+padding: var(--section-padding-mobile);
+margin-bottom: 18px;
+}
+.carousel {
+display: flex;
+overflow-x: auto;
+gap: 10px;
+padding: 10px 0;
+justify-content: flex-start;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+/* added for smooth bullet jumps */
+scroll-behavior: smooth;
+}
+.carousel img {
+max-width: 180px;
+height: auto;
+border-radius: 8px;
+box-shadow: 0 2px 14px 0 #ffeabb50, 0 1px 8px 0 #cbb68e34;
+scroll-snap-align: center;
+object-fit: cover;
+border: 1px solid #ffd77e75;
+margin: 0 6px;
+background: #fff8e5c0;
+user-select: none;
+}
+.cta-btn {
+display: block;
+width: 90%;
+max-width: 330px;
+margin: 18px auto 4px auto;
+background: #25d366;
+color: #fff;
+padding: 13px 0;
+border-radius: 31px;
+font-weight: 700;
+text-decoration: none;
+font-size: var(--cta-size-mobile);
+font-family: var(--cta-font);
+text-align: center;
+box-shadow: 0 1px 12px #a8ffba44, 0 0 20px #ffe09922;
+border: none;
+cursor: pointer;
+transition: background 0.21s, box-shadow 0.22s, transform 0.13s;
+animation: pulse 1.5s infinite alternate;
+user-select: none;
+}
+.cta-btn:hover {
+background: #43e484;
+color: #181902;
+box-shadow: 0 0 24px 8px #ffe675bb, 0 2px 24px 0 #aaffca95;
+transform: translateY(-2px) scale(1.03);
+}
+@keyframes pulse {
+0% { box-shadow: 0 0 0 #ffe09922, 0 0 12px #a8ffba44; }
+50% { box-shadow: 0 0 15px 4px #ffe99e88, 0 0 11px #a8ffba65; }
+100% { box-shadow: 0 0 2px #ffe09944, 0 0 12px #a8ffba44; }
+}
+.testimonials-section {
+background: #fff7e4f7;
+padding: 28px 2vw 14px 2vw;
+color: #442e08;
+text-align: center;
+margin-top: 18px;
+margin-bottom: 14px;
+border-radius: 23px;
+box-shadow: 0 0 28px 9px #ffe59f, 0 0 14px 5px #ffe59f;
+position: relative;
+max-width: 950px;
+margin-left: auto;
+margin-right: auto;
+user-select: none;
+}
+.testimonials-cards {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 12px;
+}
+.testimonial-card {
+background: #fffaf3;
+border-radius: 13px;
+padding: 13px;
+width: 220px;
+box-shadow: 0 0 17px 0 #efeadd45;
+border: 1px solid #f2e1c0cc;
+margin-bottom: 8px;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 1.2em;
+word-wrap: break-word;
+opacity: 1;
+transform: none;
+}
+.testimonial-card img {
+width: 46px;
+height: 46px;
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid #25d366;
+margin-bottom: 7px;
+box-shadow: 0 0 11px #f7e59170;
+user-select: none;
+}
+.float-whatsapp.pulse {
+position: fixed;
+bottom: 18px;
+right: 14px;
+z-index: 3000;
+background: #25d366;
+color: #fff;
+width: 60px;
+height: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+box-shadow: 0 4px 18px #25d36660;
+font-size: 2em;
+border: 3px solid #e6be7e90;
+transition: box-shadow 0.12s, background 0.21s;
+animation: pulse 1.7s infinite;
+cursor: pointer;
+user-select: none;
+}
+.float-whatsapp.pulse:hover {
+background: #43e484;
+animation: pulse 1s infinite alternate;
+}
+.whatsapp-logo-svg {
+width: 38px;
+height: 38px;
+display: block;
+margin: auto;
+user-select: none;
+}
+@media (max-width: 900px) {
+.main-content { max-width: 100vw; padding: 0 2vw; }
+}
+@media (max-width: 650px) {
+.main-logo-img { width: 110px; height: 110px; }
+.logo-hero-center { padding: 16px 3vw 10px 3vw; }
+.main-title { font-size: 2.2rem; margin: 10px; padding: 8px 0; }
+h2.section-headline { font-size: 1.6rem; padding: 7px 0; }
+.text-reveal-glow-bg { font-size: 1.1rem; padding: 14px 10px; }
+.carousel img { max-width: 95vw; margin: 0 8px; }
+.cta-btn { font-size: 1.15rem; padding: 14px 0; width: 95%; max-width: 280px; }
+.testimonial-card { width: 90vw; max-width: 320px; font-size: 1em; padding: 12px; }
+.logo-subheading { font-size: 1.1em; padding: 3px 12px; }
+#stickyBar { font-size: 0.95rem; padding: 9px 0 8px; }
+}
+@media (max-width: 400px) {
+.main-title { font-size: 1.8rem; }
+h2.section-headline { font-size: 1.3rem; }
+.text-reveal-glow-bg { font-size: 1rem; padding: 10px 8px; }
+.cta-btn { font-size: 1rem; max-width: 90%; padding: 12px 0; }
+.testimonial-card { font-size: 0.9em; padding: 10px 8px; }
+}
+footer {
+text-align: center;
+padding: 15px 8px;
+font-size: 1.2em;
+color: #9a7c36;
+background: #f9eacec0;
+margin-top: 11px;
+border-radius: 11px;
+user-select: none;
+max-width: 1100px;
+margin-left: auto;
+margin-right: auto;
+font-family: var(--body-font);
+box-shadow: 0 0 14px 2px #f7e59177;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* dark overlay */
-  z-index: 0;
+/* ====== ADDED: per-carousel dots (no arrows) ====== */
+.carousel-dots{
+display:flex;
+justify-content:center;
+gap:8px;
+padding:6px 0 2px;
+user-select:none;
 }
-
-.hero * {
-  position: relative;
-  z-index: 1; /* keeps text & logo above video/overlay */
+.carousel-dot{
+width:9px;
+height:9px;
+border-radius:50%;
+background:#d9c899; /* soft gold to match theme */
+border:1px solid #f2e1c0cc; /* subtle ring */
+opacity:.55;
+cursor:pointer;
+transition:transform .18s ease, opacity .18s ease, background .18s ease;
 }
-
-  </style>
+.carousel-dot.active{
+opacity:1;
+transform:scale(1.2);
+background:#9e730c; /* headline brown */
+}
+/* ================================================ */
+</style>
 </head>
- <div id="stickyBar">
-    Free shipping on orders @ 599/- and above (Prepaid order)
-  </div>
+<body>
+<div id="stickyBar"> Free shipping on orders @ 599/- and above (Prepaid order)</div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline id="hero-video">
-      <source src="https://www.pexels.com/video/a-person-wearing-accessories-5358962/" type="video/mp4">
-    </video>
-
-    <!-- Overlay for readability -->
-    <div class="overlay"></div>
-
-    <!-- Hero Content -->
-    <div class="logo-hero-center">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
-      <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
-    </div>
-
-    <div class="main-title">Art By Bose</div>
-
-    <div class="text-reveal-glow-bg">
-      Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.
-    </div>
-
-    <span class="section-divider"></span>
-    
-  </section>
-
-  <section class="section-block">
-    <h2 class="section-headline">Custom Painting on Any Objects</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%201.png?raw=true" alt="Custom Painting 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%202.png?raw=true" alt="Custom Painting 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%203.png?raw=true" alt="Custom Painting 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%204.png?raw=true" alt="Custom Painting 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%205.png?raw=true" alt="Custom Painting 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%206.png?raw=true" alt="Custom Painting 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%207.png?raw=true" alt="Custom Painting 7" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%208.png?raw=true" alt="Custom Painting 8" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%209.png?raw=true" alt="Custom Painting 9" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Custom Art on any objects of all sizes starting @ just ₹299/- <span style="text-decoration:line-through; color:gray;">₹699/- </span>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20custom%20painting" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Custom Canvas Art</h2>
-    <div class="carousel">
-      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png" alt="Canvas 1" />
-      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png" alt="Canvas 2" />
-      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png" alt="Canvas 4" />
-      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png" alt="Canvas 5" />
-      <img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png" alt="Canvas 6" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Custom Canvas starts @ ₹149/- <span style="text-decoration:line-through; color:gray;">₹499/- </span> For smaller sizes and increase accordingly as size increases!
+<div class="logo-hero-center">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
+<div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
 </div>
 
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20canvas%20art" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
+<div class="main-title">Art By Bose</div>
 
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Custom Design Traditional Attire</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%201.png?raw=true" alt="Traditional Attire 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%202.png?raw=true" alt="Traditional Attire 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%203.png?raw=true" alt="Traditional Attire 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%204%20New.png?raw=true" alt="Traditional Attire 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%205.png?raw=true" alt="Traditional Attire 5" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Price starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/- </span> depends on the design complexity
+<div class="text-reveal-glow-bg">
+Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.
 </div>
 
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20traditional%20attire" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
+<span class="section-divider"></span>
 
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Custom Painting on Western Outfit</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%201.png?raw=true" alt="Modern Attire 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%202.png?raw=true" alt="Modern Attire 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%203.png?raw=true" alt="Modern Attire 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%204.png?raw=true" alt="Modern Attire 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%205.png?raw=true" alt="Modern Attire 5" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Prices vary based on designs customization, starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/-</span>
+<section class="section-block">
+<h2 class="section-headline">Custom Painting on Any Objects</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%201.png?raw=true" alt="Custom Painting 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%202.png?raw=true" alt="Custom Painting 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%203.png?raw=true" alt="Custom Painting 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%204.png?raw=true" alt="Custom Painting 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%205.png?raw=true" alt="Custom Painting 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%206.png?raw=true" alt="Custom Painting 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%207.png?raw=true" alt="Custom Painting 7" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%208.png?raw=true" alt="Custom Painting 8" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Custom%20Painting%209.png?raw=true" alt="Custom Painting 9" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Custom Art on any objects of all sizes starting @ just ₹299/- <span style="text-decoration:line-through; color:gray;">₹699/- </span>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20custom%20painting" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Custom Canvas Art</h2>
+<div class="carousel">
+<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%201.png" alt="Canvas 1" />
+<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%202.png" alt="Canvas 2" />
+<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%204.png" alt="Canvas 4" />
+<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%205.png" alt="Canvas 5" />
+<img src="https://raw.githubusercontent.com/Rick-byte29/artbybose/main/canvas%206.png" alt="Canvas 6" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Custom Canvas starts @ ₹149/- <span style="text-decoration:line-through; color:gray;">₹499/- </span> For smaller sizes and increase accordingly as size increases!
 </div>
 
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20western%20attire" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20canvas%20art" class="cta-btn">Order Now via WhatsApp</a>
+</section>
 
-  <section class="section-block">
-    <h2 class="section-headline">Custom Posters & Bookmarks</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0011.jpg?raw=true" alt="Posters & Bookmarks 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0015.jpg?raw=true" alt="Posters & Bookmarks 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0010.jpg?raw=true" alt="Posters & Bookmarks 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0014.jpg?raw=true" alt="Posters & Bookmarks 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0013.jpg?raw=true" alt="Posters & Bookmarks 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0012.jpg?raw=true" alt="Posters & Bookmarks 6" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Prices vary based on designs and sizes starts @ just ₹99/- <span style="text-decoration:line-through; color:gray;">₹199/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Custom Design Traditional Attire</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%201.png?raw=true" alt="Traditional Attire 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%202.png?raw=true" alt="Traditional Attire 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%203.png?raw=true" alt="Traditional Attire 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%204%20New.png?raw=true" alt="Traditional Attire 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Traditional%20Attire%205.png?raw=true" alt="Traditional Attire 5" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Price starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/- </span> depends on the design complexity
 </div>
 
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Keychains That Can Be Customized</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Starting @ just ₹59/- <span style="text-decoration:line-through; color:gray;">₹99/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20traditional%20attire" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Custom Painting on Western Outfit</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%201.png?raw=true" alt="Modern Attire 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%202.png?raw=true" alt="Modern Attire 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%203.png?raw=true" alt="Modern Attire 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%204.png?raw=true" alt="Modern Attire 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Modern%20Attire%205.png?raw=true" alt="Modern Attire 5" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Prices vary based on designs customization, starts @ ₹299/- <span style="text-decoration:line-through; color:gray;">₹599/-</span>
 </div>
 
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20keychains" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20western%20attire" class="cta-btn">Order Now via WhatsApp</a>
+</section>
 
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Gift Hampers & Handmade Crafts</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%201.jpg?raw=true" alt="Gift Hampers 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%202.jpg?raw=true" alt="Gift Hampers 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%203.jpg?raw=true" alt="Gift Hampers 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%204.jpg?raw=true" alt="Gift Hampers 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%205.jpg?raw=true" alt="Gift Hampers 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%206.jpg?raw=true" alt="Gift Hampers 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%207.jpg?raw=true" alt="Gift Hampers 7" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%208.jpg?raw=true" alt="Gift Hampers 8" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%209.jpg?raw=true" alt="Gift Hampers 9" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%2010.jpg?raw=true" alt="Gift Hampers 10" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Share your ideas or references and we’ll craft something special within your budget @ just ₹199/- <span style="text-decoration:line-through; color:gray;">₹499/-</span> 🔥</div>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20gift%20hampers" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Jewelry You'll Love</h2>
-    <div class="jewelry-description-grid">
-    <div>✨ Premium Quality </div>
-    <div>✨ Stainless Steel</div>
-    <div>✨ 18k Goldplated</div>
-    <div>✨ Hypoallergenic</div>
-    </div>
-
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%203.jpg?raw=true" alt="Jewelry 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%204.jpg?raw=true" alt="Jewelry 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%205.jpg?raw=true" alt="Jewelry 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Premium Jewelry starts @ ₹59/- <span style="text-decoration:line-through; color:gray;">₹129/-</span>
-    </div>
-
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20jewelry" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Elegant and Classy Pendants</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%203.png?raw=true" alt="Pendant 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%204.png?raw=true" alt="Pendant 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%205.png?raw=true" alt="Pendant 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Best Quality & Lowest Price: ₹99/- to ₹149/- <br> Enjoy Discounts up to 20% </div>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20pendants" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Elegant Earrings You Must Have</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Best Quality and Lowest Price<br> Starting from ₹89/- <span style="text-decoration:line-through; color:gray;">₹119/-</span>
-    </div>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20earrings" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Premium Bracelets for You</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/3.png?raw=true" alt="Bracelet 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/4.png?raw=true" alt="Bracelet 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/5.png?raw=true" alt="Bracelet 5" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> Premium-Quality Bracelets for Everyday Elegance<br> Starting from ₹79/- <span style="text-decoration:line-through; color:gray;">₹99/-</span>
-    </div>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20bracelets" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <span class="section-divider"></span>
-  <section class="section-block">
-    <h2 class="section-headline">Wall Art | Resin Art | Multi Artworks</h2>
-    <div class="carousel">
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%201.jpg?raw=true" alt="Wall Art 1" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%202.jpg?raw=true" alt="Wall Art 2" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%203.jpg?raw=true" alt="Wall Art 3" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%204.jpg?raw=true" alt="Wall Art 4" />
-      <img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%205.jpg?raw=true" alt="Wall Art 5" />
-    </div>
-    <!-- dots will be inserted here by JS -->
-    <div class="pulse-box"> All types of Art depending on how you want to customize the size and the level of detailing<br>🎉 Starting from ₹599/- <span style="text-decoration:line-through; color:gray;">₹1499/-</span>
-    </div>
-    <a href="https://wa.me/919127210272?text=I'm%20interested%20in%20wall%20art" class="cta-btn">Order Now via WhatsApp</a>
-  </section>
-
-  <div class="testimonials-section">
-    <h2 class="section-headline">Hear From Our Happy Clients</h2>
-    <div class="testimonials-cards">
-      <div class="testimonial-card">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" alt="Sneha" />
-        <p>“Parna, you've got a great eye for design! I love these jewelry pieces, and I'll be back for more.”</p>
-        <strong>— Sneha</strong>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf593e114a_1000217239.jpg" alt="Rajdeep" />
-        <p>“The custom Christmas jars are beyond my expectations! Your drawing skills are impressive.”</p>
-        <strong>— Rajdeep</strong>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf59e6fcfa_1000217226.jpg" alt="Parijat" />
-        <p>“My friend in Delhi just loved the artwork on the kurti you designed! She's absolutely thrilled with it.”</p>
-        <strong>— Parijat</strong>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5c140742_1000217241.jpg" alt="Priyanka" />
-        <p>“I love the 4 canvas paintings you created for my home. They're a perfect addition and showcase your amazing skill.”</p>
-        <strong>— Priyanka</strong>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5b873525_1000217235.jpg" alt="Subimal" />
-        <p>“Great work Parna. Everyone has praised your artwork. Thank you so much 👏🏻👏🏻👏🏻”</p>
-        <strong>— Subimal</strong>
-      </div>
-    </div>
-  </div>
+<section class="section-block">
+<h2 class="section-headline">Custom Posters & Bookmarks</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0011.jpg?raw=true" alt="Posters & Bookmarks 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0015.jpg?raw=true" alt="Posters & Bookmarks 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0010.jpg?raw=true" alt="Posters & Bookmarks 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0014.jpg?raw=true" alt="Posters & Bookmarks 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0013.jpg?raw=true" alt="Posters & Bookmarks 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/IMG-20250815-WA0012.jpg?raw=true" alt="Posters & Bookmarks 6" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Prices vary based on designs and sizes starts @ just ₹99/- <span style="text-decoration:line-through; color:gray;">₹199/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
+</div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20canvas%20art" class="cta-btn">Order Now via WhatsApp</a>
+ </section>
   
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Keychains That Can Be Customized</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%201.png?raw=true" alt="Keychain 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%202.png?raw=true" alt="Keychain 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%203.png?raw=true" alt="Keychain 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/keychain%204.png?raw=true" alt="Keychain 4" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Starting @ just ₹59/- <span style="text-decoration:line-through; color:gray;">₹99/-</span> to ₹159/- <span style="text-decoration:line-through; color:gray;">₹299/-</span>
+</div>
+
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20keychains" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Gift Hampers & Handmade Crafts</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%201.jpg?raw=true" alt="Gift Hampers 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%202.jpg?raw=true" alt="Gift Hampers 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%203.jpg?raw=true" alt="Gift Hampers 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%204.jpg?raw=true" alt="Gift Hampers 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%205.jpg?raw=true" alt="Gift Hampers 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%206.jpg?raw=true" alt="Gift Hampers 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%207.jpg?raw=true" alt="Gift Hampers 7" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%208.jpg?raw=true" alt="Gift Hampers 8" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%209.jpg?raw=true" alt="Gift Hampers 9" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Gift%20Hamper%2010.jpg?raw=true" alt="Gift Hampers 10" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Share your ideas or references and we’ll craft something special within your budget @ just ₹199/- <span style="text-decoration:line-through; color:gray;">₹499/-</span> 🔥</div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20gift%20hampers" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Jewelry You'll Love</h2>
+<div class="jewelry-description-grid">
+<div>✨ Premium Quality </div>
+<div>✨ Stainless Steel</div>
+<div>✨ 18k Goldplated</div>
+<div>✨ Hypoallergenic</div>
+</div>
+
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%201.jpg?raw=true" alt="Jewelry 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%202.jpg?raw=true" alt="Jewelry 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%203.jpg?raw=true" alt="Jewelry 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%204.jpg?raw=true" alt="Jewelry 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%205.jpg?raw=true" alt="Jewelry 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%206.jpg?raw=true" alt="Jewelry 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/jewel%207.jpg?raw=true" alt="Jewelry 7" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Premium Jewelry starts @ ₹59/- <span style="text-decoration:line-through; color:gray;">₹129/-</span>
+</div>
+
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20jewelry" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Elegant and Classy Pendants</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%201.png?raw=true" alt="Pendant 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%202.png?raw=true" alt="Pendant 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%203.png?raw=true" alt="Pendant 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%204.png?raw=true" alt="Pendant 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%205.png?raw=true" alt="Pendant 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%206.png?raw=true" alt="Pendant 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Pendant%207.png?raw=true" alt="Pendant 7" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Best Quality & Lowest Price: ₹99/- to ₹149/- <br> Enjoy Discounts up to 20% </div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20pendants" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Elegant Earrings You Must Have</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%201.png?raw=true" alt="Earring 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%202.png?raw=true" alt="Earring 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%203.png?raw=true" alt="Earring 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%204.png?raw=true" alt="Earring 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%205.png?raw=true" alt="Earring 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%206.png?raw=true" alt="Earring 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%207.png?raw=true" alt="Earring 7" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Earrings%208.png?raw=true" alt="Earring 8" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Best Quality and Lowest Price<br> Starting from ₹89/- <span style="text-decoration:line-through; color:gray;">₹119/-</span>
+</div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20earrings" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Premium Bracelets for You</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/1.png?raw=true" alt="Bracelet 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/2.png?raw=true" alt="Bracelet 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/3.png?raw=true" alt="Bracelet 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/4.png?raw=true" alt="Bracelet 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/5.png?raw=true" alt="Bracelet 5" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/6.png?raw=true" alt="Bracelet 6" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/7.png?raw=true" alt="Bracelet 7" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> Premium-Quality Bracelets for Everyday Elegance<br> Starting from ₹79/- <span style="text-decoration:line-through; color:gray;">₹99/-</span>
+</div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20bracelets" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<span class="section-divider"></span>
+<section class="section-block">
+<h2 class="section-headline">Wall Art | Resin Art | Multi Artworks</h2>
+<div class="carousel">
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%201.jpg?raw=true" alt="Wall Art 1" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%202.jpg?raw=true" alt="Wall Art 2" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%203.jpg?raw=true" alt="Wall Art 3" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%204.jpg?raw=true" alt="Wall Art 4" />
+<img src="https://github.com/Rick-byte29/artbybose/blob/main/Wall%20Art%205.jpg?raw=true" alt="Wall Art 5" />
+</div>
+<!-- dots will be inserted here by JS -->
+<div class="pulse-box"> All types of Art depending on how you want to customize the size and the level of detailing<br>🎉 Starting from ₹599/- <span style="text-decoration:line-through; color:gray;">₹1499/-</span>
+</div>
+<a href="https://wa.me/919127210272?text=I'm%20interested%20in%20wall%20art" class="cta-btn">Order Now via WhatsApp</a>
+</section>
+
+<div class="testimonials-section">
+<h2 class="section-headline">Hear From Our Happy Clients</h2>
+<div class="testimonials-cards">
+<div class="testimonial-card">
+<img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5abe1254_1000217237.jpg" alt="Sneha" />
+<p>“Parna, you've got a great eye for design! I love these jewelry pieces, and I'll be back for more.”</p>
+<strong>— Sneha</strong>
+</div>
+<div class="testimonial-card">
+<img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf593e114a_1000217239.jpg" alt="Rajdeep" />
+<p>“The custom Christmas jars are beyond my expectations! Your drawing skills are impressive.”</p>
+<strong>— Rajdeep</strong>
+</div>
+<div class="testimonial-card">
+<img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf59e6fcfa_1000217226.jpg" alt="Parijat" />
+<p>“My friend in Delhi just loved the artwork on the kurti you designed! She's absolutely thrilled with it.”</p>
+<strong>— Parijat</strong>
+</div>
+<div class="testimonial-card">
+<img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5c140742_1000217241.jpg" alt="Priyanka" />
+<p>“I love the 4 canvas paintings you created for my home. They're a perfect addition and showcase your amazing skill.”</p>
+<strong>— Priyanka</strong>
+</div>
+<div class="testimonial-card">
+<img src="https://d1yei2z3i6k35z.cloudfront.net/13229995/686cf5b873525_1000217235.jpg" alt="Subimal" />
+<p>“Great work Parna. Everyone has praised your artwork. Thank you so much 👏🏻👏🏻👏🏻”</p>
+<strong>— Subimal</strong>
+</div>
+</div>
+</div>
+
 <section class="fade-section" id="contact">
 <h2>Our Services & Contact</h2>
 <p>Email: <a href="mailto:artbybose2024@gmail.com">artbybose2024@gmail.com</a></p>
@@ -644,52 +596,60 @@
 
 <footer>© 2025 Art by Bose. All rights reserved.</footer>
 
-  <a href="https://wa.me/919127210272" class="float-whatsapp pulse" aria-label="WhatsApp Chat" target="_blank" rel="noopener">
-    <svg class="whatsapp-logo-svg" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="128" cy="128" r="128" fill="#25D366" />
-      <path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z" />
-    </svg>
-  </a>
+<a href="https://wa.me/919127210272" class="float-whatsapp pulse" aria-label="WhatsApp Chat" target="_blank" rel="noopener">
+<svg class="whatsapp-logo-svg" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+<circle cx="128" cy="128" r="128" fill="#25D366" />
+<path fill="#fff" d="M189.1 170.4c-2.8-1.4-16.3-8-18.8-8.9s-4.3-1.4-6.1 1.4c-1.8 2.7-7 8.9-8.6 10.7s-3.2 2.1-6 0.7c-2.8-1.4-11.8-4.4-22.5-14-8.3-7.4-13.9-16.5-15.5-19.3-1.6-2.7-.2-4.1 1.2-5.6 1.3-1.3 2.7-3.3 4.1-5 1.4-1.7 1.9-3 2.8-4.9.9-1.8.5-3.7-.2-5.2-.7-1.4-6.1-14.7-8.3-20.1-2.2-5.4-4.3-4.7-6.1-4.8-1.6-.1-3.5-.1-5.3-.1s-5 0-7.7 2.1c-2.6 2-9.8 7.6-9.8 18.4 0 10.8 8.1 21.4 9.3 22.8 1.1 1.4 15.9 24.7 38.6 33 22.7 8.2 22.7 5.5 26.8 5.1 4.1-.4 13.3-5.4 15.2-10.7 1.9-5.4 1.9-9.9 1.3-10.7-.5-.8-2.5-1.6-5.3-3.1z" />
+</svg>
+</a>
 
-  <!-- ====== ADDED: tiny JS to create & sync dots per carousel ====== -->
- <script>
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const dotsWrapper = document.createElement("div");
-    dotsWrapper.className = "carousel-dots";
-    carousel.after(dotsWrapper);
+<!-- ====== ADDED: tiny JS to create & sync dots per carousel ====== -->
+<script>
+(function () {
+const carousels = document.querySelectorAll('.carousel');
 
-    const images = carousel.querySelectorAll("img");
+carousels.forEach((carousel) => {
+const slides = Array.from(carousel.querySelectorAll('img'));
+if (slides.length <= 1) return; // no dots for single-image rows
 
-    images.forEach((img, index) => {
-      const dot = document.createElement("div");
-      dot.className = "carousel-dot";
-      if (index === 0) dot.classList.add("active");
+// create dots container after this carousel
+const dots = document.createElement('div');
+dots.className = 'carousel-dots';
+dots.setAttribute('role', 'tablist');
+slides.forEach((img, i) => {
+const b = document.createElement('button');
+b.className = 'carousel-dot';
+b.type = 'button';
+b.setAttribute('role', 'tab');
+b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+b.addEventListener('click', () => {
+// center this image in view
+img.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+});
+dots.appendChild(b);
+});
+carousel.insertAdjacentElement('afterend', dots);
 
-      dot.addEventListener("click", () => {
-        const scrollAmount = img.offsetLeft - (carousel.offsetWidth - img.offsetWidth) / 2;
-        carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
-      });
+// observe which image is centered to set active dot
+const setActive = (idx) => {
+const btns = dots.querySelectorAll('.carousel-dot');
+btns.forEach((d, j) => d.classList.toggle('active', j === idx));
+};
 
-      dotsWrapper.appendChild(dot);
-    });
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+const idx = slides.indexOf(entry.target);
+if (idx > -1) setActive(idx);
+}
+});
+}, { root: carousel, threshold: [0.5, 0.75] });
 
-    // Update active dot on scroll
-    carousel.addEventListener("scroll", () => {
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-      images.forEach((img, index) => {
-        const distance = Math.abs(carousel.scrollLeft - (img.offsetLeft - (carousel.offsetWidth - img.offsetWidth) / 2));
-        if (distance < closestDistance) {
-          closestIndex = index;
-          closestDistance = distance;
-        }
-      });
-      dotsWrapper.querySelectorAll(".carousel-dot").forEach((dot, i) => {
-        dot.classList.toggle("active", i === closestIndex);
-      });
-    });
-  });
+slides.forEach((img) => observer.observe(img));
+setActive(0); // default
+});
+})();
 </script>
-  <!-- ============================================================ -->
+<!-- ============================================================ -->
 </body>
 </html>
