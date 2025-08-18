@@ -605,51 +605,44 @@ Welcome to Art by Bose – where every creation is handmade with love, designed 
 
 <!-- ====== ADDED: tiny JS to create & sync dots per carousel ====== -->
 <script>
-(function () {
-const carousels = document.querySelectorAll('.carousel');
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const dotsWrapper = document.createElement("div");
+    dotsWrapper.className = "carousel-dots";
+    carousel.after(dotsWrapper);
 
-carousels.forEach((carousel) => {
-const slides = Array.from(carousel.querySelectorAll('img'));
-if (slides.length <= 1) return; // no dots for single-image rows
+    const images = carousel.querySelectorAll("img");
 
-// create dots container after this carousel
-const dots = document.createElement('div');
-dots.className = 'carousel-dots';
-dots.setAttribute('role', 'tablist');
-slides.forEach((img, i) => {
-const b = document.createElement('button');
-b.className = 'carousel-dot';
-b.type = 'button';
-b.setAttribute('role', 'tab');
-b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-b.addEventListener('click', () => {
-// center this image in view
-img.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-});
-dots.appendChild(b);
-});
-carousel.insertAdjacentElement('afterend', dots);
+    images.forEach((img, index) => {
+      const dot = document.createElement("div");
+      dot.className = "carousel-dot";
+      if (index === 0) dot.classList.add("active");
 
-// observe which image is centered to set active dot
-const setActive = (idx) => {
-const btns = dots.querySelectorAll('.carousel-dot');
-btns.forEach((d, j) => d.classList.toggle('active', j === idx));
-};
+      dot.addEventListener("click", () => {
+        const scrollAmount = img.offsetLeft - (carousel.offsetWidth - img.offsetWidth) / 2;
+        carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      });
 
-const observer = new IntersectionObserver((entries) => {
-entries.forEach((entry) => {
-if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-const idx = slides.indexOf(entry.target);
-if (idx > -1) setActive(idx);
-}
-});
-}, { root: carousel, threshold: [0.5, 0.75] });
+      dotsWrapper.appendChild(dot);
+    });
 
-slides.forEach((img) => observer.observe(img));
-setActive(0); // default
-});
-})();
+    // Update active dot on scroll
+    carousel.addEventListener("scroll", () => {
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      images.forEach((img, index) => {
+        const distance = Math.abs(carousel.scrollLeft - (img.offsetLeft - (carousel.offsetWidth - img.offsetWidth) / 2));
+        if (distance < closestDistance) {
+          closestIndex = index;
+          closestDistance = distance;
+        }
+      });
+      dotsWrapper.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === closestIndex);
+      });
+    });
+  });
 </script>
+
 <!-- ============================================================ -->
 </body>
 </html>
