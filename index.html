@@ -166,8 +166,8 @@ h2.section-headline {
   width: 90%;
   max-width: 330px;
   margin: 18px auto 4px auto;
-  background: #00bfa6;
-  color: #0d0d0d;
+  background: #25D366; /* ✅ WhatsApp green */
+  color: #ffffff;      /* ✅ white text for contrast */
   padding: 13px 0;
   border-radius: 31px;
   font-weight: 700;
@@ -175,19 +175,21 @@ h2.section-headline {
   font-size: var(--cta-size-mobile);
   font-family: var(--cta-font);
   text-align: center;
-  box-shadow: 0 1px 12px rgba(0,191,166,0.4);
+  box-shadow: 0 1px 12px rgba(37, 211, 102, 0.4); /* ✅ green glow */
   border: none;
   cursor: pointer;
   transition: background 0.21s, box-shadow 0.22s, transform 0.13s;
   animation: pulse 1.5s infinite alternate;
   user-select: none;
 }
+
 .cta-btn:hover {
-  background: #1de9b6;
-  color: #0d0d0d;
-  box-shadow: 0 0 24px 8px rgba(0,191,166,0.6);
+  background: #128C7E; /* ✅ darker WhatsApp green on hover */
+  color: #ffffff;
+  box-shadow: 0 0 24px 8px rgba(18, 140, 126, 0.6); /* ✅ hover glow */
   transform: translateY(-2px) scale(1.03);
 }
+
 @keyframes pulse {
   0% { box-shadow: 0 0 0 rgba(0,191,166,0.2); }
   50% { box-shadow: 0 0 15px 4px rgba(0,191,166,0.35); }
