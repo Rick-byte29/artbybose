@@ -320,23 +320,74 @@
       background:#9e730c;          /* headline brown */
     }
     /* ================================================ */
+    .hero {
+  position: relative;
+  height: 100vh; /* full-screen hero */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  color: white; /* text visible over video */
+}
+
+#hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* keeps video behind content */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* dark overlay */
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1; /* keeps text & logo above video/overlay */
+}
+
   </style>
 </head>
-<body>
-  <div id="stickyBar"> Free shipping on orders @ 599/- and above (Prepaid order)</div>
-
-  <div class="logo-hero-center">
-    <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
-    <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
+ <div id="stickyBar">
+    Free shipping on orders @ 599/- and above (Prepaid order)
   </div>
 
-  <div class="main-title">Art By Bose</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="hero-video">
+      <source src="https://www.pexels.com/video/a-person-wearing-accessories-5358962/" type="video/mp4">
+    </video>
 
-  <div class="text-reveal-glow-bg">
-    Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.
-  </div>
+    <!-- Overlay for readability -->
+    <div class="overlay"></div>
 
-  <span class="section-divider"></span>
+    <!-- Hero Content -->
+    <div class="logo-hero-center">
+      <img src="https://github.com/Rick-byte29/artbybose/blob/main/1000215557.jpg?raw=true" alt="Art by Bose Logo" class="main-logo-img" />
+      <div class="logo-subheading">Handcrafted Artistry by Parna Bose</div>
+    </div>
+
+    <div class="main-title">Art By Bose</div>
+
+    <div class="text-reveal-glow-bg">
+      Welcome to Art by Bose – where every creation is handmade with love, designed to elevate your space and style. From elegant canvas art to personalized keychains and jewelry, we specialize in home decor and gifting pieces that speak to the heart.
+    </div>
+
+    <span class="section-divider"></span>
+    
+  </section>
 
   <section class="section-block">
     <h2 class="section-headline">Custom Painting on Any Objects</h2>
