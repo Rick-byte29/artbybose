@@ -10,22 +10,22 @@
 
 <style>
 :root {
-  --heading-font: 'Spooky Unicorn', cursive;
-  --body-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --cta-font: 'Montserrat', sans-serif;
-  --headline-size-mobile: 2.2rem;
-  --headline-size-main: 2.6rem;
-  --cta-size-mobile: 1.3rem;
-  --section-padding-mobile: 18px 10px;
+  --heading-font: 'Playfair Display', serif;   /* elegant, natural serif for headlines */
+  --body-font: 'Lora', serif;                  /* warm, readable serif for body */
+  --cta-font: 'Montserrat', sans-serif;        /* modern contrast for buttons */
+  
+  --headline-size-mobile: 2rem;                /* slightly softer headline */
+  --headline-size-main: 2.5rem;                /* balanced size for large screens */
+  --cta-size-mobile: 1.2rem;                   /* natural CTA balance */
+  --section-padding-mobile: 20px 12px;         /* more breathing room */
 }
-
 /* Global */
 html, body {
   margin: 0;
   padding: 0;
   font-family: var(--body-font);
-  background: #0d0d0d;
-  color: #eaeaea;
+ background: var(--bg-color);   
+  color: var(--text-color);
   min-height: 100vh;
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -37,18 +37,18 @@ html, body {
   position: sticky;
   top: 0;
   width: 100vw;
-  background: #1a1a1a;             /* matte dark background */
-  color: #00bfa6;                  /* teal text */
+  background: var(--card-bg);         
+  color: var(--accent-color);         
   text-align: center;
   font-weight: bold;
   font-size: 1.06rem;
   z-index: 30000;
-  border-bottom: 2px solid #00bfa6;
+  border-bottom: 2px solid var(--accent-color);
   padding: 12px 0 10px;
   user-select: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  animation: pulse 1.8s infinite alternate; /* ✅ teal pulse glow */
-}
+  box-shadow: 0 2px 8px var(--shadow-color);  
+  animation: pulse 1.8s infinite alternate;  
+
 
 
 /* Logo hero */
@@ -57,7 +57,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
+   background: var(--card-bg);
   padding: 20px 0 5px 0;
 }
 .main-logo-img {
@@ -65,38 +65,38 @@ html, body {
   height: 90px;
   border-radius: 50%;
   margin-bottom: 10px;
-  box-shadow: 0 4px 18px rgba(0,191,166,0.4);
+  box-shadow: 0 4px 18px var(--shadow-color);
   object-fit: contain;
 }
 .logo-subheading {
   font-family: var(--body-font);
-  color: #00bfa6;
+  color: var(--accent-color);
   font-weight: 500;
   font-size: 1.1rem;
   padding: 2px 14px;
   border-radius: 20px;
-  background: #0d0d0d;
-  box-shadow: 0 2px 12px rgba(0,191,166,0.25);
+  background: var(--bg-color);
+  box-shadow: 0 2px 12px var(--shadow-color);
   user-select: none;
 }
 .main-title {
   font-family: var(--heading-font);
   font-size: var(--headline-size-main);
-  color: #eaeaea;
+  color: var(--text-color);
   text-align: center;
   font-weight: 700;
   margin: 15px 10px 10px 10px;
-  background: #1a1a1a;
+  background: var(--card-bg);
   border-radius: 10px;
   padding: 10px 0;
-  box-shadow: 0 2px 7px rgba(0,191,166,0.2);
+  box-shadow: 0 2px 7px var(--shadow-color);
   line-height: 1.1;
   letter-spacing: 1px;
   user-select: none;
 }
 .text-reveal-glow-bg {
-  background: #1a1a1a;
-  box-shadow: 0 0 13px rgba(0,191,166,0.25);
+  background: var(--card-bg);
+  box-shadow: 0 0 13px var(--shadow-color);
   max-width: 650px;
   margin: 0 auto 16px auto;
   padding: 18px 12px;
@@ -105,6 +105,7 @@ html, body {
   font-size: 1.22rem;
   line-height: 1.35;
   user-select: text;
+  color: var(--text-color);
 }
 
 /* Divider */
@@ -113,52 +114,36 @@ html, body {
   height: 24px;
   margin: 0 0 18px 0;
   background: url('https://svgshare.com/i/1798.svg') no-repeat center/cover;
-  filter: invert(80%) sepia(10%) saturate(500%) hue-rotate(120deg);
+  filter: invert(40%) sepia(20%) saturate(400%) hue-rotate(40deg); /* earthy olive tint */
 }
 
 /* Section Headline */
 h2.section-headline {
   font-family: var(--heading-font);
   font-size: var(--headline-size-mobile);
-  color: #00bfa6;
+  color: var(--accent-color);
   text-align: center;
   margin: 24px 0 12px 0;
   font-weight: 700;
-  background: #1a1a1a;
+  background: var(--card-bg);
   border-radius: 9px;
   padding: 7px 0;
-  box-shadow: 0 2px 7px rgba(0,191,166,0.25);
+  box-shadow: 0 2px 7px var(--shadow-color);
   letter-spacing: 1px;
   user-select: none;
 }
 
-/* Blocks */
-.section-block {
-  padding: var(--section-padding-mobile);
-  margin-bottom: 18px;
-}
-
 /* Carousel */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px 0;
-  justify-content: flex-start;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
 .carousel img {
   max-width: 180px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0 2px 14px 0 rgba(0,191,166,0.3);
+  box-shadow: 0 2px 14px 0 var(--shadow-color);
   scroll-snap-align: center;
   object-fit: cover;
-  border: 1px solid rgba(0,191,166,0.4);
+  border: 1px solid var(--accent-color-light);
   margin: 0 6px;
-  background: #111;
+  background: var(--bg-color);
   user-select: none;
 }
 
@@ -168,8 +153,8 @@ h2.section-headline {
   width: 90%;
   max-width: 330px;
   margin: 18px auto 4px auto;
-  background: #25D366; /* ✅ WhatsApp green */
-  color: #ffffff;      /* ✅ white text for contrast */
+  background: var(--accent-color); /* ✅ Olive green */
+  color: #ffffff;                  
   padding: 13px 0;
   border-radius: 31px;
   font-weight: 700;
@@ -177,7 +162,7 @@ h2.section-headline {
   font-size: var(--cta-size-mobile);
   font-family: var(--cta-font);
   text-align: center;
-  box-shadow: 0 1px 12px rgba(37, 211, 102, 0.4); /* ✅ green glow */
+  box-shadow: 0 1px 12px var(--shadow-color); 
   border: none;
   cursor: pointer;
   transition: background 0.21s, box-shadow 0.22s, transform 0.13s;
@@ -186,47 +171,41 @@ h2.section-headline {
 }
 
 .cta-btn:hover {
-  background: #128C7E; /* ✅ darker WhatsApp green on hover */
+  background: var(--accent-color-light); /* ✅ lighter sage green */
   color: #ffffff;
-  box-shadow: 0 0 24px 8px rgba(18, 140, 126, 0.6); /* ✅ hover glow */
+  box-shadow: 0 0 24px 8px var(--shadow-color);
   transform: translateY(-2px) scale(1.03);
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 rgba(0,191,166,0.2); }
-  50% { box-shadow: 0 0 15px 4px rgba(0,191,166,0.35); }
-  100% { box-shadow: 0 0 2px rgba(0,191,166,0.2); }
+  0% { box-shadow: 0 0 0 var(--shadow-color); }
+  50% { box-shadow: 0 0 15px 4px var(--shadow-color); }
+  100% { box-shadow: 0 0 2px var(--shadow-color); }
 }
 
 /* Testimonials */
 .testimonials-section {
-  background: #1a1a1a;
+  background: var(--card-bg);
   padding: 28px 2vw 14px 2vw;
-  color: #eaeaea;
+  color: var(--text-color);
   text-align: center;
   margin-top: 18px;
   margin-bottom: 14px;
   border-radius: 23px;
-  box-shadow: 0 0 28px 9px rgba(0,191,166,0.2);
+  box-shadow: 0 0 28px 9px var(--shadow-color);
   position: relative;
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
   user-select: none;
 }
-.testimonials-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
 .testimonial-card {
-  background: #111;
+  background: var(--bg-color);
   border-radius: 13px;
   padding: 13px;
   width: 220px;
-  box-shadow: 0 0 17px 0 rgba(0,191,166,0.15);
-  border: 1px solid rgba(0,191,166,0.3);
+  box-shadow: 0 0 17px 0 var(--shadow-color);
+  border: 1px solid var(--divider-color);
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
@@ -241,9 +220,9 @@ h2.section-headline {
   height: 46px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #00bfa6;
+  border: 2px solid var(--accent-color);
   margin-bottom: 7px;
-  box-shadow: 0 0 11px rgba(0,191,166,0.3);
+  box-shadow: 0 0 11px var(--shadow-color);
   user-select: none;
 }
 
@@ -253,26 +232,27 @@ h2.section-headline {
   bottom: 18px;
   right: 14px;
   z-index: 3000;
-  background: #00bfa6;
-  color: #0d0d0d;
+  background: var(--accent-color);
+  color: #ffffff;
   width: 60px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0 4px 18px rgba(0,191,166,0.4);
+  box-shadow: 0 4px 18px var(--shadow-color);
   font-size: 2em;
-  border: 3px solid rgba(0,191,166,0.5);
+  border: 3px solid var(--accent-color-light);
   transition: box-shadow 0.12s, background 0.21s;
   animation: pulse 1.7s infinite;
   cursor: pointer;
   user-select: none;
 }
 .float-whatsapp.pulse:hover {
-  background: #1de9b6;
+  background: var(--accent-color-light);
   animation: pulse 1s infinite alternate;
 }
+
 .whatsapp-logo-svg {
   width: 38px;
   height: 38px;
