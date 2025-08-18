@@ -140,6 +140,17 @@ h2.section-headline {
   padding: var(--section-padding-mobile);
   margin-bottom: 18px;
 }
+  .carousel {
+display: flex;
+overflow-x: auto;
+gap: 10px;
+padding: 10px 0;
+justify-content: flex-start;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+scroll-behavior: smooth;
+}
+
 
 .carousel img {
   max-width: 180px;
