@@ -158,12 +158,23 @@ scroll-behavior: smooth;
   border-radius: 8px;
   box-shadow: 0 2px 14px 0 var(--shadow-color);
   scroll-snap-align: center;
-  object-fit: cover;
+  object-fit: contain;   /* ✅ show full image, no cropping */
   border: 1px solid var(--accent-color-light);
   margin: 0 6px;
   background: var(--card-bg);
   user-select: none;
 }
+
+/* Mobile responsive fix */
+@media (max-width: 650px) {
+  .carousel img {
+    max-width: 95vw;      /* ✅ stretch to fit screen width */
+    height: auto;         /* ✅ keep proportions */
+    margin: 0 8px;
+    object-fit: contain;  /* ✅ no cropping */
+  }
+}
+
 
 .cta-btn {
   display: block;
